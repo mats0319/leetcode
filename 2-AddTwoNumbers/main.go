@@ -88,3 +88,75 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 
 	return lr
 }
+
+/*
+func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+	var lr *ListNode = new(ListNode)
+	p := lr
+
+	var sum, flag int
+	for {
+		sum = l1.Val + l2.Val + flag
+		p.Val = sum % 10
+		flag = sum / 10
+		p.Next = new(ListNode)
+		if l1.Next == nil || l2.Next == nil {
+			if flag == 1 {
+				p.Next.Val = 1
+			} else {
+				p.Next = nil
+			}
+			break
+		}
+		p = p.Next
+		l1 = l1.Next
+		l2 = l2.Next
+	}
+
+	if l1.Next == nil && l2.Next == nil {
+		return lr
+	}
+
+	sum = 0
+	p.Next = new(ListNode)
+	p = p.Next
+	if l1.Next != nil {
+		l1 = l1.Next
+		for {
+			sum = l1.Val + flag
+			p.Val = sum % 10
+			flag = sum / 10
+			if l1.Next == nil {
+				if flag == 1 {
+					p.Next = new(ListNode)
+					p.Next.Val = 1
+				}
+				break
+			}
+			p.Next = new(ListNode)
+			p = p.Next
+			l1 = l1.Next
+		}
+	}
+	if l2.Next != nil {
+		l2 = l2.Next
+		for {
+			sum = l2.Val + flag
+			p.Val = sum % 10
+			flag = sum / 10
+			if l2.Next == nil {
+				if flag == 1 {
+					p.Next = new(ListNode)
+					p.Next.Val = 1
+				}
+				break
+			}
+			p.Next = new(ListNode)
+			p = p.Next
+			l2 = l2.Next
+		}
+	}
+
+	return lr
+}
+*/
