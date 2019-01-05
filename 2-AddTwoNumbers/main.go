@@ -78,12 +78,11 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 
 		p.Val = sum % 10
 		flag = sum / 10
-		p.Next = new(ListNode)
-
+		
 		if l1 == nil && l2 == nil && flag == 0 {
-			p.Next = nil
 			break
 		}
+		p.Next = new(ListNode)
 		p = p.Next
 	}
 
