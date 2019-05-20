@@ -22,40 +22,33 @@ func main() {
 	fmt.Println(compareOnLinkedList(removeNthFromEnd(head, 2), result))
 }
 
-func makeList(h *ListNode, is ...int) {
-	for i := range is {
-		connectNode(h, is[i])
+func makeList(h *ListNode, vs ...int) {
+	p := h
+	for i := range vs {
+		p.Next = &ListNode{Val: vs[i]}
+		p = p.Next
 	}
-}
-func connectNode(h *ListNode, i int) {
-	var p *ListNode
-	for p = h; p.Next != nil; p = p.Next {
-	}
-	p.Next = &ListNode{Val: i}
 }
 
-func printList(h *ListNode) {
-	var p *ListNode
-	for p = h; p.Next != nil; p = p.Next {
-		fmt.Printf("%d -> ", p.Val)
+func printList(l *ListNode) {
+	var t *ListNode
+	for t = l; t.Next != nil; t = t.Next {
+		fmt.Printf("%d -> ", t.Val)
 	}
-	fmt.Printf("%d.\n", p.Val)
+	fmt.Println(t.Val, ". ")
 }
 
-func compareOnLinkedList(a, b *ListNode) (equal bool) {
-	for a != nil {
-		if a.Val != b.Val {
-			break
+func compareOnList(a, b *ListNode) bool {
+	an, bn := a, b
+	for an != nil && bn != nil {
+		if an.Val != bn.Val {
+			return false
 		}
-		a = a.Next
-		b = b.Next
+		an = an.Next
+		bn = bn.Next
 	}
 
-	if a == nil && b == nil {
-		equal = true
-	}
-
-	return
+	return an == nil && bn == nil
 }
 
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
