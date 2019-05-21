@@ -3,10 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(findMedianSortedArrays([]int{1, 2}, []int{3, 4}))
-	fmt.Println(findMedianSortedArrays([]int{1, 3}, []int{2}))
-	fmt.Println(findMedianSortedArrays([]int{1, 4}, []int{2, 3}))
-	fmt.Println(findMedianSortedArrays([]int{1}, []int{2, 3}))
+	fmt.Println(findMedianSortedArrays([]int{1, 2}, []int{3, 4}) == 2.5)
+	fmt.Println(findMedianSortedArrays([]int{1, 3}, []int{2}) == 2.0)
+	fmt.Println(findMedianSortedArrays([]int{1, 4}, []int{2, 3}) == 2.5)
+	fmt.Println(findMedianSortedArrays([]int{1}, []int{2, 3}) == 2)
 }
 
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {

@@ -11,52 +11,44 @@ type ListNode struct {
 
 func main() {
 	var (
-		l1 *ListNode = new(ListNode)
-		l2 *ListNode = new(ListNode)
-		t  *ListNode
+		l1 = &ListNode{Val: 2}
+		l2 = &ListNode{Val: 5}
+		lr = &ListNode{Val: 7}
 	)
-	l1.Val = 2
-	t = new(ListNode)
-	t.Val = 4
-	l1.Next = t
-	t = new(ListNode)
-	t.Val = 3
-	l1.Next.Next = t
-	l2.Val = 5
-	t = new(ListNode)
-	t.Val = 6
-	l2.Next = t
-	t = new(ListNode)
-	t.Val = 4
-	l2.Next.Next = t
-	lr := addTwoNumbers(l1, l2)
-	for {
-		fmt.Printf("%+v", l1.Val)
-		if l1.Next == nil {
-			break
-		}
-		l1 = l1.Next
-		fmt.Printf(" -> ")
+	makeList(l1, 4, 3)
+	makeList(l2, 6, 4)
+	//printList(l1)
+	//printList(l2)
+	makeList(lr, 0, 8)
+	fmt.Println(compareOnList(addTwoNumbers(l1, l2), lr))
+}
+
+func makeList(h *ListNode, is ...int) {
+	p := h
+	for i := range is {
+		p.Next = &ListNode{Val: is[i]}
+		p = p.Next
 	}
-	fmt.Println(".")
-	for {
-		fmt.Printf("%+v", l2.Val)
-		if l2.Next == nil {
-			break
-		}
-		l2 = l2.Next
-		fmt.Printf(" -> ")
+}
+
+func printList(h *ListNode) {
+	p := h
+	for p.Next != nil {
+		fmt.Printf("%d -> ", p.Val)
+		p = p.Next
 	}
-	fmt.Println(".")
-	for {
-		fmt.Printf("%+v", lr.Val)
-		if lr.Next == nil {
-			break
+	fmt.Println(p.Val, ". ")
+}
+
+func compareOnList(a, b *ListNode) bool {
+	for a != nil && b != nil {
+		if a.Val != b.Val {
+			return false
 		}
-		lr = lr.Next
-		fmt.Printf(" -> ")
+		a = a.Next
+		b = b.Next
 	}
-	fmt.Println(".")
+	return a == nil && b == nil
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {

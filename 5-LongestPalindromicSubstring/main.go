@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(longestPalindrome("babad"))
-	fmt.Println(longestPalindrome("cbbd"))
-	fmt.Println(longestPalindrome("ac"))
+	fmt.Println(longestPalindrome("babad") == "bab")
+	fmt.Println(longestPalindrome("cbbd") == "bb")
+	fmt.Println(longestPalindrome("ac") == "a")
 }
 
 func longestPalindrome(s string) string {
