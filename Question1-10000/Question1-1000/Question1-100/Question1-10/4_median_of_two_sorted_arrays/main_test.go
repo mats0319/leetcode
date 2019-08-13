@@ -4,12 +4,12 @@ import (
 	"testing"
 )
 
-type IntSliceGroup struct {
+type TestCase struct {
 	IntSliceOne []int
 	IntSliceTwo []int
 }
 
-var testCase = []IntSliceGroup{
+var testCase = []TestCase{
 	{[]int{1, 2}, []int{3, 4}},
 	{[]int{1, 3}, []int{2}},
 	{[]int{1, 4}, []int{2, 3}},

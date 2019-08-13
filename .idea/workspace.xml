@@ -2,34 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1d9207b-0a22-4353-8a7a-679d55a1caee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/1_two_sum/main_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/2_add_two_numbers/main_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/3_longest_substring_without_repeating_characters/main_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/4_median_of_two_sorted_arrays/main_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/5_longest_palindromic_substring/main_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/skills.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/sort/sort_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching/main_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/6_zig_zag_conversion/main_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/7_reverse_integer/main_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/8_string_to_integer__atoi/main_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/9_palindrome_number/main_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-TwoSum/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/10-RegularExpressionMatching/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/11-ContainerWithMostWater/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-IntegerToRoman/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/13-RomantoInteger/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/14-LongestCommonPrefix/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/15-3Sum/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/16-3SumClosest/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/17-LetterCombinationsOfAPhoneNumber/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/18-4Sum/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/19-RemoveNthNodeFromEndOfList/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2-AddTwoNumbers/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/20-ValidParentheses/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-longestSubstringWithoutRepeatingCharacters/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/4-MedianofTwoSortedArrays/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/5-LongestPalindromicSubstring/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/6-ZigZagConversion/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/7-ReverseInteger/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/8-StringtoInteger(atoi)/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/9-PalindromeNumber/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/4_median_of_two_sorted_arrays/main_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/4_median_of_two_sorted_arrays/main_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/skills.md" beforeDir="false" afterPath="$PROJECT_DIR$/utils/trivia.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,6 +22,9 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/leetcode$main_test_go.out" NAME="main_test.go Coverage Results" MODIFIED="1564790756187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/leetcode$main_test_go__1_.out" NAME="main_test.go (1) Coverage Results" MODIFIED="1564790843621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="356" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
@@ -92,10 +77,22 @@
         <option value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/4-MedianofTwoSortedArrays/main_test.go" />
         <option value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/5_longest_palindromic_substring/main_test.go" />
         <option value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/5_longest_palindromic_substring/main.go" />
-        <option value="$PROJECT_DIR$/utils/skills.md" />
         <option value="D:/desktop/test.go" />
         <option value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/4_median_of_two_sorted_arrays/main.go" />
+        <option value="$PROJECT_DIR$/utils/skills.md" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/4_median_of_two_sorted_arrays/main_test.go" />
+        <option value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/7_reverse_integer/main_test.go" />
+        <option value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/7_reverse_integer/main.go" />
+        <option value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/8_string_to_integer(atoi)/main.go" />
+        <option value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/8_string_to_integer(atoi)/main_test.go" />
+        <option value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/8_string_to_integer__atoi/main.go" />
+        <option value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/6_zig_zag_conversion/main.go" />
+        <option value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/6_zig_zag_conversion/main_test.go" />
+        <option value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/9_palindrome_number/main_test.go" />
+        <option value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/9_palindrome_number/main.go" />
+        <option value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching/main.go" />
+        <option value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching/main_test.go" />
       </list>
     </option>
   </component>
@@ -118,61 +115,6 @@
               <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
               <item name="leetcode" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
-              <item name="Question1-10000" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
-              <item name="Question1-10000" type="462c0819:PsiDirectoryNode" />
-              <item name="Question1-1000" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
-              <item name="Question1-10000" type="462c0819:PsiDirectoryNode" />
-              <item name="Question1-1000" type="462c0819:PsiDirectoryNode" />
-              <item name="Question1-100" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
-              <item name="Question1-10000" type="462c0819:PsiDirectoryNode" />
-              <item name="Question1-1000" type="462c0819:PsiDirectoryNode" />
-              <item name="Question1-100" type="462c0819:PsiDirectoryNode" />
-              <item name="Question1-10" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
-              <item name="Question1-10000" type="462c0819:PsiDirectoryNode" />
-              <item name="Question1-1000" type="462c0819:PsiDirectoryNode" />
-              <item name="Question1-100" type="462c0819:PsiDirectoryNode" />
-              <item name="Question1-10" type="462c0819:PsiDirectoryNode" />
-              <item name="4_median_of_two_sorted_arrays" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
-              <item name="Question1-10000" type="462c0819:PsiDirectoryNode" />
-              <item name="Question1-1000" type="462c0819:PsiDirectoryNode" />
-              <item name="Question1-100" type="462c0819:PsiDirectoryNode" />
-              <item name="Question1-10" type="462c0819:PsiDirectoryNode" />
-              <item name="5_longest_palindromic_substring" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="sort" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -184,7 +126,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../code_test" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -200,108 +142,113 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.main_test.go (1)">
-    <configuration name="TestFindMedianSortedArrays in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/4_median_of_two_sorted_arrays" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestIsMatch2 in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching">
+    <configuration name="TestConvert2 in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/6_zig_zag_conversion" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="leetcode" />
-      <working_directory value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/4_median_of_two_sorted_arrays" />
+      <working_directory value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/6_zig_zag_conversion" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/4_median_of_two_sorted_arrays" />
+      <package value="github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/6_zig_zag_conversion" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestFindMedianSortedArrays$" />
+      <pattern value="^TestConvert2$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestLengthOfLongestSubstring in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/3_longest_substring_without_repeating_characters" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestIsMatch in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="leetcode" />
-      <working_directory value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/3_longest_substring_without_repeating_characters" />
+      <working_directory value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/3_longest_substring_without_repeating_characters" />
+      <package value="github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestLengthOfLongestSubstring$" />
+      <pattern value="^TestIsMatch$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestLongestPalindrome in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/5_longest_palindromic_substring" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestIsMatch2 in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="leetcode" />
-      <working_directory value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/5_longest_palindromic_substring" />
+      <working_directory value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/5_longest_palindromic_substring" />
+      <package value="github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestLongestPalindrome$" />
+      <pattern value="^TestIsMatch2$" />
       <method v="2" />
     </configuration>
-    <configuration name="main_test.go (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestIsPalindrome in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/9_palindrome_number" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="leetcode" />
-      <working_directory value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/5_longest_palindromic_substring" />
+      <working_directory value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/9_palindrome_number" />
       <framework value="gotest" />
-      <kind value="FILE" />
-      <package value="github.com/mats9693/leetcode" />
+      <kind value="PACKAGE" />
+      <package value="github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/9_palindrome_number" />
       <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/5_longest_palindromic_substring/main_test.go" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestIsPalindrome$" />
       <method v="2" />
     </configuration>
-    <configuration name="main_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestMyAtoi in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/8_string_to_integer__atoi" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="leetcode" />
-      <working_directory value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/4_median_of_two_sorted_arrays" />
+      <working_directory value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/8_string_to_integer__atoi" />
       <framework value="gotest" />
-      <kind value="FILE" />
-      <package value="github.com/mats9693/leetcode" />
+      <kind value="PACKAGE" />
+      <package value="github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/8_string_to_integer__atoi" />
       <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/4_median_of_two_sorted_arrays/main_test.go" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestMyAtoi$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.main_test.go (1)" />
-        <item itemvalue="Go Test.main_test.go" />
-        <item itemvalue="Go Test.TestLongestPalindrome in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/5_longest_palindromic_substring" />
-        <item itemvalue="Go Test.TestFindMedianSortedArrays in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/4_median_of_two_sorted_arrays" />
-        <item itemvalue="Go Test.TestLengthOfLongestSubstring in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/3_longest_substring_without_repeating_characters" />
+        <item itemvalue="Go Test.TestIsMatch2 in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching" />
+        <item itemvalue="Go Test.TestIsMatch in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching" />
+        <item itemvalue="Go Test.TestIsPalindrome in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/9_palindrome_number" />
+        <item itemvalue="Go Test.TestConvert2 in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/6_zig_zag_conversion" />
+        <item itemvalue="Go Test.TestMyAtoi in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/8_string_to_integer__atoi" />
       </list>
     </recent_temporary>
   </component>
   <component name="TestHistory">
-    <history-entry file="TestBubbleSort_in_github_com_mats9693_leetcode_utils_sort - 2019.07.23 at 23h 23m 41s.xml">
-      <configuration name="TestBubbleSort in github.com/mats9693/leetcode/utils/sort" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestConvert_in_github_com_mats9693_leetcode_Question1-10000_Question1-1000_Question1-100_Question1-10_6_zig_zag_conversion - 2019.08.07 at 19h 53m 41s.xml">
+      <configuration name="TestConvert in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/6_zig_zag_conversion" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestBubbleSort_in_github_com_mats9693_leetcode_utils_sort - 2019.07.23 at 23h 36m 40s.xml">
-      <configuration name="TestBubbleSort in github.com/mats9693/leetcode/utils/sort" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestReverse_in_github_com_mats9693_leetcode_Question1-10000_Question1-1000_Question1-100_Question1-10_7_reverse_integer - 2019.08.13 at 21h 22m 05s.xml">
+      <configuration name="TestReverse in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/7_reverse_integer" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestBubbleSort_in_github_com_mats9693_leetcode_utils_sort - 2019.07.23 at 23h 37m 10s.xml">
-      <configuration name="TestBubbleSort in github.com/mats9693/leetcode/utils/sort" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestReverse_in_github_com_mats9693_leetcode_Question1-10000_Question1-1000_Question1-100_Question1-10_7_reverse_integer - 2019.08.13 at 21h 25m 03s.xml">
+      <configuration name="TestReverse in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/7_reverse_integer" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestBubbleSort_in_github_com_mats9693_leetcode_utils_sort - 2019.07.23 at 23h 38m 06s.xml">
-      <configuration name="TestBubbleSort in github.com/mats9693/leetcode/utils/sort" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestMyAtoi_in_github_com_mats9693_leetcode_Question1-10000_Question1-1000_Question1-100_Question1-10_8_string_to_integer__atoi - 2019.08.13 at 21h 30m 47s.xml">
+      <configuration name="TestMyAtoi in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/8_string_to_integer__atoi" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestTwoSum_in_github_com_mats9693_leetcode_Question1-10000_Question1-1000_Question1-100_Question1-10_1-TwoSum - 2019.07.23 at 23h 41m 02s.xml">
-      <configuration name="TestTwoSum in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/1-TwoSum" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestConvert2_in_github_com_mats9693_leetcode_Question1-10000_Question1-1000_Question1-100_Question1-10_6_zig_zag_conversion - 2019.08.13 at 21h 38m 04s.xml">
+      <configuration name="TestConvert2 in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/6_zig_zag_conversion" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestAddTwoNumbers_in_github_com_mats9693_leetcode_Question1-10000_Question1-1000_Question1-100_Question1-10_2_add_two_numbers - 2019.07.23 at 23h 51m 15s.xml">
-      <configuration name="TestAddTwoNumbers in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/2_add_two_numbers" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestIsPalindrome_in_github_com_mats9693_leetcode_Question1-10000_Question1-1000_Question1-100_Question1-10_9_palindrome_number - 2019.08.13 at 21h 39m 37s.xml">
+      <configuration name="TestIsPalindrome in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/9_palindrome_number" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestLengthOfLongestSubstring_in_github_com_mats9693_leetcode_Question1-10000_Question1-1000_Question1-100_Question1-10_3_longest_substring_without_repeating_characters - 2019.07.30 at 07h 55m 17s.xml">
-      <configuration name="TestLengthOfLongestSubstring in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/3_longest_substring_without_repeating_characters" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestIsPalindrome_in_github_com_mats9693_leetcode_Question1-10000_Question1-1000_Question1-100_Question1-10_9_palindrome_number - 2019.08.13 at 21h 44m 18s.xml">
+      <configuration name="TestIsPalindrome in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/9_palindrome_number" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestFindMedianSortedArrays_in_github_com_mats9693_leetcode_Question1-10000_Question1-1000_Question1-100_Question1-10_4_median_of_two_sorted_arrays - 2019.07.30 at 08h 07m 27s.xml">
-      <configuration name="TestFindMedianSortedArrays in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/4_median_of_two_sorted_arrays" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestIsMatch_in_github_com_mats9693_leetcode_Question1-10000_Question1-1000_Question1-100_Question1-10_10_regular_expression_matching - 2019.08.13 at 21h 49m 11s.xml">
+      <configuration name="TestIsMatch in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestLongestPalindrome_in_github_com_mats9693_leetcode_Question1-10000_Question1-1000_Question1-100_Question1-10_5_longest_palindromic_substring - 2019.07.30 at 08h 11m 32s.xml">
-      <configuration name="TestLongestPalindrome in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/5_longest_palindromic_substring" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestIsMatch2_in_github_com_mats9693_leetcode_Question1-10000_Question1-1000_Question1-100_Question1-10_10_regular_expression_matching - 2019.08.13 at 21h 50m 25s.xml">
+      <configuration name="TestIsMatch2 in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestIsMatch2_in_github_com_mats9693_leetcode_Question1-10000_Question1-1000_Question1-100_Question1-10_10_regular_expression_matching - 2019.08.13 at 21h 50m 52s.xml">
+      <configuration name="TestIsMatch2 in github.com/mats9693/leetcode/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5245399" visible="true" weight="0.2707889" />
-      <window_info id="Structure" order="1" sideWeight="0.4754601" side_tool="true" visible="true" weight="0.2707889" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.52060735" visible="true" weight="0.24307036" />
+      <window_info id="Structure" order="1" sideWeight="0.47939262" side_tool="true" visible="true" weight="0.24307036" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29284164" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29284164" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -311,11 +258,11 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.26789588" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32995737" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.32995737" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,44 +345,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/3_longest_substring_without_repeating_characters/main_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="24" column="24" lean-forward="true" selection-start-line="24" selection-start-column="24" selection-end-line="25" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/skills.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="88">
-            <caret line="4" column="53" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/desktop/test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/5_longest_palindromic_substring/main_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="79" selection-start-line="22" selection-start-column="79" selection-end-line="22" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/5_longest_palindromic_substring/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://D:/desktop/test.go" />
     <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/4_median_of_two_sorted_arrays/main.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -443,10 +353,121 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="220">
+            <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/3_longest_substring_without_repeating_characters/main_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="25" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/5_longest_palindromic_substring/main_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="11" lean-forward="true" selection-start-column="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/7_reverse_integer/main_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" column="66" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/7_reverse_integer/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="15" lean-forward="true" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/6_zig_zag_conversion/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/5_longest_palindromic_substring/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/4_median_of_two_sorted_arrays/main_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        <state relative-caret-position="-242">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/8_string_to_integer__atoi/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/8_string_to_integer__atoi/main_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/6_zig_zag_conversion/main_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching/main_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="39" column="9" lean-forward="true" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/9_palindrome_number/main_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/trivia.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="132">
+            <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-146">
+          <caret line="50" column="17" lean-forward="true" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/9_palindrome_number/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
