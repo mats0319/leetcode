@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1d9207b-0a22-4353-8a7a-679d55a1caee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching/main_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching/main_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/sort/sort.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/sort/sort.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/sort/sort_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/sort/sort_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/trivia.md" beforeDir="false" afterPath="$PROJECT_DIR$/utils/trivia.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/study_notes/dynamic_programming.md" beforeDir="false" afterPath="$PROJECT_DIR$/utils/study_notes/dynamic_programming.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,8 +22,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="55" column="42" lean-forward="true" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
+            <state relative-caret-position="672">
+              <caret line="65" column="25" lean-forward="true" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -46,8 +41,8 @@
         <entry file="file://$PROJECT_DIR$/utils/study_notes/dynamic_programming.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="297">
-                <caret line="91" column="90" selection-start-line="91" selection-start-column="55" selection-end-line="91" selection-end-column="90" />
+              <first_editor relative-caret-position="225">
+                <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
               </first_editor>
               <second_editor />
             </state>
@@ -334,12 +329,12 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.51277685" visible="true" weight="0.24786781" />
-      <window_info id="Structure" order="1" sideWeight="0.48722318" side_tool="true" visible="true" weight="0.24786781" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5130152" visible="true" weight="0.24786781" />
+      <window_info id="Structure" order="1" sideWeight="0.48698482" side_tool="true" visible="true" weight="0.24786781" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36334056" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36334056" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -565,16 +560,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Question1-10000/Question1-1000/Question1-100/Question1-10/10_regular_expression_matching/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="55" column="42" lean-forward="true" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
+        <state relative-caret-position="672">
+          <caret line="65" column="25" lean-forward="true" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/study_notes/dynamic_programming.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="297">
-            <caret line="91" column="90" selection-start-line="91" selection-start-column="55" selection-end-line="91" selection-end-column="90" />
+          <first_editor relative-caret-position="225">
+            <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
           </first_editor>
           <second_editor />
         </state>

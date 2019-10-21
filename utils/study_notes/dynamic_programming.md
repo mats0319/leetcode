@@ -7,6 +7,7 @@
 1. 代码优化
 
 状态转移方程基本可以直译成代码，所以动态规划算法的主要难点在于总结状态方程和最后的代码优化。  
+
 ---  
 ## example 1：Fibonacci（入门）  
 先来一个简单的例子，Fibonacci数列的动态规划解法。  
@@ -52,6 +53,7 @@ func fibonacciOptimize(n int) (result int) {
 }
 ```
 这样一来，函数的空间复杂度就从O(n)变成了O(1)。  
+
 ---  
 ## example 2：实现一个简单正则引擎  
 [leetcode q10](https://leetcode.com/problems/regular-expression-matching/)  
@@ -101,7 +103,8 @@ func isMatchDP(s, p string) bool {
 }
 ```
 #### 优化：  
-请自行完成该函数的优化
+请自行完成该函数的优化。
+
 --- 
 ## Summary  
 动态规划的核心是状态转移方程，总结出状态转移方程，剩下的就是编程的基本功了。  
