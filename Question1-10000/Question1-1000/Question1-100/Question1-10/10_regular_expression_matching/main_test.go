@@ -32,10 +32,10 @@ func TestIsMatch(t *testing.T) {
 	}
 }
 
-func TestIsMatch2(t *testing.T) {
+func TestIsMatchDP(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if isMatch2(tcs[i].S, tcs[i].P) != result[i] {
+		if isMatchDP(tcs[i].S, tcs[i].P) != result[i] {
 			t.Errorf("regular expression matching solution: 2 test failed on case: %d", i)
 		}
 	}

@@ -1,36 +1,60 @@
 package sort
 
+import (
+    "fmt"
+    "math"
+)
+
+// todo: think: if there is better method too skip sorted border?
 func BubbleSort(is []int) {
-    var (
-        ordered bool
-        length  = len(is)
-    )
-    if length <= 1 {
+    if len(is) <= 1 {
         return
     }
 
+    var (
+        ordered bool
+        border int
+        length  = len(is)
+        pos     = length
+    )
+
     for i := 0; i < length && !ordered; i++ {
         ordered = true
-        for j := 0; j < length-i-1; j++ {
+        border = small(pos, length - i - 1) // border can't omit
+        for j := 0; j < border; j++ {
             if is[j] > is[j+1] {
                 ordered = false
+                pos = j
                 is[j], is[j+1] = is[j+1], is[j]
             }
         }
+
+        fmt.Println("Node: show param. ", is)
+    }
+
+    return
+}
+
+func small(a, b int) (small int) {
+    if a < b {
+        small = a
+    } else {
+        small = b
     }
 
     return
 }
 
 func SelectionSort(is []int) {
+    if len(is) <= 1 {
+        return
+    }
+
     var (
         ordered  bool
         length   = len(is)
         maxIndex int
     )
-    if length <= 1 {
-        return
-    }
 
     for i := 0; i < length && !ordered; i++ {
         ordered = true
@@ -44,6 +68,52 @@ func SelectionSort(is []int) {
         if maxIndex != length-i-1 {
             is[maxIndex], is[length-i-1] = is[length-i-1], is[maxIndex]
         }
+    }
+
+    return
+}
+
+// todo: think: if it can modify on 'is' directly?
+func MergeSort(is []int) {
+    if len(is) <= 1 {
+        return
+    }
+
+    const MAX = math.MaxInt64 // max type match elem in 'is'
+
+    var (
+        isCloned = append(is[:0:0], is...) // copy slice
+        count    = 0
+        length = len(is)
+    )
+    {
+        var (
+            capacity = 1
+        )
+
+        for {
+            count++
+            capacity *= 2
+            if capacity >= length {
+                break
+            }
+        }
+
+        for i := 0; i < capacity-length; i++ {
+            isCloned = append(isCloned, MAX)
+        }
+    }
+
+    scale := 1
+    for i := 0; i < count; i++ {
+        scale *= 2
+        for j := 0; j < count-i; j++ { // group number = count - i
+            BubbleSort(isCloned[j*scale:(j+1)*scale]) // ^_^
+        }
+    }
+
+    for i := 0; i < length; i++ {
+       is[i] = isCloned[i]
     }
 
     return
@@ -118,12 +188,14 @@ func CountingSort(is []int) {
 }
 
 func InsertionSort(is []int) {
-    length := len(is)
-    if length <= 1 {
+    if len(is) <= 1 {
         return
     }
 
-    var pos, temp int
+    var (
+        pos, temp int
+        length = len(is)
+    )
     for i := 1; i < length; i++ {
         if is[i] >= is[i-1] {
             continue

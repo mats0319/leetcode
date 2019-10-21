@@ -6,10 +6,12 @@ import (
 
 var testCase = [][]int{
     {2, 6, 7, 4, 1, 3, 8, 9, 5},
+    {3,4,2,1,5,6,7,8},
 }
 
 var result = [][]int {
     {1, 2, 3, 4, 5, 6, 7, 8, 9},
+    {1,2,3,4,5,6,7,8},
 }
 
 func TestBubbleSort(t *testing.T) {
@@ -28,6 +30,16 @@ func TestSelectionSort(t *testing.T) {
         SelectionSort(tcs[i])
         if !compareOnIntSlice(tcs[i], result[i]) {
             t.Errorf("selection sort test failed on case: %d", i)
+        }
+    }
+}
+
+func TestMergeSort(t *testing.T) {
+    tcs := testCase
+    for i := range tcs {
+        MergeSort(tcs[i])
+        if !compareOnIntSlice(tcs[i], result[i]) {
+            t.Errorf("merge sort test failed on case: %d", i)
         }
     }
 }

@@ -39,58 +39,29 @@ func REMatch(s, p string) (isMatched bool) {
     return
 }
 
-// dynamic programming:
-//
-// s: [a-z]*
-// n, m
-// f(L, M): isMatch for suffix s[n-L:] and p[m-M:]
-// f(L, M) = true, L == 0 && M == 0
-//      if L == 0
-//        | f(L, M-2), M > 2 && p[m-M+1] == "*"
-//        | false
-//      if M == 0
-//        | false
-//      if M > 1 && p[m-M+1] == "*"
-//        |    f(L-1, M) || f(L-1, M-2), p[m-M] == s[n-L] || p[m-M] == '.'
-//        |    f(L, M-2)
-//      else
-//        |    f(L - 1, M - 1), p[m-M] == "." || s[n-L] == p[m-M]
-//        |    false
-//
-// -------------------------------------------------------------------------
-//
-func isMatch2(s string, p string) bool {
+// dynamic programming: todo: space optimize?
+func isMatchDP(s, p string) bool {
+    lens, lenp := len(s), len(p)
+    dp := make([][]bool, lens+1)
+    for i := range dp {
+        dp[i] = make([]bool, lenp + 1)
+    }
 
-   str, pat := []rune(s), []rune(p)
+    dp[0][0] = true // s == p == "" ; dp[0][1] = false, default, omit
 
-   m, n := len(str), len(pat)
-   dp := make([][]bool, m+1)
-   for i := 0; i <= m; i++ {
-       dp[i] = make([]bool, n+1)
-   }
+    for j := 2; j <= lenp; j++ {
+        dp[0][j] = dp[0][j-2] && p[j-1] == '*'// s: "a", p: "b*c*d*a"
+    }
 
-   for L := 0; L <= m; L++ {
-       for M := 0; M <= n; M++ {
-           if L == 0 && M == 0 {
-               dp[L][M] = true
-           } else if L == 0 {
-               if M > 1 && pat[n-M+1] == '*'{
-                   dp[L][M] = dp[L][M-2]
-               } else {
-                   dp[L][M] = false
-               }
-           } else if M == 0 {
-               dp[L][M] = false
-           } else if M > 1 && pat[n-M+1] == '*' {
-               if pat[n-M] == str[m-L] || pat[n-M] == '.' {
-                   dp[L][M] = dp[L-1][M] || dp[L][M-2]
-               } else {
-                   dp[L][M] = dp[L][M-2]
-               }
-           } else if pat[n-M] == '.' || pat[n-M] == str[m-L] {
-               dp[L][M] = dp[L-1][M-1]
-           }
-       }
-   }
-   return dp[m][n]
+    for i := 1; i <= lens; i++ { // i: ith
+        for j := 1; j <= lenp; j++ { // j: jth
+            if p[j-1] == '*' {
+                dp[i][j] = dp[i][j-2] || dp[i-1][j] && (p[j-2] == s[i-1] || p[j-2] == '.') // skill only on bool type
+            } else if p[j-1] == s[i-1] || p[j-1] == '.' {
+                dp[i][j] = dp[i-1][j-1]
+            }
+        }
+    }
+
+    return dp[lens][lenp]
 }
