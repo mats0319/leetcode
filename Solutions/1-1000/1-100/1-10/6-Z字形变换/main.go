@@ -1,5 +1,29 @@
 package main
 
+import "strings"
+
+// optimize: decrease run time
+func convert3(s string, numRows int) string {
+	if numRows == 1 || len(s) <= numRows {
+		return s
+	}
+
+	var (
+		strSlice = make([]string, numRows)
+		currRow  int
+		offset   = -1
+	)
+	for i := 0; i < len(s); i++ {
+		strSlice[currRow] += string(s[i])
+		if currRow == 0 || currRow == numRows-1 {
+			offset = -offset
+		}
+		currRow += offset
+	}
+
+	return strings.Join(strSlice, "")
+}
+
 // sn: order array.
 func convert(s string, numRows int) string {
 	var (
