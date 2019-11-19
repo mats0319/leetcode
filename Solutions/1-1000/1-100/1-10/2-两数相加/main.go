@@ -1,14 +1,10 @@
 package main
 
-// ListNode type define
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import "github.com/mats9693/leetcode/utils/compare"
 
-func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+func addTwoNumbers(l1 *compare.ListNode, l2 *compare.ListNode) *compare.ListNode {
 	var (
-		lr = new(ListNode)
+		lr = new(compare.ListNode)
 		p  = lr
 
 		flag, sum int
@@ -31,7 +27,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		if l1 == nil && l2 == nil && flag == 0 {
 			break
 		}
-		p.Next = new(ListNode)
+		p.Next = new(compare.ListNode)
 		p = p.Next
 	}
 

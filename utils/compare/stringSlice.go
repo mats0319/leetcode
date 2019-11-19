@@ -1,6 +1,7 @@
 package compare
 
-func compareOnStringSlice(a, b []string) bool {
+// CompareOnStringSlice compare if two string slice is equal
+func CompareOnStringSlice(a, b []string) bool {
 	if len(a) != len(b) {
 		return false
 	}

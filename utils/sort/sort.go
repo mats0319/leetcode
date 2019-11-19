@@ -4,8 +4,8 @@ import (
 	"math"
 )
 
-// todo: think: if there is better method too skip sorted border?
-func bubbleSort(is []int) {
+// BubbleSort bubble sort
+func BubbleSort(is []int) {
 	if len(is) <= 1 {
 		return
 	}
@@ -42,7 +42,8 @@ func small(a, b int) (small int) {
 	return
 }
 
-func selectionSort(is []int) {
+// SelectionSort selection sort
+func SelectionSort(is []int) {
 	if len(is) <= 1 {
 		return
 	}
@@ -70,8 +71,8 @@ func selectionSort(is []int) {
 	return
 }
 
-// todo: think: if it can modify on 'is' directly?
-func mergeSort(is []int) {
+// MergeSort merge sort
+func MergeSort(is []int) { // todo: think: if it can modify on 'is' directly?
 	if len(is) <= 1 {
 		return
 	}
@@ -105,7 +106,7 @@ func mergeSort(is []int) {
 	for i := 0; i < count; i++ {
 		scale *= 2
 		for j := 0; j < count-i; j++ { // group number = count - i
-			bubbleSort(isCloned[j*scale : (j+1)*scale]) // ^_^
+			BubbleSort(isCloned[j*scale : (j+1)*scale]) // ^_^
 		}
 	}
 
@@ -116,7 +117,8 @@ func mergeSort(is []int) {
 	return
 }
 
-func quickSort(is []int) {
+// QuickSort quick sort
+func QuickSort(is []int) {
 	if len(is) <= 1 {
 		return
 	}
@@ -139,13 +141,14 @@ func quickSort(is []int) {
 		}
 	}
 
-	quickSort(is[:small])
-	quickSort(is[small+1:])
+	QuickSort(is[:small])
+	QuickSort(is[small+1:])
 
 	return
 }
 
-func countingSort(is []int) {
+// CountingSort counting sort
+func CountingSort(is []int) {
 	var (
 		countingArray []int
 		min           int
@@ -184,7 +187,8 @@ func countingSort(is []int) {
 	return
 }
 
-func insertionSort(is []int) {
+// InsertionSort insertion sort
+func InsertionSort(is []int) {
 	if len(is) <= 1 {
 		return
 	}

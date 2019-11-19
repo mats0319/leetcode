@@ -2,12 +2,14 @@ package compare
 
 import "fmt"
 
+// ListNode define node structure
 type ListNode struct {
 	Val  int
 	Next *ListNode
 }
 
-func compareOnList(a, b *ListNode) bool {
+// CompareOnList compare if two list is equal
+func CompareOnList(a, b *ListNode) bool {
 	if a == nil && b == nil {
 		return true
 	} else if a == nil || b == nil {
@@ -26,7 +28,8 @@ func compareOnList(a, b *ListNode) bool {
 	return a.Val == b.Val && a.Next == nil && b.Next == nil
 }
 
-func makeList(vals ...int) *ListNode {
+// MakeList make a list
+func MakeList(vals ...int) *ListNode {
 	result := &ListNode{}
 	p := result
 
@@ -38,7 +41,8 @@ func makeList(vals ...int) *ListNode {
 	return result.Next
 }
 
-func printList(l *ListNode) {
+// PrintList print a list
+func PrintList(l *ListNode) {
 	p := l
 
 	for l.Next != nil {

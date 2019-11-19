@@ -1,76 +1,50 @@
 package main
 
+import (
+	"github.com/mats9693/leetcode/utils/sort"
+)
+
 func threeSum(nums []int) [][]int {
-    if len(nums) < 3 {
-        return nil
-    }
-    
-    sort(nums)
+	if len(nums) < 3 {
+		return nil
+	}
 
-    var (
-        left, right, t int
-        result         = make([][]int, 0)
-    )
+	sort.QuickSort(nums)
 
-    for i := 0; i < len(nums)-2; i++ {
-        left = i + 1
-        right = len(nums) - 1
+	var (
+		left, right, t int
+		result         = make([][]int, 0)
+	)
 
-        for left < right {
-            t = nums[i] + nums[left] + nums[right]
-            if t == 0 {
-                result = append(result, []int{nums[i], nums[left], nums[right]})
+	for i := 0; i < len(nums)-2; i++ {
+		left = i + 1
+		right = len(nums) - 1
 
-                // skip repeated left and right
-                for ; left < right && nums[left] == nums[left+1]; left++ {
-                }
-                for ; left < right && nums[right] == nums[right-1]; right-- {
-                }
+		for left < right {
+			t = nums[i] + nums[left] + nums[right]
+			if t == 0 {
+				result = append(result, []int{nums[i], nums[left], nums[right]})
 
-                left++
-                right--
-            } else if t > 0 {
-                right--
-            } else {
-                left++
-            }
-        }
+				// skip repeated left and right
+				for ; left < right && nums[left] == nums[left+1]; left++ {
+				}
+				for ; left < right && nums[right] == nums[right-1]; right-- {
+				}
 
-        // skip repeated i
-        for i < len(nums)-2 && nums[i] == nums[i+1] {
-            i++
-        }
-    }
-    
-    return result
-}
+				left++
+				right--
+			} else if t > 0 {
+				right--
+			} else {
+				left++
+			}
+		}
 
-// quick sort
-func sort(is []int) {
-    if len(is) <= 1 {
-        return
-    }
+		// skip repeated i
+		for i < len(nums)-2 && nums[i] == nums[i+1] {
+			i++
+		}
+	}
 
-    var small int
-    {
-        var big int
-        for i := 1; i < len(is); i++ {
-            if is[i] > is[0] {
-                big++
-            } else {
-                small++
-                if big != 0 {
-                    is[i], is[small] = is[small], is[i]
-                }
-            }
-        }
-        if small != 0 {
-            is[0], is[small] = is[small], is[0]
-        }
-    }
-
-    sort(is[:small])
-    sort(is[small+1:])
-
-    return
+	return result
 }

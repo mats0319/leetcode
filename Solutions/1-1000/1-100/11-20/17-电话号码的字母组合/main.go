@@ -19,7 +19,7 @@ func letterCombinations(digits string) (result []string) {
 	var t []string
 
 	result = matchMap[digits[0]]
-	for i := 0; i < len(digits) - 1; i++ {
+	for i := 0; i < len(digits)-1; i++ {
 		t = nil
 		for j := range result {
 			for k := range matchMap[digits[i+1]] {

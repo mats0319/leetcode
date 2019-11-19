@@ -3,7 +3,7 @@ package main
 import "strings"
 
 // optimize: decrease run time
-func convert3(s string, numRows int) string {
+func convert(s string, numRows int) string {
 	if numRows == 1 || len(s) <= numRows {
 		return s
 	}
@@ -22,34 +22,6 @@ func convert3(s string, numRows int) string {
 	}
 
 	return strings.Join(strSlice, "")
-}
-
-// sn: order array.
-func convert(s string, numRows int) string {
-	var (
-		sn     = make([]int, len(s))
-		result = make([]byte, 0, len(sn))
-	)
-
-	var i int
-	for i < len(sn) {
-		for c := 1; c <= numRows && i < len(sn); c++ {
-			sn[i] = c
-			i++
-		}
-		for c := numRows - 1; c > 1 && i < len(sn); c-- {
-			sn[i] = c
-			i++
-		}
-	}
-	for c := 1; c <= numRows; c++ {
-		for i = 0; i < len(sn); i++ {
-			if sn[i] == c {
-				result = append(result, s[i])
-			}
-		}
-	}
-	return string(result)
 }
 
 // Pick out each character in result string by calculate.

@@ -1,6 +1,7 @@
 package compare
 
-func compareOnErWeiInt(a, b [][]int) bool {
+// CompareOnErWeiInt compare if two er-wei int slice is equal
+func CompareOnErWeiInt(a, b [][]int) bool {
 	if len(a) != len(b) {
 		return false
 	}

@@ -15,7 +15,7 @@ var testCase = []struct {
 func TestBubbleSort(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		bubbleSort(tcs[i].In)
+		BubbleSort(tcs[i].In)
 		if !compareOnIntSlice(tcs[i].In, tcs[i].Expect) {
 			t.Errorf("bubble sort test failed on case: %d", i)
 		}
@@ -25,7 +25,7 @@ func TestBubbleSort(t *testing.T) {
 func TestSelectionSort(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		selectionSort(tcs[i].In)
+		SelectionSort(tcs[i].In)
 		if !compareOnIntSlice(tcs[i].In, tcs[i].Expect) {
 			t.Errorf("selection sort test failed on case: %d", i)
 		}
@@ -35,7 +35,7 @@ func TestSelectionSort(t *testing.T) {
 func TestMergeSort(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		mergeSort(tcs[i].In)
+		MergeSort(tcs[i].In)
 		if !compareOnIntSlice(tcs[i].In, tcs[i].Expect) {
 			t.Errorf("merge sort test failed on case: %d", i)
 		}
@@ -45,7 +45,7 @@ func TestMergeSort(t *testing.T) {
 func TestQuickSort(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		quickSort(tcs[i].In)
+		QuickSort(tcs[i].In)
 		if !compareOnIntSlice(tcs[i].In, tcs[i].Expect) {
 			t.Errorf("quick sort test failed on case: %d", i)
 		}
@@ -55,7 +55,7 @@ func TestQuickSort(t *testing.T) {
 func TestCountingSort(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		countingSort(tcs[i].In)
+		CountingSort(tcs[i].In)
 		if !compareOnIntSlice(tcs[i].In, tcs[i].Expect) {
 			t.Errorf("counting sort test failed on case: %d", i)
 		}
@@ -65,7 +65,7 @@ func TestCountingSort(t *testing.T) {
 func TestInsertionSort(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		insertionSort(tcs[i].In)
+		InsertionSort(tcs[i].In)
 		if !compareOnIntSlice(tcs[i].In, tcs[i].Expect) {
 			t.Errorf("insertion sort test failed on case: %d", i)
 		}

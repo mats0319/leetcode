@@ -34,12 +34,3 @@ func TestConvert2(t *testing.T) {
 		}
 	}
 }
-
-func TestConvert3(t *testing.T) {
-	tcs := testCase
-	for i := range tcs {
-		if convert3(tcs[i].In.Str, tcs[i].In.Int) != tcs[i].Expect {
-			t.Errorf("zig zag conversion solution: 3 test failed on case: %d", i)
-		}
-	}
-}

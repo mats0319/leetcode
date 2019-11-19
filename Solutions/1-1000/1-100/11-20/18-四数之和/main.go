@@ -1,5 +1,7 @@
 package main
 
+import "github.com/mats9693/leetcode/utils/sort"
+
 func fourSum(nums []int, target int) [][]int {
 	if len(nums) < 4 {
 		return nil
@@ -12,12 +14,12 @@ func fourSum(nums []int, target int) [][]int {
 		}
 	}
 
-	sort(nums)
+	sort.QuickSort(nums)
 
 	var (
-		length  = len(nums)
+		length        = len(nums)
 		a, b, c, d, t int
-		result  = make([][]int, 0)
+		result        = make([][]int, 0)
 	)
 
 	var temp1, temp2 int
@@ -27,7 +29,7 @@ func fourSum(nums []int, target int) [][]int {
 		for b = a + 1; b < length-2; b++ {
 			temp2 = temp1 - nums[b]
 
-			for c, d = b+1, length - 1;c < d; {
+			for c, d = b+1, length-1; c < d; {
 				t = temp2 - nums[c] - nums[d]
 				if t == 0 {
 					result = append(result, []int{nums[a], nums[b], nums[c], nums[d]})
@@ -53,7 +55,7 @@ func fourSum(nums []int, target int) [][]int {
 			}
 		}
 
-        // skip repeated b
+		// skip repeated b
 		for a < length-3 && nums[a] == nums[a+1] {
 			a++
 		}
@@ -66,36 +68,6 @@ func sum(is []int) (sum int) {
 	for i := range is {
 		sum += is[i]
 	}
-
-	return
-}
-
-// quick sort
-func sort(is []int) {
-	if len(is) <= 1 {
-		return
-	}
-
-	var small int
-	{
-		var big int
-		for i := 1; i < len(is); i++ {
-			if is[i] > is[0] {
-				big++
-			} else {
-				small++
-				if big != 0 {
-					is[i], is[small] = is[small], is[i]
-				}
-			}
-		}
-		if small != 0 {
-			is[0], is[small] = is[small], is[0]
-		}
-	}
-
-	sort(is[:small])
-	sort(is[small+1:])
 
 	return
 }
