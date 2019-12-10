@@ -1,6 +1,6 @@
 package mario
 
-import "github.com/mats9693/leetcode/utils/cmp"
+import "github.com/mats9693/leetcode/utils/compare"
 
 func addTwoNumbers(l1 *cmp.ListNode, l2 *cmp.ListNode) *cmp.ListNode {
 	var (
