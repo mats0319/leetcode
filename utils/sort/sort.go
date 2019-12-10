@@ -106,7 +106,7 @@ func MergeSort(is []int) { // todo: think: if it can modify on 'is' directly?
 	for i := 0; i < count; i++ {
 		scale *= 2
 		for j := 0; j < count-i; j++ { // group number = count - i
-			BubbleSort(isCloned[j*scale : (j+1)*scale]) // ^_^
+			BubbleSort(isCloned[j*scale : (j+1)*scale]) // bubble sort ^_^
 		}
 	}
 
