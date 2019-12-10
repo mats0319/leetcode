@@ -1,4 +1,4 @@
-package main
+package mario
 
 func isMatch(s string, p string) bool {
 	isMatched := true

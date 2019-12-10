@@ -1,4 +1,4 @@
-package main
+package mario
 
 func intToRoman(num int) string {
 	romans := []string{"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"}

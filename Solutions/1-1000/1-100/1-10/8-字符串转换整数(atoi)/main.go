@@ -1,4 +1,4 @@
-package main
+package mario
 
 func myAtoi(str string) int {
 	const (

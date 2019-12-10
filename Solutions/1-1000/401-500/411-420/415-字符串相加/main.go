@@ -1,4 +1,4 @@
-package main
+package mario
 
 func addStrings(num1 string, num2 string) string {
 	if num1 == "" {

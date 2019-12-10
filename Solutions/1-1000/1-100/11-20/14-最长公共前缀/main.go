@@ -1,4 +1,4 @@
-package main
+package mario
 
 func longestCommonPrefix(strs []string) string {
 	if len(strs) == 0 {

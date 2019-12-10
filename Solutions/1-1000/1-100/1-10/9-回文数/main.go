@@ -1,4 +1,4 @@
-package main
+package mario
 
 func isPalindrome(x int) bool {
 	// negative integer or integer end with '0' is not palindrome.

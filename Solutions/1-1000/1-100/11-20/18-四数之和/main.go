@@ -1,4 +1,4 @@
-package main
+package mario
 
 import "github.com/mats9693/leetcode/utils/sort"
 

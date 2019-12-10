@@ -1,4 +1,4 @@
-package main
+package mario
 
 func findMedianSortedArrays(nums1, nums2 []int) float64 {
 	length := len(nums1) + len(nums2)

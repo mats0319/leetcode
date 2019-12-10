@@ -1,4 +1,4 @@
-package main
+package mario
 
 func decodeString(s string) string {
 	var (

@@ -1,6 +1,0 @@
-mode: atomic
-github.com/mats9693/leetcode/Solutions/1-1000/1-100/1-10/1-两数之和/main.go:3.43,6.22 2 1
-github.com/mats9693/leetcode/Solutions/1-1000/1-100/1-10/1-两数之和/main.go:13.2,13.12 1 0
-github.com/mats9693/leetcode/Solutions/1-1000/1-100/1-10/1-两数之和/main.go:6.22,7.37 1 2
-github.com/mats9693/leetcode/Solutions/1-1000/1-100/1-10/1-两数之和/main.go:10.3,10.17 1 1
-github.com/mats9693/leetcode/Solutions/1-1000/1-100/1-10/1-两数之和/main.go:7.37,9.4 1 1

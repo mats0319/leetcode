@@ -1,4 +1,4 @@
-package main
+package mario
 
 func reverse(x int) int {
 	const (

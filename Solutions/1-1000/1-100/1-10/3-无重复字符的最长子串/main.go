@@ -1,4 +1,4 @@
-package main
+package mario
 
 func lengthOfLongestSubstring(s string) int {
 	if len(s) <= 1 {

@@ -1,4 +1,4 @@
-package main
+package mario
 
 var matchMap = map[byte][]string{
 	'2': {"a", "b", "c"},

@@ -1,4 +1,4 @@
-package main
+package mario
 
 // map init
 var m = map[string]int{

@@ -1,4 +1,4 @@
-package main
+package mario
 
 func maxArea(height []int) int {
 	var (
