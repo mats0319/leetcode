@@ -1,7 +1,7 @@
 package mario
 
 import (
-	"github.com/mats9693/leetcode/utils/compare"
+	"github.com/mats9693/leetcode/utils/cmp"
 	"testing"
 )
 
@@ -19,7 +19,7 @@ var testCase = []struct {
 func TestThreeSum(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if !compare.CompareOnErWeiInt(threeSum(tcs[i].In), tcs[i].Except) {
+		if !cmp.CompareOnErWeiInt(threeSum(tcs[i].In), tcs[i].Except) {
 			t.Errorf("three sum test failed on case: %d", i)
 		}
 	}

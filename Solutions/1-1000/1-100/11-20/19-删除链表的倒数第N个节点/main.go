@@ -1,9 +1,9 @@
 package mario
 
-import "github.com/mats9693/leetcode/utils/compare"
+import "github.com/mats9693/leetcode/utils/cmp"
 
-func removeNthFromEnd(head *compare.ListNode, n int) *compare.ListNode {
-	result := &compare.ListNode{Next: head}
+func removeNthFromEnd(head *cmp.ListNode, n int) *cmp.ListNode {
+	result := &cmp.ListNode{Next: head}
 
 	p, q := result, result
 	for i := 0; i <= n; i++ {

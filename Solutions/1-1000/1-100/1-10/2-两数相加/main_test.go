@@ -1,21 +1,21 @@
 package mario
 
 import (
-	"github.com/mats9693/leetcode/utils/compare"
+	"github.com/mats9693/leetcode/utils/cmp"
 	"testing"
 )
 
 var testCase = []struct {
-	In     []*compare.ListNode
-	Expect *compare.ListNode
+	In     []*cmp.ListNode
+	Expect *cmp.ListNode
 }{
-	{[]*compare.ListNode{compare.MakeList(2, 4, 3), compare.MakeList(5, 6, 4)}, compare.MakeList(7, 0, 8)},
+	{[]*cmp.ListNode{cmp.MakeList(2, 4, 3), cmp.MakeList(5, 6, 4)}, cmp.MakeList(7, 0, 8)},
 }
 
 func TestAddTwoNumbers(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if !compare.CompareOnList(addTwoNumbers(tcs[i].In[0], tcs[i].In[1]), tcs[i].Expect) {
+		if !cmp.CompareOnList(addTwoNumbers(tcs[i].In[0], tcs[i].In[1]), tcs[i].Expect) {
 			t.Errorf("add two numbers test failed on case: %d", i)
 		}
 	}

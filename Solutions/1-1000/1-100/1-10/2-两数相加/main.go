@@ -1,10 +1,10 @@
 package mario
 
-import "github.com/mats9693/leetcode/utils/compare"
+import "github.com/mats9693/leetcode/utils/cmp"
 
-func addTwoNumbers(l1 *compare.ListNode, l2 *compare.ListNode) *compare.ListNode {
+func addTwoNumbers(l1 *cmp.ListNode, l2 *cmp.ListNode) *cmp.ListNode {
 	var (
-		lr = new(compare.ListNode)
+		lr = new(cmp.ListNode)
 		p  = lr
 
 		flag, sum int
@@ -27,7 +27,7 @@ func addTwoNumbers(l1 *compare.ListNode, l2 *compare.ListNode) *compare.ListNode
 		if l1 == nil && l2 == nil && flag == 0 {
 			break
 		}
-		p.Next = new(compare.ListNode)
+		p.Next = new(cmp.ListNode)
 		p = p.Next
 	}
 

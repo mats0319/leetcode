@@ -1,7 +1,7 @@
 package mario
 
 import (
-	"github.com/mats9693/leetcode/utils/compare"
+	"github.com/mats9693/leetcode/utils/cmp"
 	"testing"
 )
 
@@ -22,7 +22,7 @@ var testCase = []struct {
 func TestFourSum(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if !compare.CompareOnErWeiInt(fourSum(tcs[i].In.Is, tcs[i].In.Target), tcs[i].Except) {
+		if !cmp.CompareOnErWeiInt(fourSum(tcs[i].In.Is, tcs[i].In.Target), tcs[i].Except) {
 			t.Errorf("four sum test failed on case: %d", i)
 		}
 	}

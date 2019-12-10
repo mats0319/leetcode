@@ -1,4 +1,4 @@
-package compare
+package cmp
 
 // CompareOnErWeiInt compare if two er-wei int slice is equal
 func CompareOnErWeiInt(a, b [][]int) bool {

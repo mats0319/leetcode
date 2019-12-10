@@ -1,7 +1,7 @@
 package mario
 
 import (
-	"github.com/mats9693/leetcode/utils/compare"
+	"github.com/mats9693/leetcode/utils/cmp"
 	"testing"
 )
 
@@ -15,7 +15,7 @@ var testCase = []struct {
 func TestLetterCombinations(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if !compare.CompareOnStringSlice(letterCombinations(tcs[i].In), tcs[i].Except) {
+		if !cmp.CompareOnStringSlice(letterCombinations(tcs[i].In), tcs[i].Except) {
 			t.Errorf("letter combinations test failed on case: %d", i)
 		}
 	}

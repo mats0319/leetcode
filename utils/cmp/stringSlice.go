@@ -1,4 +1,4 @@
-package compare
+package cmp
 
 // CompareOnStringSlice compare if two string slice is equal
 func CompareOnStringSlice(a, b []string) bool {
