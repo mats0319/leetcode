@@ -1,6 +1,8 @@
 # leetcode  
 [![GoDoc](https://godoc.org/github.com/mats9693/leetcode?status.svg)](https://godoc.org/github.com/mats9693/leetcode)
 [![Go Report Card](https://goreportcard.com/badge/github.com/mats9693/leetcode)](https://goreportcard.com/report/github.com/mats9693/leetcode)
+[![Build Status](https://travis-ci.org/mats9693/leetcode.svg?branch=master)](https://travis-ci.org/mats9693/leetcode)
+[![codecov](https://codecov.io/gh/mats9693/leetcode/branch/master/graph/badge.svg)](https://codecov.io/gh/mats9693/leetcode)
 
 leetcode题库学习。相关知识点总结，会更新在[CSDN](https://blog.csdn.net/a982254249)。
 ### 目的
