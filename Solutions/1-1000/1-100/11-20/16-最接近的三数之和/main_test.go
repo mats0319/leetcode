@@ -9,7 +9,7 @@ type In struct {
 
 var testCase = []struct {
 	In     In
-	Except int
+	Expect int
 }{
 	{In{[]int{-1, 2, 1, -4}, 1}, 2},
 	{In{[]int{0, 1, 2}, 3}, 3},
@@ -22,7 +22,7 @@ var testCase = []struct {
 func TestThreeSumClosest(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if threeSumClosest(tcs[i].In.Is, tcs[i].In.Target) != tcs[i].Except {
+		if threeSumClosest(tcs[i].In.Is, tcs[i].In.Target) != tcs[i].Expect {
 			t.Errorf("three sum closest test failed on case: %d", i)
 		}
 	}

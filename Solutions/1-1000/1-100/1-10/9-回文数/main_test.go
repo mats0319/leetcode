@@ -4,7 +4,7 @@ import "testing"
 
 var testCase = []struct {
 	In     int
-	Except bool
+	Expect bool
 }{
 	{121, true},
 	{-121, false},
@@ -14,7 +14,7 @@ var testCase = []struct {
 func TestIsPalindrome(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if isPalindrome(tcs[i].In) != tcs[i].Except {
+		if isPalindrome(tcs[i].In) != tcs[i].Expect {
 			t.Errorf("palindrome number test failed on case: %d", i)
 		}
 	}

@@ -4,7 +4,7 @@ import "testing"
 
 var testCase = []struct {
 	In     string
-	Except int
+	Expect int
 }{
 	{"42", 42},
 	{"   -42", -42},
@@ -19,7 +19,7 @@ var testCase = []struct {
 func TestMyAtoi(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if myAtoi(tcs[i].In) != tcs[i].Except {
+		if myAtoi(tcs[i].In) != tcs[i].Expect {
 			t.Errorf("string to integer test failed on case: %d", i)
 		}
 	}

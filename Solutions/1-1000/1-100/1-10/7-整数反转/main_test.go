@@ -4,7 +4,7 @@ import "testing"
 
 var testCase = []struct {
 	In     int
-	Except int
+	Expect int
 }{
 	{123, 321},
 	{-123, -321},
@@ -15,7 +15,7 @@ var testCase = []struct {
 func TestReverse(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if reverse(tcs[i].In) != tcs[i].Except {
+		if reverse(tcs[i].In) != tcs[i].Expect {
 			t.Errorf("reverse integer test failed on case: %d", i)
 		}
 	}

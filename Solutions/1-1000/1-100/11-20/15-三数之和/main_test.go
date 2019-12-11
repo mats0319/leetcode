@@ -7,7 +7,7 @@ import (
 
 var testCase = []struct {
 	In     []int
-	Except [][]int
+	Expect [][]int
 }{
 	{[]int{-1, 0, 1, 2, -1, -4}, [][]int{{-1, 0, 1}, {-1, -1, 2}}},
 	{[]int{-4, -2, 1, -5, -4, -4, 4, -2, 0, 4, 0, -2, 3, 1, -5, 0},
@@ -19,7 +19,7 @@ var testCase = []struct {
 func TestThreeSum(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if !cmp.CompareOnErWeiInt(threeSum(tcs[i].In), tcs[i].Except) {
+		if !cmp.CompareOnErWeiInt(threeSum(tcs[i].In), tcs[i].Expect) {
 			t.Errorf("three sum test failed on case: %d", i)
 		}
 	}

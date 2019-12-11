@@ -4,7 +4,7 @@ import "testing"
 
 var testCase = []struct {
 	In     string
-	Except string
+	Expect string
 }{
 	{"3[a]2[bc]", "aaabcbc"},
 	{"3[a2[c]]", "accaccacc"},
@@ -15,7 +15,7 @@ var testCase = []struct {
 func TestDecodeString(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if decodeString(tcs[i].In) != tcs[i].Except {
+		if decodeString(tcs[i].In) != tcs[i].Expect {
 			t.Errorf("decode string test failed on case: %d", i)
 		}
 	}

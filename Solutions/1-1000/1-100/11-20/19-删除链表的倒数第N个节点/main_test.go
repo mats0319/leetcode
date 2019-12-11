@@ -12,7 +12,7 @@ type In struct {
 
 var testCase = []struct {
 	In     In
-	Except *cmp.ListNode
+	Expect *cmp.ListNode
 }{
 	{In{cmp.MakeList(1, 2, 3, 4, 5), 2}, cmp.MakeList(1, 2, 3, 5)},
 	{In{cmp.MakeList(1), 1}, nil},
@@ -22,7 +22,7 @@ var testCase = []struct {
 func TestRemoveNthFromEnd(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if !cmp.CompareOnList(removeNthFromEnd(tcs[i].In.Node, tcs[i].In.N), tcs[i].Except) {
+		if !cmp.CompareOnList(removeNthFromEnd(tcs[i].In.Node, tcs[i].In.N), tcs[i].Expect) {
 			t.Errorf("remove nth from end test failed on case: %d", i)
 		}
 	}

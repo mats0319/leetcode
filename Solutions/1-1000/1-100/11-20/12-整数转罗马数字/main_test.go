@@ -4,7 +4,7 @@ import "testing"
 
 var testCase = []struct {
 	In     int
-	Except string
+	Expect string
 }{
 	{3, "III"},
 	{4, "IV"},
@@ -16,7 +16,7 @@ var testCase = []struct {
 func TestIntToRoman(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if intToRoman(tcs[i].In) != tcs[i].Except {
+		if intToRoman(tcs[i].In) != tcs[i].Expect {
 			t.Errorf("int to roman test failed on case: %d", i)
 		}
 	}

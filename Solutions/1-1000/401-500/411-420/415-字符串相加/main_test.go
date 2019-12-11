@@ -11,7 +11,7 @@ type In struct {
 
 var testCase = []struct {
 	In     In
-	Except string
+	Expect string
 }{
 	{In{"123", "4567"}, "4690"},
 	{In{"0", "0"}, "0"},
@@ -22,7 +22,7 @@ var testCase = []struct {
 func TestAddStrings(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if addStrings(tcs[i].In.Num1, tcs[i].In.Num2) != tcs[i].Except {
+		if addStrings(tcs[i].In.Num1, tcs[i].In.Num2) != tcs[i].Expect {
 			t.Errorf("add strings test failed on case: %d", i)
 		}
 	}

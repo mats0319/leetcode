@@ -7,7 +7,7 @@ import (
 
 var testCase = []struct {
 	In     string
-	Except []string
+	Expect []string
 }{
 	{"23", []string{"ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"}},
 }
@@ -15,7 +15,7 @@ var testCase = []struct {
 func TestLetterCombinations(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if !cmp.CompareOnStringSlice(letterCombinations(tcs[i].In), tcs[i].Except) {
+		if !cmp.CompareOnStringSlice(letterCombinations(tcs[i].In), tcs[i].Expect) {
 			t.Errorf("letter combinations test failed on case: %d", i)
 		}
 	}
