@@ -39,7 +39,7 @@ func reMatch(s, p string) (isMatched bool) {
 	return
 }
 
-// dynamic programming: todo: space optimize?
+// dynamic programming
 func isMatchDP(s, p string) bool {
 	lens, lenp := len(s), len(p)
 	dp := make([][]bool, lens+1)

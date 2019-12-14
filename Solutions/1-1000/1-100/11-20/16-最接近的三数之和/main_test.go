@@ -2,27 +2,22 @@ package mario
 
 import "testing"
 
-type In struct {
-	Is     []int
-	Target int
-}
-
 var testCase = []struct {
-	In     In
+	In     []int
 	Expect int
 }{
-	{In{[]int{-1, 2, 1, -4}, 1}, 2},
-	{In{[]int{0, 1, 2}, 3}, 3},
-	{In{[]int{1, 1, 1, 0}, -100}, 2},
-	{In{[]int{1, 1, -1, -1, 3}, -1}, -1},
-	{In{[]int{-3, -2, -5, 3, -4}, -1}, -2},
-	{In{[]int{0, 2, 1, -3}, 1}, 0},
+	{[]int{1, -1, 2, 1, -4}, 2},
+	{[]int{3, 0, 1, 2}, 3},
+	{[]int{-100, 1, 1, 1, 0}, 2},
+	{[]int{-1, 1, 1, -1, -1, 3}, -1},
+	{[]int{-1, -3, -2, -5, 3, -4}, -2},
+	{[]int{1, 0, 2, 1, -3}, 0},
 }
 
 func TestThreeSumClosest(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if threeSumClosest(tcs[i].In.Is, tcs[i].In.Target) != tcs[i].Expect {
+		if threeSumClosest(tcs[i].In[1:], tcs[i].In[0]) != tcs[i].Expect {
 			t.Errorf("three sum closest test failed on case: %d", i)
 		}
 	}

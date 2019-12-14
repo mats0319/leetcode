@@ -12,10 +12,10 @@ var testCase = []struct {
 }
 
 func TestEraseOverlapIntervals(t *testing.T) {
-    tcs := testCase
-    for i := range tcs {
-        if eraseOverlapIntervals(tcs[i].In) != tcs[i].Expect {
-            t.Errorf("erase overlap intervals test failed on case: %d", i)
-        }
-    }
+	tcs := testCase
+	for i := range tcs {
+		if eraseOverlapIntervals(tcs[i].In) != tcs[i].Expect {
+			t.Errorf("erase overlap intervals test failed on case: %d", i)
+		}
+	}
 }

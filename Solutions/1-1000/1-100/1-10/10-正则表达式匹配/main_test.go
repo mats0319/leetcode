@@ -2,26 +2,21 @@ package mario
 
 import "testing"
 
-type In struct {
-	S string
-	P string
-}
-
 var testCase = []struct {
-	In     In
+	In     []string
 	Expect bool
 }{
-	{In{"aa", "a"}, false},
-	{In{"aa", "a*"}, true},
-	{In{"ab", ".*"}, true},
-	{In{"aab", "c*a*b"}, true},
-	{In{"mississippi", "mis*is*p*."}, false},
+	{[]string{"aa", "a"}, false},
+	{[]string{"aa", "a*"}, true},
+	{[]string{"ab", ".*"}, true},
+	{[]string{"aab", "c*a*b"}, true},
+	{[]string{"mississippi", "mis*is*p*."}, false},
 }
 
 func TestIsMatch(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if isMatch(tcs[i].In.S, tcs[i].In.P) != tcs[i].Expect {
+		if isMatch(tcs[i].In[0], tcs[i].In[1]) != tcs[i].Expect {
 			t.Errorf("regular expression matching test failed on case: %d", i)
 		}
 	}
@@ -30,7 +25,7 @@ func TestIsMatch(t *testing.T) {
 func TestIsMatchDP(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if isMatchDP(tcs[i].In.S, tcs[i].In.P) != tcs[i].Expect {
+		if isMatchDP(tcs[i].In[0], tcs[i].In[1]) != tcs[i].Expect {
 			t.Errorf("regular expression matching solution: 2 test failed on case: %d", i)
 		}
 	}

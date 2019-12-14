@@ -34,8 +34,8 @@ func isValid(s string) bool {
 }
 
 func isLeft(b byte) bool {
-    _, ok := m[b]
-    return ok
+	_, ok := m[b]
+	return ok
 }
 
 func isRight(b byte) bool {
