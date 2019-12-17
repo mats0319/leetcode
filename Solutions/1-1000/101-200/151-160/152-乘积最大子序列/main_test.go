@@ -6,7 +6,7 @@ var testCase = []struct {
 	In     []int
 	Expect int
 }{
-	{[]int{2,3,-2,4}, 6},
+	{[]int{2, 3, -2, 4}, 6},
 	{[]int{-2, 0, -1}, 0},
 }
 
