@@ -2,3 +2,6 @@
 
 *.txt
 *.out
+*.exe
+
+go.sum
