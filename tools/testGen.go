@@ -16,6 +16,7 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
+	"github.com/pkg/errors"
 	"go/format"
 	"html/template"
 	"io/ioutil"
@@ -92,10 +93,9 @@ func init() {
 
 func main() {
 	log.Println("test file generate tool started. ")
+	defer log.Println("test file generate tool finished. ")
 
 	generateFile(replaceTemplate(formatFuncDeclaration(generateDir(questionId))))
-
-	log.Println("test file generate tool finished. ")
 }
 
 func generateDir(num int) string {
@@ -128,11 +128,11 @@ func formatFuncDeclaration(dir string) (*FunctionDeclaration, string) {
 func getFuncDeclaration(dir string) string {
 	file, err := os.OpenFile(dir+fileName, os.O_RDONLY, 0744)
 	if err != nil {
-		log.Fatalln(err)
+		log.Fatalln(errors.Wrap(err, "open file failed"))
 	}
 	defer func() {
 		if err := file.Close(); err != nil {
-			log.Fatalln(err)
+			log.Fatalln(errors.Wrap(err, "close file failed"))
 		}
 	}()
 
@@ -176,7 +176,7 @@ func removeVariableName(src string) string {
 	srcSplit := strings.Split(src, ",")
 	for i := range srcSplit {
 		srcSplit[i] = strings.TrimSpace(srcSplit[i])
-		srcSplit[i] = srcSplit[i][strings.Index(srcSplit[i], " "):]
+		srcSplit[i] = srcSplit[i][strings.Index(srcSplit[i], " ")+1:]
 	}
 
 	return strings.Join(srcSplit, ",")
@@ -260,17 +260,17 @@ func (fd *FunctionDeclaration) formatFuncName(funcName string) {
 func replaceTemplate(fd *FunctionDeclaration, dir string) ([]byte, string) {
 	t, err := template.New("test file generate tool").Parse(templateStr)
 	if err != nil {
-		log.Fatalln(err)
+		log.Fatalln(errors.Wrap(err, "parse template failed"))
 	}
 
 	buff := bytes.NewBufferString("")
 	if err = t.Execute(buff, fd); err != nil {
-		log.Fatalln(err)
+		log.Fatalln(errors.Wrap(err, "fill template failed"))
 	}
 
 	result, err := format.Source(buff.Bytes())
 	if err != nil {
-		log.Fatalln(err)
+		log.Fatalln(errors.Wrap(err, "format source failed"))
 	}
 
 	return result, dir
@@ -280,10 +280,10 @@ func generateFile(src []byte, dir string) {
 	fullName := dir + testFileName
 	if _, err := os.Stat(fullName); os.IsNotExist(err) {
 		if err = ioutil.WriteFile(fullName, src, 0755); err != nil {
-			log.Fatalln("write failed", err)
+			log.Fatalln(errors.Wrap(err, "write failed"))
 		}
 	} else {
-		log.Fatalln("file exist", testFileName)
+		log.Fatalln("file exist with name: ", testFileName)
 	}
 
 	return
