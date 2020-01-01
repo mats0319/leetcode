@@ -101,7 +101,7 @@ func main() {
 func generateDir(num int) string {
 	var result string
 	var tag int
-	if num % 10 == 0 {
+	if num%10 == 0 {
 		tag = -1
 	}
 	result = fmt.Sprintf("%d-%d/", (num/10+tag)*10+1, (num/10+tag)*10+10)
