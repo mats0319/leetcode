@@ -1,4 +1,4 @@
-// TestGen can generate universal leetcode test file,
+// Test_gen can generate universal leetcode test file,
 // input a question's ID with flag '-n', and we will generate the test file and redirect to it's position.
 //
 // Once more, We support universal questions only, some special questions are not support, for example:
