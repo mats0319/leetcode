@@ -12,8 +12,8 @@ var testCase = []struct {
 	Expect int
 }{
 	// test cases here
-	{In{3, []int{3,2,2,3}}, 2},
-	{In{2, []int{0,1,2,2,3,0,4,2}}, 5},
+	{In{3, []int{3, 2, 2, 3}}, 2},
+	{In{2, []int{0, 1, 2, 2, 3, 0, 4, 2}}, 5},
 }
 
 func TestRemoveElement(t *testing.T) {

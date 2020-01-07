@@ -1,7 +1,7 @@
 package mario
 
 import (
-	"github.com/mats9693/leetcode/utils/compare"
+	"github.com/mats9693/utils/compare"
 	"testing"
 )
 

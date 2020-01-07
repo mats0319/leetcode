@@ -1,7 +1,7 @@
 package mario
 
 import (
-	"github.com/mats9693/leetcode/utils/sort"
+	"github.com/mats9693/utils/sort"
 )
 
 func threeSum(nums []int) [][]int {

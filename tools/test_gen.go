@@ -41,7 +41,8 @@ type FunctionDeclaration struct {
 const (
 	fileName     = "main.go"
 	testFileName = "main_test.go"
-	templateStr  = `
+
+	templateStr = `
 package mario
 
 import "testing"
@@ -120,7 +121,7 @@ func formatFuncDeclaration(dir string) (*FunctionDeclaration, string) {
 	}
 
 	result.formatInputs(formatDeclaration[1])
-	result.formatFuncName(formatDeclaration[0])
+	result.formatFuncNames(formatDeclaration[0])
 
 	return result, dir
 }
@@ -137,8 +138,13 @@ func getFuncDeclaration(dir string) string {
 	}()
 
 	fileScanner := bufio.NewScanner(file)
-	for i := 0; i < 3; i++ {
-		fileScanner.Scan()
+	for {
+		if ok := fileScanner.Scan(); !ok {
+			log.Fatalln("file scan finished, don't have a function to test")
+		}
+		if len(fileScanner.Text()) > 5 && fileScanner.Text()[:5] == "func " { // todo: RE replace
+			break
+		}
 	}
 
 	return fileScanner.Text()[5 : len(fileScanner.Text())-1]
@@ -233,7 +239,7 @@ func (fd *FunctionDeclaration) formatInputs(inputs string) {
 	return
 }
 
-func (fd *FunctionDeclaration) formatFuncName(funcName string) {
+func (fd *FunctionDeclaration) formatFuncNames(funcName string) {
 	if 'a' <= funcName[0] && funcName[0] <= 'z' {
 		funcName = string(funcName[0]+'A'-'a') + funcName[1:]
 	}

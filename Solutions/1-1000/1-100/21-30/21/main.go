@@ -1,6 +1,6 @@
 package mario
 
-import "github.com/mats9693/leetcode/utils/compare"
+import "github.com/mats9693/utils/compare"
 
 func mergeTwoLists(l1 *cmp.ListNode, l2 *cmp.ListNode) *cmp.ListNode {
 	var (

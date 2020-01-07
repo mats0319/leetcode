@@ -1,6 +1,6 @@
 package mario
 
-import "github.com/mats9693/leetcode/utils/compare"
+import "github.com/mats9693/utils/compare"
 
 func removeNthFromEnd(head *cmp.ListNode, n int) *cmp.ListNode {
 	result := &cmp.ListNode{Next: head}
