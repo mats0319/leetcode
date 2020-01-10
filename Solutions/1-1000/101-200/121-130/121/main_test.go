@@ -14,7 +14,7 @@ func TestMaxProfit(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if maxProfit(tcs[i].In) != tcs[i].Expect {
-			t.Errorf("max profit test failed on case: %d", i)
+			t.Errorf("max profit test failed on case: %d\n", i)
 		}
 	}
 }

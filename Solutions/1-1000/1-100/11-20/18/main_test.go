@@ -18,7 +18,7 @@ func TestFourSum(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if !cmp.CompareOnErWeiInt(fourSum(tcs[i].In[1:], tcs[i].In[0]), tcs[i].Expect) {
-			t.Errorf("four sum test failed on case: %d", i)
+			t.Errorf("four sum test failed on case: %d\n", i)
 		}
 	}
 }

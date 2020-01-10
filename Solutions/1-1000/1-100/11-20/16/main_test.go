@@ -18,7 +18,7 @@ func TestThreeSumClosest(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if threeSumClosest(tcs[i].In[1:], tcs[i].In[0]) != tcs[i].Expect {
-			t.Errorf("three sum closest test failed on case: %d", i)
+			t.Errorf("three sum closest test failed on case: %d\n", i)
 		}
 	}
 }

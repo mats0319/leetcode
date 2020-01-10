@@ -6,10 +6,9 @@ var testCase = []struct {
 	In     []int
 	Expect int
 }{
+	// test cases here
+	{[]int{2, 3, 2}, 3},
 	{[]int{1, 2, 3, 1}, 4},
-	{[]int{2, 7, 9, 3, 1}, 12},
-	{nil, 0},
-	{[]int{}, 0},
 }
 
 func TestRob(t *testing.T) {

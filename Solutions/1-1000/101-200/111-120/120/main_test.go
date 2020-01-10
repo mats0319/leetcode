@@ -13,7 +13,7 @@ func TestMinimumTotal(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if minimumTotal(tcs[i].In) != tcs[i].Expect {
-			t.Errorf("minimum total test failed on case: %d", i)
+			t.Errorf("minimum total test failed on case: %d\n", i)
 		}
 	}
 }

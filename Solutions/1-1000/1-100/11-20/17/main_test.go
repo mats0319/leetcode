@@ -16,7 +16,7 @@ func TestLetterCombinations(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if !cmp.CompareOnStringSlice(letterCombinations(tcs[i].In), tcs[i].Expect) {
-			t.Errorf("letter combinations test failed on case: %d", i)
+			t.Errorf("letter combinations test failed on case: %d\n", i)
 		}
 	}
 }

@@ -13,7 +13,7 @@ func TestMaxSubArray(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if maxSubArray(tcs[i].In) != tcs[i].Expect {
-			t.Errorf("max sub array test failed on case: %d", i)
+			t.Errorf("max sub array test failed on case: %d\n", i)
 		}
 	}
 }

@@ -21,7 +21,7 @@ func TestConvert(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if convert(tcs[i].In.Str, tcs[i].In.Int) != tcs[i].Expect {
-			t.Errorf("zig zag conversion test failed on case: %d", i)
+			t.Errorf("zig zag conversion test failed on case: %d\n", i)
 		}
 	}
 }
@@ -30,7 +30,7 @@ func TestConvert2(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if convert2(tcs[i].In.Str, tcs[i].In.Int) != tcs[i].Expect {
-			t.Errorf("zig zag conversion solution: 2 test failed on case: %d", i)
+			t.Errorf("zig zag conversion solution: 2 test failed on case: %d\n", i)
 		}
 	}
 }

@@ -17,7 +17,7 @@ func TestIntToRoman(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if intToRoman(tcs[i].In) != tcs[i].Expect {
-			t.Errorf("int to roman test failed on case: %d", i)
+			t.Errorf("int to roman test failed on case: %d\n", i)
 		}
 	}
 }

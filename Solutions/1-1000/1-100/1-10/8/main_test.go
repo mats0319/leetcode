@@ -20,7 +20,7 @@ func TestMyAtoi(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if myAtoi(tcs[i].In) != tcs[i].Expect {
-			t.Errorf("string to integer test failed on case: %d", i)
+			t.Errorf("string to integer test failed on case: %d\n", i)
 		}
 	}
 }

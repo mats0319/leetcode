@@ -13,7 +13,7 @@ func TestMaxArea(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if maxArea(tcs[i].In) != tcs[i].Expect {
-			t.Errorf("container with most water test failed on case: %d", i)
+			t.Errorf("container with most water test failed on case: %d\n", i)
 		}
 	}
 }

@@ -13,7 +13,7 @@ func TestMinPathSum(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if minPathSum(tcs[i].In) != tcs[i].Expect {
-			t.Errorf("min path sum test failed on case: %d", i)
+			t.Errorf("min path sum test failed on case: %d\n", i)
 		}
 	}
 }

@@ -16,7 +16,7 @@ func TestReverse(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if reverse(tcs[i].In) != tcs[i].Expect {
-			t.Errorf("reverse integer test failed on case: %d", i)
+			t.Errorf("reverse integer test failed on case: %d\n", i)
 		}
 	}
 }

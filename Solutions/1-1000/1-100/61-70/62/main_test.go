@@ -16,7 +16,7 @@ func TestUniquePaths(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if uniquePaths(tcs[i].In[0], tcs[i].In[1]) != tcs[i].Expect {
-			t.Errorf("unique paths test failed on case: %d", i)
+			t.Errorf("unique paths test failed on case: %d\n", i)
 		}
 	}
 }

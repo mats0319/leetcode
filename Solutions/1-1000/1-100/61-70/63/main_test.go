@@ -15,7 +15,7 @@ func TestUniquePathsWithObstacles(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if uniquePathsWithObstacles(tcs[i].In) != tcs[i].Expect {
-			t.Errorf("unique paths with obstacles test failed on case: %d", i)
+			t.Errorf("unique paths with obstacles test failed on case: %d\n", i)
 		}
 	}
 }

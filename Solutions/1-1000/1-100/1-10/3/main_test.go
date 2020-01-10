@@ -19,7 +19,7 @@ func TestLengthOfLongestSubstring(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if lengthOfLongestSubstring(tcs[i].In) != tcs[i].Expect {
-			t.Errorf("length of longest substring test failed on case: %d", i)
+			t.Errorf("length of longest substring test failed on case: %d\n", i)
 		}
 	}
 }

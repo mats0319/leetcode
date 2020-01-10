@@ -16,7 +16,7 @@ func TestMaximalSquare(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if maximalSquare(tcs[i].In) != tcs[i].Expect {
-			t.Errorf("maximal square test failed on case: %d", i)
+			t.Errorf("maximal square test failed on case: %d\n", i)
 		}
 	}
 }

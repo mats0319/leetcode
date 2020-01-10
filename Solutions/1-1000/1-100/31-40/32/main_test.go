@@ -18,7 +18,7 @@ func TestLongestValidParentheses(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if longestValidParentheses(tcs[i].In) != tcs[i].Expect {
-			t.Errorf("longest valid parentheses test failed on case: %d", i)
+			t.Errorf("longest valid parentheses test failed on case: %d\n", i)
 		}
 	}
 }
@@ -27,7 +27,7 @@ func TestLongestValidParenthesesWithConstantStorage(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if longestValidParenthesesWithConstantStorage(tcs[i].In) != tcs[i].Expect {
-			t.Errorf("longest valid parentheses with constant storage test failed on case: %d", i)
+			t.Errorf("longest valid parentheses with constant storage test failed on case: %d\n", i)
 		}
 	}
 }

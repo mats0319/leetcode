@@ -18,7 +18,7 @@ func TestFindMedianSortedArrays(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if findMedianSortedArrays(tcs[i].In[0], tcs[i].In[1]) != tcs[i].Expect {
-			t.Errorf("find median sorted arrays test failed on case: %d", i)
+			t.Errorf("find median sorted arrays test failed on case: %d\n", i)
 		}
 	}
 }

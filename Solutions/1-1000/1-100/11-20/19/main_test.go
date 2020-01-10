@@ -23,7 +23,7 @@ func TestRemoveNthFromEnd(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if !cmp.CompareOnList(removeNthFromEnd(tcs[i].In.Node, tcs[i].In.N), tcs[i].Expect) {
-			t.Errorf("remove nth from end test failed on case: %d", i)
+			t.Errorf("remove nth from end test failed on case: %d\n", i)
 		}
 	}
 }

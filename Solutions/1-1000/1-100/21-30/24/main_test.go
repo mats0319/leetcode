@@ -20,7 +20,7 @@ func TestSwapPairs(t *testing.T) {
 		result := swapPairs(tcs[i].In)
 		if !cmp.CompareOnList(result, tcs[i].Expect) {
 			cmp.PrintList(result)
-			t.Errorf("swap pairs test failed on case: %d", i)
+			t.Errorf("swap pairs test failed on case: %d\n", i)
 		}
 	}
 }

@@ -16,7 +16,7 @@ func TestAddTwoNumbers(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if !cmp.CompareOnList(addTwoNumbers(tcs[i].In[0], tcs[i].In[1]), tcs[i].Expect) {
-			t.Errorf("add two numbers test failed on case: %d", i)
+			t.Errorf("add two numbers test failed on case: %d\n", i)
 		}
 	}
 }

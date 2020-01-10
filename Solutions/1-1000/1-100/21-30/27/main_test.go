@@ -20,7 +20,7 @@ func TestRemoveElement(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if removeElement(tcs[i].In.IntSlice0, tcs[i].In.Int0) != tcs[i].Expect {
-			t.Errorf("remove element test failed on case: %d", i)
+			t.Errorf("remove element test failed on case: %d\n", i)
 		}
 	}
 }

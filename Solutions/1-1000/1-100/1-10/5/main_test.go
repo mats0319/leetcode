@@ -17,7 +17,7 @@ func TestLongestPalindrome(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if longestPalindrome(tcs[i].In) != tcs[i].Expect {
-			t.Errorf("longest palindromic substring test failed on case: %d", i)
+			t.Errorf("longest palindromic substring test failed on case: %d\n", i)
 		}
 	}
 }

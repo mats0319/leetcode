@@ -14,7 +14,7 @@ func TestMinDistance(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if minDistance(tcs[i].In[0], tcs[i].In[1]) != tcs[i].Expect {
-			t.Errorf("min distance test failed on case: %d", i)
+			t.Errorf("min distance test failed on case: %d\n", i)
 		}
 	}
 }

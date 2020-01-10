@@ -16,7 +16,7 @@ func TestNumDecodings(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if numDecodings(tcs[i].In) != tcs[i].Expect {
-			t.Errorf("num decodings test failed on case: %d", i)
+			t.Errorf("num decodings test failed on case: %d\n", i)
 		}
 	}
 }
