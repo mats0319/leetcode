@@ -61,7 +61,7 @@ func Test{{.FuncNameExported}}(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		if {{.FuncNameActually}}({{.InputParams}}) != tcs[i].Expect {
-			t.Errorf("{{.FuncNameSpelled}} test failed on case: %d", i)
+			t.Errorf("{{.FuncNameSpelled}} test failed on case: %d\n", i)
 		}
 	}
 }
@@ -110,7 +110,7 @@ func generateDir(num int) string {
 		result = fmt.Sprintf("%d-%d/", num/i*i+1, num/i*i+i) + result
 	}
 
-	return fmt.Sprintf("../Solutions/%s%d/", result, num)
+	return fmt.Sprintf("../../Solutions/%s%d/", result, num)
 }
 
 func formatFuncDeclaration(dir string) (*FunctionDeclaration, string) {
@@ -165,6 +165,7 @@ func splitAndTrimAllSpace(funcDeclaration string) (result []string) {
 	}
 
 	result[1] = removeVariableName(result[1])
+	// todo: remove return value's name, if exist, necessary?
 
 	for i := 0; i <= 2; i += 2 {
 		for j := 0; j < len(result[i]); j++ {
