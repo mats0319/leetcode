@@ -3,6 +3,7 @@
 //
 // Once more, We support universal questions only, some special questions are not support, for example:
 // - return value's type can't use '==' to judge equal
+// - param type is double-level slice
 //
 // Also, it is still just a template, you need to add test cases yourself.
 // -_- ... by listing the defects, I doubt if I write this is meaningful?
@@ -154,12 +155,12 @@ func splitAndTrimAllSpace(funcDeclaration string) (result []string) {
 	var t int
 	for t = 0; t < len(funcDeclaration) && funcDeclaration[t] != '('; t++ {
 	}
-	result = append(result, funcDeclaration[:t])
+	result = append(result, funcDeclaration[:t]) // func name
 
 	for i := t + 1; i < len(funcDeclaration); i++ {
 		if funcDeclaration[i] == ')' {
-			result = append(result, funcDeclaration[t+1:i])
-			result = append(result, funcDeclaration[i+1:])
+			result = append(result, funcDeclaration[t+1:i]) // input param(s)
+			result = append(result, funcDeclaration[i+1:]) // output param(s)
 			break
 		}
 	}
