@@ -1,47 +1,54 @@
 package mario
 
-import (
-	"testing"
-)
+import "testing"
 
 var testCase = []struct {
-	In     *TreeNode
-	Expect int
+	In     []*TreeNode
+	Expect bool
 }{
-	// test cases here
-	{makeTree([]*IntWithNil{
-		{3, false},
-		{2, false},
-		{3, false},
-		{0, true},
-		{3, false},
-		{0, true},
-		{1, false},
-	}), 7},
-	{makeTree([]*IntWithNil{
-		{3, false},
-		{4, false},
-		{5, false},
-		{1, false},
-		{3, false},
-		{0, true},
-		{1, false},
-	}), 9},
-	{makeTree([]*IntWithNil{
-		{4, false},
-		{1, false},
-		{0, true},
-		{2, false},
-		{0, true},
-		{3, false},
-	}), 7},
+	//test cases here
+	{In: []*TreeNode{
+		makeTree([]*IntWithNil{
+			{1, false},
+			{2, false},
+			{3, false},
+		}),
+		makeTree([]*IntWithNil{
+			{1, false},
+			{2, false},
+			{3, false},
+		}),
+	}, Expect: true},
+	{In: []*TreeNode{
+		makeTree([]*IntWithNil{
+			{1, false},
+			{2, false},
+		}),
+		makeTree([]*IntWithNil{
+			{1, false},
+			{0, true},
+			{2, false},
+		}),
+	}, Expect: false},
+	{In: []*TreeNode{
+		makeTree([]*IntWithNil{
+			{1, false},
+			{2, false},
+			{1, false},
+		}),
+		makeTree([]*IntWithNil{
+			{1, false},
+			{1, false},
+			{2, false},
+		}),
+	}, Expect: false},
 }
 
-func TestRob(t *testing.T) {
+func TestIsSameTree(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if rob(tcs[i].In) != tcs[i].Expect {
-			t.Errorf("rob test failed on case: %d\n", i)
+		if isSameTree(tcs[i].In[0], tcs[i].In[1]) != tcs[i].Expect {
+			t.Errorf("is same tree test failed on case: %d\n", i)
 		}
 	}
 }

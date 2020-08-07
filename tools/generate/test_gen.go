@@ -102,13 +102,12 @@ func main() {
 
 func generateDir(num int) string {
 	var result string
-	var tag int
-	if num%10 == 0 {
-		tag = -1
-	}
-	result = fmt.Sprintf("%d-%d/", (num/10+tag)*10+1, (num/10+tag)*10+10)
-	for i := 100; i < 10000; i *= 10 {
-		result = fmt.Sprintf("%d-%d/", num/i*i+1, num/i*i+i) + result
+	for i := 10; i < 10000; i *= 10 {
+		var tag int
+		if num%i == 0 {
+			tag = -1
+		}
+		result = fmt.Sprintf("%d-%d/", (num/i+tag)*i+1, (num/i+tag)*i+i) + result
 	}
 
 	return fmt.Sprintf("../../Solutions/%s%d/", result, num)
