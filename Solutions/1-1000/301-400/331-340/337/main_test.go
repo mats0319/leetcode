@@ -63,7 +63,6 @@ func makeTree(slice []*IntWithNil) *TreeNode {
 	leftFlag := true
 	for i, j := 1, 0; i < len(slice) && j < len(nodeSlice); i++ {
 		if slice[i].IsNil {
-			leftFlag = !leftFlag
 			continue
 		}
 
