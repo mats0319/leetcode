@@ -6,6 +6,7 @@ var m = map[byte]byte{
 	'{': '}',
 }
 
+// s only contains 6 types of chars in m above
 func isValid(s string) bool {
 	if len(s)%2 == 1 {
 		return false
@@ -18,26 +19,20 @@ func isValid(s string) bool {
 	)
 
 	for i := range s {
-		if isLeft(s[i]) {
-			stack[top] = m[s[i]]
+		if v, ok := m[s[i]]; ok { // left side char
+			stack[top] = v
 			top++
-		} else if isRight(s[i]) && stack[top-1] == s[i] {
-			if top == 0 {
-				valid = false
-				break
-			}
-			top--
+			continue
 		}
+
+		// right side char, not matched
+		if top == 0 || s[i] != stack[top-1] {
+			valid = false
+			break
+		}
+
+		top--
 	}
 
 	return valid && top == 1
-}
-
-func isLeft(b byte) bool {
-	_, ok := m[b]
-	return ok
-}
-
-func isRight(b byte) bool {
-	return b == ')' || b == ']' || b == '}'
 }
