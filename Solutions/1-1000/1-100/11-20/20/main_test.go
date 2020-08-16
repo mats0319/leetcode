@@ -12,6 +12,7 @@ var testCase = []struct {
 	{"([)]", false},
 	{"{[]}", true},
 	{")(", false},
+	{"((", false},
 }
 
 func TestIsValid(t *testing.T) {
