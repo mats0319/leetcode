@@ -10,6 +10,10 @@
 // just for fun, I write it for studying mainly. ^_^
 //
 // Mario, 2019.12.24
+//
+// Last edit:
+// 2020.1.27
+
 package main
 
 import (
@@ -103,7 +107,7 @@ func main() {
 func generateDir(num int) string {
 	var result string
 	var tag int
-	if num%10 == 0 {
+	if num%10 == 0 { // 10~[1, 10], 11~[11, 20]
 		tag = -1
 	}
 	result = fmt.Sprintf("%d-%d/", (num/10+tag)*10+1, (num/10+tag)*10+10)
@@ -115,7 +119,7 @@ func generateDir(num int) string {
 }
 
 func formatFuncDeclaration(dir string) (*FunctionDeclaration, string) {
-	formatDeclaration := splitAndTrimAllSpace(getFuncDeclaration(dir)) // fd: func name + inputs + output
+	formatDeclaration := splitAndTrimAllSpace(getFuncDeclaration(dir)) // fd = func name + inputs + output
 	result := &FunctionDeclaration{
 		ExpectType:       formatDeclaration[2],
 		FuncNameActually: formatDeclaration[0],
@@ -166,7 +170,6 @@ func splitAndTrimAllSpace(funcDeclaration string) (result []string) {
 	}
 
 	result[1] = removeVariableName(result[1])
-	// todo: remove return value's name, if exist, necessary?
 
 	for i := 0; i <= 2; i += 2 {
 		for j := 0; j < len(result[i]); j++ {
