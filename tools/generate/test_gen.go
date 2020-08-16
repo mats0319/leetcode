@@ -82,7 +82,7 @@ func init() {
 	flag.BoolVar(&help, "h", false, "this help")
 	flag.IntVar(&questionId, "n", -1, "give out question number\n"+
 		"we will read function declaration and redirect generated file automatically\n"+
-		"a valid number is from 1 to 9999.")
+		"a valid number is from 0 to 9999 (0 means generate test at default place).")
 
 	flag.Parse()
 
@@ -105,6 +105,10 @@ func main() {
 }
 
 func generateDir(num int) string {
+	if num == 0 {
+		return "./default/"
+	}
+
 	var result string
 	for i := 10; i < 10000; i *= 10 {
 		var tag int
