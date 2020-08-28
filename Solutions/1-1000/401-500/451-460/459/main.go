@@ -16,5 +16,11 @@ func repeatedSubstringPattern(s string) bool {
         }
     }
 
-    
+    cds := make([]int, 0)
+    for i := 2; i < smallest; i++ {
+        isCd := true
+        for {
+            if 
+        }
+    }
 }
