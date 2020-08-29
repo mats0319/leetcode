@@ -11,7 +11,7 @@ var testCase = []struct {
 	//{"aba", false},
 	//{"abcabcabcabc", true},
 	//{"ababba", false},
-	{"babbaaabbbbabbaaabbbbabbaaabbbbabbaaabbbbabbaaabbbbabbaaabbbbabbaaabbbbabbaaabbbbabbaaabbbbabbaaabbb", true},
+	//{"babbaaabbbbabbaaabbbbabbaaabbbbabbaaabbbbabbaaabbbbabbaaabbbbabbaaabbbbabbaaabbbbabbaaabbbbabbaaabbb", true},
 }
 
 func TestRepeatedSubstringPattern(t *testing.T) {
