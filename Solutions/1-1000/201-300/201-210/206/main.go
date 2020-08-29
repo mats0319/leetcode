@@ -1,7 +1,7 @@
 package mario
 
 import (
-	cmp "github.com/mats9693/utils/compare"
+	"github.com/mats9693/utils/compare"
 )
 
 func reverseList(head *cmp.ListNode) *cmp.ListNode {
@@ -13,7 +13,7 @@ func reverseList(head *cmp.ListNode) *cmp.ListNode {
 	}
 
 	p = head
-	for i := len(stack)-1; i >= 0; i-- {
+	for i := len(stack) - 1; i >= 0; i-- {
 		p.Val = stack[i]
 		p = p.Next
 	}
@@ -26,7 +26,7 @@ func reverseListRecursive(head *cmp.ListNode) *cmp.ListNode {
 		return head
 	}
 
-	return revert(nil, head, head.Next) // todo: tail recursion optimize
+	return revert(nil, head, head.Next)
 }
 
 func revert(pre, cur, next *cmp.ListNode) *cmp.ListNode {

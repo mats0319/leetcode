@@ -1,5 +1,5 @@
 package mario
 
 func repeatedSubstringPattern(s string) bool {
-    panic("459")
+	panic("459")
 }

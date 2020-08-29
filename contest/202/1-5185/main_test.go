@@ -9,8 +9,8 @@ var testCase = []struct {
 	Expect bool
 }{
 	// test cases here
-	{[]int{2,6,4,1}, false},
-	{[]int{1,2,34,3,4,5,7,23,12}, true},
+	{[]int{2, 6, 4, 1}, false},
+	{[]int{1, 2, 34, 3, 4, 5, 7, 23, 12}, true},
 }
 
 func TestThreeConsecutiveOdds(t *testing.T) {

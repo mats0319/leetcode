@@ -167,7 +167,7 @@ func splitAndTrimAllSpace(funcDeclaration string) (result []string) {
 	for i := t + 1; i < len(funcDeclaration); i++ {
 		if funcDeclaration[i] == ')' {
 			result = append(result, funcDeclaration[t+1:i]) // input param(s)
-			result = append(result, funcDeclaration[i+1:]) // output param(s)
+			result = append(result, funcDeclaration[i+1:])  // output param(s)
 			break
 		}
 	}

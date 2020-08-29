@@ -12,7 +12,7 @@ var testCase = []struct {
 	Expect int
 }{
 	// test cases here
-	{In{[]int{1,2,5}, 11}, 3},
+	{In{[]int{1, 2, 5}, 11}, 3},
 	{In{[]int{2}, 3}, -1},
 }
 

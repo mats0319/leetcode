@@ -1,10 +1,10 @@
 package mario
 
-func merge(A []int, m int, B []int, n int)  {
-	indexA := m-1
-	indexB := n-1
+func merge(A []int, m int, B []int, n int) {
+	indexA := m - 1
+	indexB := n - 1
 
-	for i := m+n-1; i >= 0 && indexA != -1 && indexB != -1; i-- {
+	for i := m + n - 1; i >= 0 && indexA != -1 && indexB != -1; i-- {
 		if A[indexA] > B[indexB] {
 			A[i] = A[indexA]
 			indexA--

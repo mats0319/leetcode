@@ -11,7 +11,6 @@ var testCase = []struct {
 	{[]string{"123", "456"}, "56088"},
 	{[]string{"999", "999"}, "998001"},
 	{[]string{"123456789", "987654321"}, "121932631112635269"},
-
 }
 
 func TestMultiply(t *testing.T) {
