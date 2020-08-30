@@ -118,7 +118,7 @@ func generateDir(num int) string {
 		result = fmt.Sprintf("%d-%d/", (num/i+tag)*i+1, (num/i+tag)*i+i) + result
 	}
 
-	return fmt.Sprintf("../../Solutions/%s%d/", result, num)
+	return fmt.Sprintf("../../solutions/%s%d/", result, num)
 }
 
 func formatFuncDeclaration(dir string) (*FunctionDeclaration, string) {
