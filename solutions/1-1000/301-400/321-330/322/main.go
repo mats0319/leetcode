@@ -8,7 +8,7 @@ func coinChange(coins []int, amount int) int {
 		alternatives := make([]int, 0)
 
 		for j := range coins {
-			if i - coins[j] >= 0 && dp[i - coins[j]] != -1 {
+			if i-coins[j] >= 0 && dp[i-coins[j]] != -1 {
 				alternatives = append(alternatives, dp[i-coins[j]])
 			}
 		}
@@ -27,6 +27,6 @@ func coinChange(coins []int, amount int) int {
 
 		dp[i]++
 	}
-	
+
 	return dp[amount]
 }

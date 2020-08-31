@@ -7,7 +7,7 @@ func getMaxLen(nums []int) int {
 	for i := range nums {
 		if nums[i] == 0 {
 			numsSplitBy0 = append(numsSplitBy0, nums[start:i])
-			start = i+1
+			start = i + 1
 		}
 	}
 
@@ -35,7 +35,7 @@ func getMaxLen(nums []int) int {
 		}
 
 		subMax := 0
-		if len(negIndex) % 2 == 0 { // 0 neg case contains
+		if len(negIndex)%2 == 0 { // 0 neg case contains
 			subMax = len(subSlice)
 		} else if len(negIndex) == 1 {
 			subMax = maxPosCount

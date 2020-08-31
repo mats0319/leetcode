@@ -10,8 +10,8 @@ var testCase = []struct {
 	Expect [][]int
 }{
 	// test cases here
-	{In: []string{"abcd","dcba","lls","s","sssll"}, Expect: [][]int{{0,1}, {1,0}, {3,2}, {2,4}}},
-	{In: []string{"bat","tab","cat"}, Expect: [][]int{{0,1}, {1,0}}},
+	{In: []string{"abcd", "dcba", "lls", "s", "sssll"}, Expect: [][]int{{0, 1}, {1, 0}, {3, 2}, {2, 4}}},
+	{In: []string{"bat", "tab", "cat"}, Expect: [][]int{{0, 1}, {1, 0}}},
 }
 
 func TestPalindromePairs(t *testing.T) {

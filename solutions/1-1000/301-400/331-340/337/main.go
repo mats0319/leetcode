@@ -13,14 +13,14 @@ type MaxValue struct {
 
 func rob(root *TreeNode) int {
 	// 左子树、右子树、根节点，递归
-    if isNil(root) {
-        return 0
-    }
-    if isLeafNode(root) {
-        return root.Val
-    }
+	if isNil(root) {
+		return 0
+	}
+	if isLeafNode(root) {
+		return root.Val
+	}
 
-    value := robTree(root)
+	value := robTree(root)
 
 	return big(value.PickRoot, value.NotPickRoot)
 }
@@ -30,10 +30,10 @@ func robTree(root *TreeNode) *MaxValue {
 		return &MaxValue{} // default 0 value
 	}
 	if isLeafNode(root) {
-	    value := root.Val
-	    if value < 0 {
-	        value = 0
-        }
+		value := root.Val
+		if value < 0 {
+			value = 0
+		}
 		return &MaxValue{PickRoot: value, NotPickRoot: 0}
 	}
 
@@ -41,18 +41,18 @@ func robTree(root *TreeNode) *MaxValue {
 	rightValue := robTree(root.Right)
 
 	value := &MaxValue{
-        PickRoot:    leftValue.NotPickRoot + rightValue.NotPickRoot,
-        NotPickRoot: leftValue.PickRoot + rightValue.PickRoot,
-    }
+		PickRoot:    leftValue.NotPickRoot + rightValue.NotPickRoot,
+		NotPickRoot: leftValue.PickRoot + rightValue.PickRoot,
+	}
 
-    if root.Val > 0 {
-    	value.PickRoot += root.Val
-    }
-    if value.PickRoot < value.NotPickRoot {
-    	value.PickRoot = value.NotPickRoot
-    }
+	if root.Val > 0 {
+		value.PickRoot += root.Val
+	}
+	if value.PickRoot < value.NotPickRoot {
+		value.PickRoot = value.NotPickRoot
+	}
 
-    return value
+	return value
 }
 
 func isNil(node *TreeNode) bool {
@@ -64,11 +64,11 @@ func isLeafNode(node *TreeNode) bool {
 }
 
 func big(a, b int) (bigger int) {
-    if a > b {
-        bigger = a
-    } else {
-        bigger = b
-    }
+	if a > b {
+		bigger = a
+	} else {
+		bigger = b
+	}
 
-    return
+	return
 }

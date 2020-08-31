@@ -13,7 +13,7 @@ func reverseList(head *cmp.ListNode) *cmp.ListNode {
 	}
 
 	p = head
-	for i := len(stack)-1; i >= 0; i-- {
+	for i := len(stack) - 1; i >= 0; i-- {
 		p.Val = stack[i]
 		p = p.Next
 	}

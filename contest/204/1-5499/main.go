@@ -1,12 +1,12 @@
 package mario
 
 func containsPattern(arr []int, m int, k int) bool {
-	if len(arr) < m * k {
+	if len(arr) < m*k {
 		return false
 	}
 
 	hasPattern := false
-	for i := 0; i <= len(arr) - m * k; i++ {
+	for i := 0; i <= len(arr)-m*k; i++ {
 		if isPattern(arr[i:i+m*k], m) {
 			hasPattern = true
 			break

@@ -8,7 +8,6 @@ var testCase = []struct {
 }{
 	// test cases here
 	{"Let's take LeetCode contest", "s'teL ekat edoCteeL tsetnoc"},
-
 }
 
 func TestReverseWords(t *testing.T) {
