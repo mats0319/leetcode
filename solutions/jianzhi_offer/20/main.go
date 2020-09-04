@@ -23,25 +23,38 @@ const (
     Type_Number
     Type_Point
     Type_E
+    Type_Invalid
 )
 
 func isNumber(s string) bool {
     fsm := makeFSM()
 
-    var isNum, ok bool
+    isNum := true
     status := Status_Init
     for i := range s {
-        status, ok = getFSMNextStatus(fsm, status, getCharType(s[i]))
+        typ := getCharType(s[i])
+        if typ == Type_Invalid {
+            isNum = false
+            break
+        }
+
+        var ok bool
+        status, ok = getFSMNextStatus(fsm, status, typ)
         if !ok {
             isNum = false
             break
         }
-        if status == Status_Integer || status == Status_Decimal {
-            isNum = true
-        }
     }
 
-    return isNum
+    return isNum && isValidFinalStatus(status)
+}
+
+func isValidFinalStatus(status Status) bool {
+    return status == Status_Integer ||
+        status == Status_Point_With_Number_Before ||
+        status == Status_Decimal ||
+        status == Status_E_Integer ||
+        status == Status_Suffix_Space
 }
 
 func getFSMNextStatus(fsm map[Status]map[CharType]Status, statusNow Status, nextChar CharType) (status Status, ok bool) {
@@ -82,11 +95,13 @@ func makeFSM() map[Status]map[CharType]Status {
         Type_Point: Status_Point_Without_Number_Before,
     }
     fsm[Status_Integer] = map[CharType]Status{
+        Type_Space: Status_Suffix_Space,
         Type_Number: Status_Integer,
         Type_Point: Status_Point_With_Number_Before,
         Type_E: Status_E,
     }
     fsm[Status_Point_With_Number_Before] = map[CharType]Status{
+        Type_Space: Status_Suffix_Space,
         Type_Number: Status_Decimal,
         Type_E: Status_E,
     }
@@ -94,6 +109,7 @@ func makeFSM() map[Status]map[CharType]Status {
         Type_Number: Status_Decimal,
     }
     fsm[Status_Decimal] = map[CharType]Status{
+        Type_Space: Status_Suffix_Space,
         Type_Number: Status_Decimal,
         Type_E: Status_E,
     }
@@ -105,6 +121,7 @@ func makeFSM() map[Status]map[CharType]Status {
         Type_Number: Status_E_Integer,
     }
     fsm[Status_E_Integer] = map[CharType]Status{
+        Type_Space: Status_Suffix_Space,
         Type_Number: Status_E_Integer,
     }
     fsm[Status_Suffix_Space] = map[CharType]Status{
@@ -121,6 +138,8 @@ func getCharType(char byte) (typ CharType) {
     case '0','1','2','3','4','5','6','7','8','9': typ = Type_Number
     case '.': typ = Type_Point
     case 'e', 'E': typ = Type_E
+    default:
+        typ = Type_Invalid
     }
 
     return
