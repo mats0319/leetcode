@@ -8,13 +8,17 @@ type Node struct {
 }
 
 func connect(root *Node) *Node {
-    traversalSequence([]*Node{root})
+    if root == nil {
+        return nil
+    }
+
+    traversalSequence([]*Node{root, nil})
 
     return root
 }
 
 func traversalSequence(currLayerNodes []*Node) {
-    if len(currLayerNodes) < 1 {
+    if len(currLayerNodes) < 2 {
         return
     }
 
@@ -31,7 +35,5 @@ func traversalSequence(currLayerNodes []*Node) {
         }
     }
 
-    traversalSequence(nextLayerNodes)
-
-    return
+    traversalSequence(append(nextLayerNodes, nil))
 }
