@@ -227,7 +227,7 @@ func (fd *FunctionDeclaration) formatInputs(inputs string) {
 				if 'a' <= key[0] && key[0] <= 'z' {
 					fd.InputStructDefine = fmt.Sprintf("%s%s%s%d %s\n", fd.InputStructDefine, string(key[0]-'a'+'A'), key[1:], i, key)
 				} else { // key[0] = '['
-					fd.InputStructDefine = fmt.Sprintf("%s%s%sSlice%d %s\n", fd.InputStructDefine, string(key[2]-'a'+'A'), key[3:], i, key)
+					fd.InputStructDefine = fmt.Sprintf("%s%sSlice%d %s\n", fd.InputStructDefine, typeToField(key), i, key)
 				}
 			}
 		}
@@ -237,11 +237,24 @@ func (fd *FunctionDeclaration) formatInputs(inputs string) {
 			if 'a' <= inputsSplit[i][0] && inputsSplit[i][0] <= 'z' {
 				fd.InputParams = fmt.Sprintf("%s, tcs[i].In.%s%s%d", fd.InputParams, string(inputsSplit[i][0]-'a'+'A'), inputsSplit[i][1:], m[inputsSplit[i]]-1)
 			} else { // param is a slice
-				fd.InputParams = fmt.Sprintf("%s, tcs[i].In.%s%sSlice%d", fd.InputParams, string(inputsSplit[i][2]-'a'+'A'), inputsSplit[i][3:], m[inputsSplit[i]]-1)
+				fd.InputParams = fmt.Sprintf("%s, tcs[i].In.%sSlice%d", fd.InputParams, typeToField(inputsSplit[i]), m[inputsSplit[i]]-1)
 			}
 			m[inputsSplit[i]]--
 		}
 		fd.InputParams = fd.InputParams[2:]
+	}
+
+	return
+}
+
+func typeToField(str string) (field string) {
+	for i, c := range str {
+		if c == '[' || c == ']' {
+			continue
+		}
+		bigCase := str[i]-'a'+'A'
+		field = string(bigCase)+str[i+1:]
+		break
 	}
 
 	return
