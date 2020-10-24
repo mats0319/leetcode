@@ -7,48 +7,41 @@ type TreeNode struct {
 }
 
 func isBalanced(root *TreeNode) bool {
-	if root == nil {
-		return true
-	}
-
-	_, isNotBalanced := deepth(root)
-
-	return !isNotBalanced
+	return postorderTraversal(root) >= 0
 }
 
-func deepth(root *TreeNode) (deep int, isNotBalanced bool) {
+func postorderTraversal(root *TreeNode) int {
 	if root == nil {
-		return 0, false
+		return 0
 	}
 
-	if isNotBalanced {
-		return 0, true
+	leftHeight := postorderTraversal(root.Left)
+	if leftHeight == -1 {
+		return -1
 	}
 
-	leftDeep, isNotBalanced := deepth(root.Left)
+	rightHeight := postorderTraversal(root.Right)
 
-	if isNotBalanced {
-		return 0, true
+	if rightHeight == -1 || abs(leftHeight-rightHeight) > 1 {
+		return -1
 	}
 
-	rightDeep, isNotBalanced := deepth(root.Right)
-
-	if isNotBalanced {
-		return 0, true
-	}
-
-	max, sub := maxAndSub(leftDeep, rightDeep)
-
-	return max, sub > 1
+	return max(leftHeight, rightHeight)+1
 }
 
-func maxAndSub(a, b int) (max int, sub int) {
+func abs(x int) int {
+	if x < 0 {
+		return x * -1
+	}
+
+	return x
+}
+
+func max(a, b int) (res int) {
 	if a > b {
-		max = a
-		sub = a - b
+		res = a
 	} else {
-		max = b
-		sub = b - a
+		res = b
 	}
 
 	return

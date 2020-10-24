@@ -11,27 +11,26 @@ func minDepth(root *TreeNode) (depth int) {
 		return
 	}
 
-	nodeSlice := make([]*TreeNode, 0)
-	depthSlice := make([]int, 0)
+	layer := []*TreeNode{root}
+	for len(layer) > 0 {
+		depth++
+		nextLayer := make([]*TreeNode, 0, len(layer) * 2)
 
-	nodeSlice = append(nodeSlice, root)
-	depthSlice = append(depthSlice, 1)
-	for i := 0; i < len(nodeSlice); i++ {
-		n := nodeSlice[i]
-		depth = depthSlice[i]
+		for _, node := range layer {
+			if node.Left == nil && node.Right == nil {
+				nextLayer = nil // for exit outside loop
+				break
+			}
 
-		if n.Left == nil && n.Right == nil {
-			break
+			if node.Left != nil {
+				nextLayer = append(nextLayer, node.Left)
+			}
+			if node.Right != nil {
+				nextLayer = append(nextLayer, node.Right)
+			}
 		}
 
-		if n.Left != nil {
-			nodeSlice = append(nodeSlice, n.Left)
-			depthSlice = append(depthSlice, depth+1)
-		}
-		if n.Right != nil {
-			nodeSlice = append(nodeSlice, n.Right)
-			depthSlice = append(depthSlice, depth+1)
-		}
+		layer = nextLayer
 	}
 
 	return
