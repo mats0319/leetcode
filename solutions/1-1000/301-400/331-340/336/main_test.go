@@ -17,7 +17,7 @@ var testCase = []struct {
 func TestPalindromePairs(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if !cmp.CompareOnErWeiInt(palindromePairs(tcs[i].In), tcs[i].Expect) {
+		if !cmp.CompareOnTwoDimensionalSlice(palindromePairs(tcs[i].In), tcs[i].Expect) {
 			t.Errorf("palindrome pairs test failed on case: %d\n", i)
 		}
 	}

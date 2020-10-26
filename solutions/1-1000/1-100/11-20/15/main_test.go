@@ -19,7 +19,7 @@ var testCase = []struct {
 func TestThreeSum(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
-		if !cmp.CompareOnErWeiInt(threeSum(tcs[i].In), tcs[i].Expect) {
+		if !cmp.CompareOnTwoDimensionalSlice(threeSum(tcs[i].In), tcs[i].Expect) {
 			t.Errorf("three sum test failed on case: %d\n", i)
 		}
 	}

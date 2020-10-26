@@ -20,7 +20,7 @@ func TestCombinationSum3(t *testing.T) {
 	tcs := testCase
 	for i := range tcs {
 		res = make([][]int, 0)
-		if !cmp.CompareOnErWeiInt(combinationSum3(tcs[i].In[0], tcs[i].In[1]), tcs[i].Expect) {
+		if !cmp.CompareOnTwoDimensionalSlice(combinationSum3(tcs[i].In[0], tcs[i].In[1]), tcs[i].Expect) {
 			t.Errorf("combination sum3 test failed on case: %d\n", i)
 		}
 	}
