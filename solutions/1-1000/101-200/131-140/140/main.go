@@ -1,6 +1,5 @@
 package mario
 
-// todo: draft, learn dfs algorithm and tree structure.
 func wordBreak(s string, wordDict []string) []string {
 	if !canBreak(s, wordDict) {
 		return nil
