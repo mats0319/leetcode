@@ -33,9 +33,18 @@ func (n NestedInteger) GetList() []*NestedInteger {
 }
 
 func deserialize(s string) *NestedInteger {
+    list := makeNestedInteger(s).GetList()
+    res := list[0]
+    for i := 1; i < len(list); i++ {
+        res.Add(*list[i])
+    }
+
+	return res
+}
+
+func makeNestedInteger(s string) *NestedInteger {
     res := &NestedInteger{}
     if len(s) < 1 {
-        res.Add(NestedInteger{})
         return res
     }
 
@@ -44,16 +53,13 @@ func deserialize(s string) *NestedInteger {
         case '[':
             endIndex := matchedBrackets(s, i+1)
 
-            newNode := &NestedInteger{}
-            newNode.Add(*deserialize(s[i+1 : endIndex]))
-
-            res.Add(*newNode)
+            res.Add(*makeNestedInteger(s[i+1 : endIndex]))
 
             i = endIndex
         case '-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9':
             endIndex := parseInt(s, i)
 
-            value, _ := strconv.Atoi(s[i:endIndex+1])
+            value, _ := strconv.Atoi(s[i : endIndex+1])
             newNode := &NestedInteger{}
             newNode.SetInteger(value)
 
@@ -68,28 +74,28 @@ func deserialize(s string) *NestedInteger {
 
 // matchedBrackets returns end index of char ']'
 func matchedBrackets(str string, start int) (endIndex int) {
-    count := 1
-    for i := start; i < len(str); i++ {
-        if str[i] == '[' {
-            count++
-        } else if str[i] == ']' {
-            count--
-            if count <= 0 {
-                endIndex = i
-                break
-            }
-        }
-    }
+	count := 1
+	for i := start; i < len(str); i++ {
+		if str[i] == '[' {
+			count++
+		} else if str[i] == ']' {
+			count--
+			if count <= 0 {
+				endIndex = i
+				break
+			}
+		}
+	}
 
-    return
+	return
 }
 
 // parseInt returns end index of last valid num
 func parseInt(str string, start int) int {
-    endIndex := start+1
-    for endIndex < len(str) && '0' <= str[endIndex] && str[endIndex] <= '9' {
-        endIndex++
-    }
+	endIndex := start + 1
+	for endIndex < len(str) && '0' <= str[endIndex] && str[endIndex] <= '9' {
+		endIndex++
+	}
 
-    return endIndex-1
+	return endIndex - 1
 }

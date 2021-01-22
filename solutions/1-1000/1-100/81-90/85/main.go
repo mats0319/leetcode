@@ -5,20 +5,19 @@ func maximalRectangle(matrix [][]byte) (result int) {
 		return 0
 	}
 
-	dp := make([]int, len(matrix[0]))
+	// matrix[i][j].height
+	height := make([]int, len(matrix[0]))
 
-	var s, minHeight int
 	for i := 0; i < len(matrix); i++ {
-		for j := range matrix[i] {
-			dp[j] = (dp[j] + 1) * int(matrix[i][j]-'0')
-		}
+		for j := range height {
+			height[j] = (height[j] + 1) * int(matrix[i][j]-'0') // update height
 
-		for j := range dp {
-			if dp[j] > 0 {
-				minHeight = dp[j]
-				for k := j; k >= 0 && dp[k] > 0; k-- {
-					minHeight = min(minHeight, dp[k])
-					s = minHeight * (j - k + 1)
+			if height[j] > 0 {
+				minHeight := height[j]
+				for k := j; k >= 0 && height[k] > 0; k-- { // loop valid width
+					minHeight = min(minHeight, height[k])
+					s := minHeight * (j - k + 1)
+
 					if result < s {
 						result = s
 					}
