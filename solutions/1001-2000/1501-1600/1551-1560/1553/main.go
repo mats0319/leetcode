@@ -1,6 +1,6 @@
 package mario
 
-var m map[int]int
+var m map[int]int = make(map[int]int)
 
 func minDays(n int) int {
     if n == 0 || n == 1 {
