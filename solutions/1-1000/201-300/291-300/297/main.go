@@ -1,8 +1,8 @@
 package mario
 
 import (
-    "strconv"
-    "strings"
+	"strconv"
+	"strings"
 )
 
 type TreeNode struct {
@@ -36,7 +36,7 @@ func (this *Codec) serialize(root *TreeNode) string {
 		stack = stack[1:]
 
 		if node == nil {
-			data += ","+nilFlag
+			data += "," + nilFlag
 			continue
 		}
 
@@ -52,10 +52,10 @@ func (this *Codec) serialize(root *TreeNode) string {
 func (this *Codec) deserialize(data string) *TreeNode {
 	payload := strings.Split(data, ",")
 	if len(payload) == 1 && payload[0] == nilFlag {
-	    return nil
-    }
+		return nil
+	}
 
-    value, _ := strconv.Atoi(payload[0])
+	value, _ := strconv.Atoi(payload[0])
 	root := &TreeNode{Val: value}
 	stack := make([]*TreeNode, 0, 1)
 	stack = append(stack, root)
@@ -64,17 +64,17 @@ func (this *Codec) deserialize(data string) *TreeNode {
 		stack = stack[1:]
 
 		if payload[i] != nilFlag {
-		    value, _ = strconv.Atoi(payload[i])
-		    node.Left = &TreeNode{Val: value}
-		    stack = append(stack, node.Left)
-        }
+			value, _ = strconv.Atoi(payload[i])
+			node.Left = &TreeNode{Val: value}
+			stack = append(stack, node.Left)
+		}
 
-        i++
+		i++
 
 		if payload[i] != nilFlag {
-            value, _ = strconv.Atoi(payload[i])
-            node.Right = &TreeNode{Val: value}
-            stack = append(stack, node.Right)
+			value, _ = strconv.Atoi(payload[i])
+			node.Right = &TreeNode{Val: value}
+			stack = append(stack, node.Right)
 		}
 	}
 

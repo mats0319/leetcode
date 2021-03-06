@@ -13,7 +13,7 @@ var testCase = []struct {
 	Expect int
 }{
 	// test cases here
-	{In{-2, 2, []int{-2, 5, -1}},  3},
+	{In{-2, 2, []int{-2, 5, -1}}, 3},
 }
 
 func TestCountRangeSum(t *testing.T) {

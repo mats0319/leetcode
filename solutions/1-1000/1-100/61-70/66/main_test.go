@@ -7,8 +7,8 @@ var testCase = []struct {
 	Expect []int
 }{
 	// test cases here
-	{[]int{1,2,3}, []int{1,2,4}},
-	{[]int{9}, []int{1,0}},
+	{[]int{1, 2, 3}, []int{1, 2, 4}},
+	{[]int{9}, []int{1, 0}},
 }
 
 func TestPlusOne(t *testing.T) {

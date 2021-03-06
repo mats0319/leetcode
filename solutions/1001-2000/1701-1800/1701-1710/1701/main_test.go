@@ -7,8 +7,8 @@ var testCase = []struct {
 	Expect float64
 }{
 	// test cases here
-	{[][]int{{1,2}, {2,5}, {4,3}}, 5},
-	{[][]int{{5,2}, {5,4}, {10,3}, {20,1}}, 3.25},
+	{[][]int{{1, 2}, {2, 5}, {4, 3}}, 5},
+	{[][]int{{5, 2}, {5, 4}, {10, 3}, {20, 1}}, 3.25},
 }
 
 func TestAverageWaitingTime(t *testing.T) {

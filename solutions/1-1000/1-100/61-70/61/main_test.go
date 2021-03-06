@@ -14,10 +14,10 @@ var testCase = []struct {
 	Expect *ListNode
 }{
 	// test cases here
-	{In{makeList(1,2,3,4,5), 2}, makeList(4,5,1,2,3)},
+	{In{makeList(1, 2, 3, 4, 5), 2}, makeList(4, 5, 1, 2, 3)},
 	{In{makeList(), 2}, makeList()},
-	{In{makeList(1,2), 0}, makeList(1,2)},
-	{In{makeList(1,2), 1}, makeList(2,1)},
+	{In{makeList(1, 2), 0}, makeList(1, 2)},
+	{In{makeList(1, 2), 1}, makeList(2, 1)},
 }
 
 func TestRotateRight(t *testing.T) {

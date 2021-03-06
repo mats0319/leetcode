@@ -1,27 +1,27 @@
 package mario
 
 func findMinArrowShots(points [][]int) int {
-    if len(points) < 2 {
-        return len(points)
-    }
+	if len(points) < 2 {
+		return len(points)
+	}
 
 	QuickSort(points)
 
 	count := 0
 	lastInterval := points[0]
 	for i := 1; i < len(points); i++ {
-        currInterval := points[i]
-        if currInterval[0] == lastInterval[0] && currInterval[1] < lastInterval[1] {
-            lastInterval[1] = currInterval[1]
-        } else if currInterval[0] != lastInterval[0] && currInterval[0] < lastInterval[1] {
-            lastInterval = []int{currInterval[0], small(currInterval[1], lastInterval[1])}
-        } else if currInterval[0] > lastInterval[1] {
-            count++
-            lastInterval = currInterval
-        }
-    }
+		currInterval := points[i]
+		if currInterval[0] == lastInterval[0] && currInterval[1] < lastInterval[1] {
+			lastInterval[1] = currInterval[1]
+		} else if currInterval[0] != lastInterval[0] && currInterval[0] < lastInterval[1] {
+			lastInterval = []int{currInterval[0], small(currInterval[1], lastInterval[1])}
+		} else if currInterval[0] > lastInterval[1] {
+			count++
+			lastInterval = currInterval
+		}
+	}
 
-    return count+1
+	return count + 1
 }
 
 func QuickSort(is [][]int) {
@@ -54,11 +54,11 @@ func QuickSort(is [][]int) {
 }
 
 func small(a, b int) (res int) {
-    if a < b {
-        res = a
-    } else {
-        res = b
-    }
+	if a < b {
+		res = a
+	} else {
+		res = b
+	}
 
-    return
+	return
 }

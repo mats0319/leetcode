@@ -12,7 +12,7 @@ var testCase = []struct {
 	Expect *ListNode
 }{
 	// test cases here
-	{In{makeList(1,2,3,4,5), 2}, makeList(4,5)},
+	{In{makeList(1, 2, 3, 4, 5), 2}, makeList(4, 5)},
 }
 
 func TestGetKthFromEnd(t *testing.T) {

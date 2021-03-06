@@ -5,7 +5,7 @@ func simplifyPath(path string) string {
 	stack := make([]string, 0)
 	i := 0
 	for i < len(path) {
-		nextSlash := i+1
+		nextSlash := i + 1
 		for nextSlash < len(path) && path[nextSlash] != '/' {
 			nextSlash++
 		}

@@ -12,7 +12,7 @@ var testCase = []struct {
 	Expect int
 }{
 	// test cases here
-	{In{makeList(1,2,3,4,5), 4}, 2},
+	{In{makeList(1, 2, 3, 4, 5), 4}, 2},
 }
 
 func TestKthToLast(t *testing.T) {

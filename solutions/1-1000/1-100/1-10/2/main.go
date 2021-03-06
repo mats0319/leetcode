@@ -1,7 +1,7 @@
 package mario
 
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
 
@@ -11,7 +11,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 
 	addFlag := 0
 	for l1 != nil || l2 != nil || addFlag == 1 {
-		sum := getValue(l1)+getValue(l2)+addFlag
+		sum := getValue(l1) + getValue(l2) + addFlag
 
 		addFlag = sum / 10
 		p.Next = &ListNode{Val: sum % 10}
@@ -39,4 +39,3 @@ func getValue(l *ListNode) (res int) {
 
 	return
 }
-

@@ -20,10 +20,10 @@ func describe(str string) string {
 			continue
 		}
 
-		res += string(count + '0') + string(char)
+		res += string(count+'0') + string(char)
 		char = str[i]
 		count = 1
 	}
 
-	return res + string(count + '0') + string(char)
+	return res + string(count+'0') + string(char)
 }

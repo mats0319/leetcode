@@ -15,10 +15,10 @@ func findMode(root *TreeNode) []int {
 
 	res := make([]int, 0, len(inOrder))
 	for k, v := range inOrder {
-	    if v == maxCount {
-	        res = append(res, k)
-        }
-    }
+		if v == maxCount {
+			res = append(res, k)
+		}
+	}
 
 	return res
 }
@@ -32,8 +32,8 @@ func traversalTree(root *TreeNode, inOrder map[int]int, maxCount int) (map[int]i
 
 	inOrder[root.Val]++
 	if inOrder[root.Val] > maxCount {
-	    maxCount = inOrder[root.Val]
-    }
+		maxCount = inOrder[root.Val]
+	}
 
 	inOrder, maxCount = traversalTree(root.Right, inOrder, maxCount)
 

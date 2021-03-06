@@ -16,7 +16,7 @@ var testCase = []struct {
 	{In: In{[]int{8, 3}, 6, 5}, Expect: 3},
 	{In: In{[]int{10, 9, 6}, 4, 6}, Expect: 7},
 	{In: In{[]int{3, 4, 0, 5, 1}, 92, 1}, Expect: -1},
-	{In: In{[]int{10, 10,  6, 4, 7}, 8, 3}, Expect: 9},
+	{In: In{[]int{10, 10, 6, 4, 7}, 8, 3}, Expect: 9},
 	{In: In{[]int{0, 4}, 1, 1}, Expect: 2},
 }
 

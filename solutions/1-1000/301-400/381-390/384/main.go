@@ -22,21 +22,21 @@ func (this *Solution) Reset() []int {
 /** Returns a random shuffling of the array. */
 func (this *Solution) Shuffle() []int {
 	res := deepCopy(this.data)
-	for i := len(res)-1; i >= 0; i-- {
-	    index := rand.Intn(i+1)
-        res[index], res[i] = res[i], res[index]
-    }
+	for i := len(res) - 1; i >= 0; i-- {
+		index := rand.Intn(i + 1)
+		res[index], res[i] = res[i], res[index]
+	}
 
-    return res
+	return res
 }
 
 func deepCopy(src []int) []int {
-    res := make([]int, len(src))
-    for i := 0; i < len(res); i++ {
-        res[i] = src[i]
-    }
+	res := make([]int, len(src))
+	for i := 0; i < len(res); i++ {
+		res[i] = src[i]
+	}
 
-    return res
+	return res
 }
 
 /**

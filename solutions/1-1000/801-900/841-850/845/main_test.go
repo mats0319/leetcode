@@ -7,8 +7,8 @@ var testCase = []struct {
 	Expect int
 }{
 	// test cases here
-	{[]int{2,1,4,7,3,2,5}, 5},
-	{[]int{1,4,7,3,2}, 5},
+	{[]int{2, 1, 4, 7, 3, 2, 5}, 5},
+	{[]int{1, 4, 7, 3, 2}, 5},
 }
 
 func TestLongestMountain(t *testing.T) {

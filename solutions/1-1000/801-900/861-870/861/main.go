@@ -12,7 +12,7 @@ func matrixScore(A [][]int) int {
 	}
 
 	sum := 0
-	for i, flag := len(A[0]) - 1, 1; i >= 0; i-- {
+	for i, flag := len(A[0])-1, 1; i >= 0; i-- {
 		count0 := 0
 		count1 := 0
 		for _, v := range A {

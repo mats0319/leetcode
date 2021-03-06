@@ -7,8 +7,8 @@ var testCase = []struct {
 	Expect *ListNode
 }{
 	// test cases here
-	{[]*ListNode{makeList(7,2,4,3), makeList(5,6,4)}, makeList(7,8,0,7)},
-	{[]*ListNode{makeList(5), makeList(5)}, makeList(1,0)},
+	{[]*ListNode{makeList(7, 2, 4, 3), makeList(5, 6, 4)}, makeList(7, 8, 0, 7)},
+	{[]*ListNode{makeList(5), makeList(5)}, makeList(1, 0)},
 }
 
 func TestAddTwoNumbers(t *testing.T) {

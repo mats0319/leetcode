@@ -17,7 +17,7 @@ func find132pattern(nums []int) bool {
 	for i := 1; i+1 < len(min) && !isFound; i++ {
 		part1 := min[i-1]
 		part3 := nums[i]
-		index := i+1
+		index := i + 1
 		for index < len(min) && !isFound {
 			if part1 < nums[index] && nums[index] < part3 {
 				isFound = true

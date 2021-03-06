@@ -30,7 +30,7 @@ func isValidChar(char byte) bool {
 func toLowerCase(char byte) byte {
 	res := char
 	if 'A' <= char && char <= 'Z' {
-		res += 'a'-'A'
+		res += 'a' - 'A'
 	}
 
 	return res

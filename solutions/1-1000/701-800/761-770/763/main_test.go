@@ -7,7 +7,7 @@ var testCase = []struct {
 	Expect []int
 }{
 	// test cases here
-	{"ababcbacadefegdehijhklij", []int{9,7,8}},
+	{"ababcbacadefegdehijhklij", []int{9, 7, 8}},
 }
 
 func TestPartitionLabels(t *testing.T) {

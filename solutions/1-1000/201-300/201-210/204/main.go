@@ -8,7 +8,7 @@ func countPrimes(n int) int {
 		if !notPrime[i] {
 			count++
 			for j := i * i; j < n; j += i {
-                notPrime[j] = true
+				notPrime[j] = true
 			}
 		}
 	}

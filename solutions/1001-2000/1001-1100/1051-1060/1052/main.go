@@ -19,8 +19,8 @@ func maxSatisfied(customers []int, grumpy []int, X int) int {
 		increment += grumpy[i+X-1] * customers[i+X-1]
 
 		if maxIncrement < increment {
-		    maxIncrement = increment
-        }
+			maxIncrement = increment
+		}
 	}
 
 	return maxIncrement + res

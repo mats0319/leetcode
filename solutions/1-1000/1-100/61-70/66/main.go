@@ -2,7 +2,7 @@ package mario
 
 func plusOne(digits []int) []int {
 	addFlag := 1
-	for i := len(digits)-1; i >= 0 && addFlag > 0; i-- {
+	for i := len(digits) - 1; i >= 0 && addFlag > 0; i-- {
 		value := addFlag + digits[i]
 
 		addFlag = value / 10

@@ -14,10 +14,10 @@ func largestRectangleArea(heights []int) int {
 
 func getIntervalLength(slice []int, index int) int {
 	count := 1
-	for i := index-1; i >= 0 && slice[i] >= slice[index]; i-- {
+	for i := index - 1; i >= 0 && slice[i] >= slice[index]; i-- {
 		count++
 	}
-	for i := index+1; i < len(slice) && slice[i] >= slice[index]; i++ {
+	for i := index + 1; i < len(slice) && slice[i] >= slice[index]; i++ {
 		count++
 	}
 

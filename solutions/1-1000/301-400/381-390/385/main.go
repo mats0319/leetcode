@@ -33,43 +33,43 @@ func (n NestedInteger) GetList() []*NestedInteger {
 }
 
 func deserialize(s string) *NestedInteger {
-    list := makeNestedInteger(s).GetList()
-    res := list[0]
-    for i := 1; i < len(list); i++ {
-        res.Add(*list[i])
-    }
+	list := makeNestedInteger(s).GetList()
+	res := list[0]
+	for i := 1; i < len(list); i++ {
+		res.Add(*list[i])
+	}
 
 	return res
 }
 
 func makeNestedInteger(s string) *NestedInteger {
-    res := &NestedInteger{}
-    if len(s) < 1 {
-        return res
-    }
+	res := &NestedInteger{}
+	if len(s) < 1 {
+		return res
+	}
 
-    for i := 0; i < len(s); i++ {
-        switch s[i] {
-        case '[':
-            endIndex := matchedBrackets(s, i+1)
+	for i := 0; i < len(s); i++ {
+		switch s[i] {
+		case '[':
+			endIndex := matchedBrackets(s, i+1)
 
-            res.Add(*makeNestedInteger(s[i+1 : endIndex]))
+			res.Add(*makeNestedInteger(s[i+1 : endIndex]))
 
-            i = endIndex
-        case '-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9':
-            endIndex := parseInt(s, i)
+			i = endIndex
+		case '-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9':
+			endIndex := parseInt(s, i)
 
-            value, _ := strconv.Atoi(s[i : endIndex+1])
-            newNode := &NestedInteger{}
-            newNode.SetInteger(value)
+			value, _ := strconv.Atoi(s[i : endIndex+1])
+			newNode := &NestedInteger{}
+			newNode.SetInteger(value)
 
-            res.Add(*newNode)
+			res.Add(*newNode)
 
-            i = endIndex
-        }
-    }
+			i = endIndex
+		}
+	}
 
-    return res
+	return res
 }
 
 // matchedBrackets returns end index of char ']'

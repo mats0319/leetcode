@@ -1,8 +1,8 @@
 package mario
 
 type TreeNode struct {
-	Val int
-	Left *TreeNode
+	Val   int
+	Left  *TreeNode
 	Right *TreeNode
 }
 
@@ -17,7 +17,7 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
 	for len(layer) > 0 {
 		res = append(res, setValue(layer, fromLeft))
 
-		nextLayer := make([]*TreeNode, 0, len(layer) * 2)
+		nextLayer := make([]*TreeNode, 0, len(layer)*2)
 
 		for len(layer) > 0 {
 			node := layer[0]
@@ -46,7 +46,7 @@ func setValue(slice []*TreeNode, fromLeft bool) []int {
 		}
 	} else {
 		index := 0
-		for i := len(slice)-1; i >= 0; i-- {
+		for i := len(slice) - 1; i >= 0; i-- {
 			res[index] = slice[i].Val
 			index++
 		}

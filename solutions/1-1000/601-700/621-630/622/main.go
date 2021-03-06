@@ -23,7 +23,7 @@ func (this *MyCircularQueue) EnQueue(value int) bool {
 		return false
 	}
 
-    this.tail = (this.tail + 1) % this.capacity
+	this.tail = (this.tail + 1) % this.capacity
 
 	this.queue[this.tail] = value
 	this.length++

@@ -6,8 +6,8 @@ func numEquivDominoPairs(dominoes [][]int) int {
 	for _, pair := range dominoes {
 		count += times[pair[0]*10+pair[1]]
 		if pair[0] != pair[1] {
-            count += times[pair[1]*10+pair[0]]
-        }
+			count += times[pair[1]*10+pair[0]]
+		}
 
 		times[pair[0]*10+pair[1]]++
 	}

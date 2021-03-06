@@ -15,7 +15,7 @@ func (this *Iterator) next() int {
 
 type PeekingIterator struct {
 	Iterator *Iterator
-	PeekList    []int
+	PeekList []int
 }
 
 func Constructor(iter *Iterator) *PeekingIterator {

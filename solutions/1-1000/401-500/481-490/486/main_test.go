@@ -7,10 +7,10 @@ var testCase = []struct {
 	Expect bool
 }{
 	// test cases here
-	{[]int{1,5,2}, false},
-	{[]int{1,5,233,7}, true},
+	{[]int{1, 5, 2}, false},
+	{[]int{1, 5, 233, 7}, true},
 	{[]int{0}, true},
-	{[]int{1,5,2,4,6}, true},
+	{[]int{1, 5, 2, 4, 6}, true},
 }
 
 func TestPredictTheWinner(t *testing.T) {

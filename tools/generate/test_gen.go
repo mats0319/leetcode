@@ -252,8 +252,8 @@ func typeToField(str string) (field string) {
 		if c == '[' || c == ']' {
 			continue
 		}
-		bigCase := str[i]-'a'+'A'
-		field = string(bigCase)+str[i+1:]
+		bigCase := str[i] - 'a' + 'A'
+		field = string(bigCase) + str[i+1:]
 		break
 	}
 

@@ -8,7 +8,7 @@ type TreeNode struct {
 
 type LayerNode struct {
 	*TreeNode
-	IsNil    bool
+	IsNil bool
 }
 
 func isSymmetric(root *TreeNode) bool {
@@ -27,40 +27,40 @@ func isSymmetric(root *TreeNode) bool {
 	} else {
 		layer = append(layer, &LayerNode{TreeNode: root.Right})
 	}
-	
+
 	isValid := true
 ALL:
 	for len(layer) > 0 {
-	    nextLayer := make([]*LayerNode, 0, 2 * len(layer))
+		nextLayer := make([]*LayerNode, 0, 2*len(layer))
 
-	    for _, node := range layer {
-	        if node.IsNil {
-	            continue
-            }
+		for _, node := range layer {
+			if node.IsNil {
+				continue
+			}
 
-            if node.Left == nil {
-                nextLayer = append(nextLayer, &LayerNode{IsNil: true})
-            } else {
-                nextLayer = append(nextLayer, &LayerNode{TreeNode: node.Left})
-            }
-            if node.Right == nil {
-                nextLayer = append(nextLayer, &LayerNode{IsNil: true})
-            } else {
-                nextLayer = append(nextLayer, &LayerNode{TreeNode: node.Right})
-            }
-        }
+			if node.Left == nil {
+				nextLayer = append(nextLayer, &LayerNode{IsNil: true})
+			} else {
+				nextLayer = append(nextLayer, &LayerNode{TreeNode: node.Left})
+			}
+			if node.Right == nil {
+				nextLayer = append(nextLayer, &LayerNode{IsNil: true})
+			} else {
+				nextLayer = append(nextLayer, &LayerNode{TreeNode: node.Right})
+			}
+		}
 
-        for left, right := 0, len(layer)-1; left < right; left, right = left+1, right-1 {
-            if layer[left].IsNil && layer[right].IsNil {
-                continue
-            } else if (layer[left].IsNil || layer[right].IsNil) || layer[left].Val != layer[right].Val {
-                isValid = false
-                break ALL
-            }
-        }
+		for left, right := 0, len(layer)-1; left < right; left, right = left+1, right-1 {
+			if layer[left].IsNil && layer[right].IsNil {
+				continue
+			} else if (layer[left].IsNil || layer[right].IsNil) || layer[left].Val != layer[right].Val {
+				isValid = false
+				break ALL
+			}
+		}
 
-        layer = nextLayer
-    }
+		layer = nextLayer
+	}
 
-    return isValid
+	return isValid
 }

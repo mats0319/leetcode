@@ -18,10 +18,10 @@ func firstBadVersion(n int) int {
 	for left < right {
 		index := left + (right-left)/2
 		if isBadVersion(index) {
-		    right = index
-        } else {
-            left = index+1
-        }
+			right = index
+		} else {
+			left = index + 1
+		}
 	}
 
 	return left

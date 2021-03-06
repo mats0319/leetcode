@@ -8,7 +8,7 @@ var testCase = []struct {
 }{
 	// test cases here
 	{[][]int{{1}, {2}, {3}, {}}, true},
-	{[][]int{{1,3},{3,0,1},{2},{0}}, false},
+	{[][]int{{1, 3}, {3, 0, 1}, {2}, {0}}, false},
 }
 
 func TestCanVisitAllRooms(t *testing.T) {

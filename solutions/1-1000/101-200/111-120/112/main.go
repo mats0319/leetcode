@@ -1,8 +1,8 @@
 package mario
 
 type TreeNode struct {
-	Val int
-	Left *TreeNode
+	Val   int
+	Left  *TreeNode
 	Right *TreeNode
 }
 
@@ -16,7 +16,7 @@ func hasPathSum(root *TreeNode, targetSum int) bool {
 
 func calcSum(root *TreeNode, sum, target int) bool {
 	if root.Left == nil && root.Right == nil {
-		return sum + root.Val == target
+		return sum+root.Val == target
 	}
 
 	isEqual := false

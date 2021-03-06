@@ -1,7 +1,7 @@
 package mario
 
 import (
-    "strings"
+	"strings"
 )
 
 func isValid(code string) bool {
@@ -28,36 +28,36 @@ func splitTag(str string) (string, string) {
 	}
 
 	// can not parse 'tag name end'
-	length := closeIndex-1
-	if len(str) < 2*length + 5 || str[len(str)-1-length-2:len(str)-1-length] != "</" || str[len(str)-1] != '>' {
-	    return "", ""
-    }
+	length := closeIndex - 1
+	if len(str) < 2*length+5 || str[len(str)-1-length-2:len(str)-1-length] != "</" || str[len(str)-1] != '>' {
+		return "", ""
+	}
 
 	tagNameStart := str[1:closeIndex]
-	tagNameEnd := str[len(str)-1-length:len(str)-1]
+	tagNameEnd := str[len(str)-1-length : len(str)-1]
 
 	if !isValidTagName(tagNameStart, tagNameEnd) {
-	    return "", ""
-    }
+		return "", ""
+	}
 
-	return tagNameStart, str[length+3: len(str)-1-length-2]
+	return tagNameStart, str[length+3 : len(str)-1-length-2]
 }
 
 // isValidTagName judge if two tag is equal and valid
 func isValidTagName(start, end string) bool {
-    if len(start) != len(end) {
-        return false
-    }
+	if len(start) != len(end) {
+		return false
+	}
 
-    validFlag := true
-    for i, char := range start {
-        if start[i] != end[i] || !('A' <= char && char <= 'Z') {
-            validFlag = false
-            break
-        }
-    }
+	validFlag := true
+	for i, char := range start {
+		if start[i] != end[i] || !('A' <= char && char <= 'Z') {
+			validFlag = false
+			break
+		}
+	}
 
-    return validFlag
+	return validFlag
 }
 
 // isValidContent return if input string is a valid content

@@ -1,25 +1,25 @@
 package mario
 
 type ListNode struct {
-    Val int
-    Next *ListNode
+	Val  int
+	Next *ListNode
 }
 
 func oddEvenList(head *ListNode) *ListNode {
-    if head == nil {
-        return nil
-    }
+	if head == nil {
+		return nil
+	}
 
-    odd, even := head, head.Next
-    evenBackup := even
-    for even != nil && even.Next != nil {
-        odd.Next = even.Next
-        odd = odd.Next
-        even.Next = odd.Next
-        even = even.Next
-    }
+	odd, even := head, head.Next
+	evenBackup := even
+	for even != nil && even.Next != nil {
+		odd.Next = even.Next
+		odd = odd.Next
+		even.Next = odd.Next
+		even = even.Next
+	}
 
-    odd.Next = evenBackup
+	odd.Next = evenBackup
 
-    return head
+	return head
 }

@@ -10,8 +10,8 @@ var testCase = []struct {
 	Expect []string
 }{
 	// test cases here
-	{In: []string{"bella","label","roller"}, Expect: []string{"e","l","l"}},
-	{In: []string{"cool","lock","cook"}, Expect: []string{"c","o"}},
+	{In: []string{"bella", "label", "roller"}, Expect: []string{"e", "l", "l"}},
+	{In: []string{"cool", "lock", "cook"}, Expect: []string{"c", "o"}},
 }
 
 func TestCommonChars(t *testing.T) {

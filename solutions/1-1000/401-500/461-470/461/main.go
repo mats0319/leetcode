@@ -1,16 +1,16 @@
 package mario
 
 func hammingDistance(x int, y int) int {
-    num := x^y
+	num := x ^ y
 
-    count := 0
-    for num > 0 {
-        if num % 2 == 1 {
-            count++
-        }
+	count := 0
+	for num > 0 {
+		if num%2 == 1 {
+			count++
+		}
 
-        num >>= 1
-    }
+		num >>= 1
+	}
 
-    return count
+	return count
 }

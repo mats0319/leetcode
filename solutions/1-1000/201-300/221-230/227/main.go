@@ -17,13 +17,13 @@ func calculate(s string) int {
 			operator = append(operator, s[i])
 			calcFlag = true
 		default: // number
-			j := i+1
+			j := i + 1
 			for j < len(s) && isNum(s[j]) {
 				j++
 			}
 
 			v, _ := strconv.Atoi(s[i:j])
-			i = j-1
+			i = j - 1
 
 			if !calcFlag {
 				number = append(number, v)

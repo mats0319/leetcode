@@ -1,13 +1,13 @@
 package mario
 
 type ListNode struct {
-    Val int
-    Next *ListNode
+	Val  int
+	Next *ListNode
 }
 
 func deleteNode(node *ListNode) {
-    node.Val = node.Next.Val
-    node.Next = node.Next.Next
+	node.Val = node.Next.Val
+	node.Next = node.Next.Next
 
-    return
+	return
 }

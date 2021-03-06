@@ -26,7 +26,7 @@ func postorderTraversal(root *TreeNode) int {
 		return -1
 	}
 
-	return max(leftHeight, rightHeight)+1
+	return max(leftHeight, rightHeight) + 1
 }
 
 func abs(x int) int {

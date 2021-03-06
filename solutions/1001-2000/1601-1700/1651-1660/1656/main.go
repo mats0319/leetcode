@@ -16,13 +16,13 @@ func (this *OrderedStream) Insert(idKey int, value string) []string {
 	this.data[idKey] = value
 
 	if idKey != this.index {
-	    return nil
-    }
+		return nil
+	}
 
 	res := make([]string, 0, len(this.data)-idKey+1)
 	for this.index < len(this.data) && len(this.data[this.index]) > 0 {
 		res = append(res, this.data[this.index])
-        this.index++
+		this.index++
 	}
 
 	return res

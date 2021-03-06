@@ -14,8 +14,8 @@ func restoreIpAddresses(s string) []string {
 	res := make([]string, 0)
 	// '[start, end)'
 	for a := 1; a < 4; a++ {
-		for b := a+1; b < len(s)-1 && b < a+4; b++ {
-			for c := b+1; c < len(s) && c < b+4; c++ {
+		for b := a + 1; b < len(s)-1 && b < a+4; b++ {
+			for c := b + 1; c < len(s) && c < b+4; c++ {
 				if len(s[c:]) > 3 {
 					continue
 				}

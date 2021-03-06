@@ -21,13 +21,13 @@ func findNumOfValidWords(words []string, puzzles []string) []int {
 	// loop all valid puzzle rule for each puzzle, add it's times
 	res := make([]int, len(puzzles))
 	for i := range puzzles {
-		first := 1 << (puzzles[i][0]-'a')
+		first := 1 << (puzzles[i][0] - 'a')
 
-		for loop := 0; loop < 1 << 6; loop++ {
+		for loop := 0; loop < 1<<6; loop++ {
 			var constitute int
 			for j := 0; j < 6; j++ {
-				if (loop >> j) & 1 == 1 {
-					constitute |= 1 << (puzzles[i][j+1]-'a')
+				if (loop>>j)&1 == 1 {
+					constitute |= 1 << (puzzles[i][j+1] - 'a')
 				}
 			}
 

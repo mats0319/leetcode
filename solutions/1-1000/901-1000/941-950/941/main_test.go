@@ -7,7 +7,7 @@ var testCase = []struct {
 	Expect bool
 }{
 	// test cases here
-	{[]int{1,3,2}, true},
+	{[]int{1, 3, 2}, true},
 }
 
 func TestValidMountainArray(t *testing.T) {

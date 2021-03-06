@@ -26,9 +26,9 @@ func equalSubstring(s string, t string, maxCost int) int {
 
 func calcCost(a, b uint8) (res int) {
 	if a > b {
-		res = int(a-b)
+		res = int(a - b)
 	} else {
-		res = int(b-a)
+		res = int(b - a)
 	}
 
 	return
