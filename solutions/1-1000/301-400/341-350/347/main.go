@@ -1,65 +1,70 @@
 package mario
 
-type Node struct {
-    Value int
-    Frequency int
+import "sort"
 
-    Next *Node
+type listNode struct {
+	value     int
+	frequency int
+	next      *listNode
 }
 
 func topKFrequent(nums []int, k int) []int {
-    m := make(map[int]int) // map, element - frequency
-    for i := range nums {
-        m[nums[i]]++
-    }
+	var array []*listNode
+	{
+		m := make(map[int]int) // map, element - frequency
+		for i := range nums {
+			m[nums[i]]++
+		}
 
-    // rule: value from small to big, find it's position and modify in-place
-    resList := &Node{}
-    result := make([]int, k) // define before use k
-    for value, frequency := range m {
-        k--
-        resList.Value = value
-        resList.Frequency = frequency
-        delete(m, value)
+		array = make([]*listNode, 0, len(m))
+		for key, v := range m {
+			array = append(array, &listNode{value: key, frequency: v})
+		}
+	}
 
-        break // run only once
-    }
-    for value, frequency := range m {
-        if k > 0 {
-            resList = resList.Upsert(value, frequency, false)
+	list := makeList(array[:k])
+	for i := k; i < len(array); i++ {
+		if array[i].frequency > list.frequency {
+			list = updateList(list, array[i])
+		}
+	}
 
-            k--
-            delete(m, value)
-        }
-    }
-    for value, frequency := range m {
-        if frequency > resList.Frequency {
-            resList = resList.Upsert(value, frequency, true)
-        }
-    }
+	res := make([]int, 0, k)
+	for list != nil {
+		res = append(res, list.value)
+		list = list.next
+	}
 
-    for i := range result {
-        result[i] = resList.Value
-        resList = resList.Next
-    }
-
-    return result
+	return res
 }
 
-// list is ordered from small to big, sort by frequency
-func (n *Node) Upsert(value, frequency int, update bool) (result *Node) {
-    pre, curr := &Node{Next: n}, n
-    result = pre
-    for ; curr != nil && frequency > curr.Frequency; pre, curr = pre.Next, curr.Next {
-    }
+// sort by frequency, from small to big
+func makeList(elems []*listNode) *listNode {
+	sort.Slice(elems, func(i, j int) bool {
+		return elems[i].frequency < elems[j].frequency
+	})
 
-    // curr == nil is ok
-    pre.Next = &Node{Value: value, Frequency: frequency, Next: curr}
+	pre := &listNode{}
+	q := pre
+	for _, item := range elems {
+		q.next = &listNode{value: item.value, frequency: item.frequency}
+		q = q.next
+	}
 
-    result = result.Next
-    if update {
-        result = result.Next
-    }
+	return pre.next
+}
 
-    return
+// item.frequency > head.frequency
+func updateList(head *listNode, item *listNode) *listNode {
+	pre := &listNode{next: head}
+	p := head
+	for p != nil && item.frequency > p.frequency {
+		pre = pre.next
+		p = p.next
+	}
+
+	pre.next = item
+	item.next = p
+
+	return head.next
 }
