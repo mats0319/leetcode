@@ -7,17 +7,6 @@ func calculate(s string) int {
 	return calcSimpleExpression(trimAllSpace(s))
 }
 
-func trimAllSpace(s string) string {
-	for i := 0; i < len(s); i++ {
-		if s[i] == ' ' {
-			s = s[:i] + s[i+1:]
-			i--
-		}
-	}
-
-	return s
-}
-
 func calcSimpleExpression(str string) (res int) {
 	var operator byte
 	for i := 0; i < len(str); i++ {
@@ -50,7 +39,7 @@ func calcSimpleExpression(str string) (res int) {
 			operator = str[i]
 		default: // numbers
 			j := i + 1
-			for j < len(str) && isNum(str[j]) {
+			for j < len(str) && '0' <= str[j] && str[j] <= '9' {
 				j++
 			}
 			value, _ := strconv.Atoi(str[i:j])
@@ -70,6 +59,13 @@ func calcSimpleExpression(str string) (res int) {
 	return
 }
 
-func isNum(b byte) bool {
-	return '0' <= b && b <= '9'
+func trimAllSpace(s string) string {
+	for i := 0; i < len(s); i++ {
+		if s[i] == ' ' {
+			s = s[:i] + s[i+1:]
+			i--
+		}
+	}
+
+	return s
 }

@@ -15,3 +15,24 @@ func dfs(currArray, nums []int, index int, res [][]int) [][]int {
 
 	return res
 }
+
+func subsets_Iteration(nums []int) [][]int {
+	res := make([][]int, 0, 1<<len(nums))
+	res = append(res, []int{})
+	for i := 0; i < len(nums); i++ {
+		length := len(res)
+		for j := 0; j < length; j++ {
+			res = append(res, deepCopy(res[j], nums[i]))
+		}
+	}
+
+	return res
+}
+
+func deepCopy(array []int, expand ...int) []int {
+	res := make([]int, 0, len(array)+len(expand))
+	res = append(array[:0:len(array)], array...)
+	res = append(res, expand...)
+
+	return res
+}

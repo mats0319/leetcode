@@ -5,37 +5,28 @@ func find132pattern(nums []int) bool {
 		return false
 	}
 
-	min := make([]int, len(nums))
-	min[0] = nums[0]
-	// init
-	for i := 1; i < len(min); i++ {
-		min[i] = small(min[i-1], nums[i])
-	}
+	part1 := nums[0]
 
-	// loop 'j'
 	isFound := false
-	for i := 1; i+1 < len(min) && !isFound; i++ {
-		part1 := min[i-1]
-		part3 := nums[i]
-		index := i + 1
-		for index < len(min) && !isFound {
-			if part1 < nums[index] && nums[index] < part3 {
-				isFound = true
-			}
+ALL:
+	for i := 1; i+1 < len(nums); i++ {
+		part3 := nums[i]  // fixed part3
+		if nums[i-1] < part1 {
+			part1 = nums[i-1]
+		}
 
-			index++
+		if part1 >= part3 {
+			continue
+		}
+
+		// loop part2
+		for part2Index := i + 1; part2Index < len(nums); part2Index++ {
+			if part1 < nums[part2Index] && nums[part2Index] < part3 {
+				isFound = true
+				break ALL
+			}
 		}
 	}
 
 	return isFound
-}
-
-func small(a, b int) (res int) {
-	if a < b {
-		res = a
-	} else {
-		res = b
-	}
-
-	return
 }
