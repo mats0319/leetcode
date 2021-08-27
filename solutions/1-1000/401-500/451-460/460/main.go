@@ -1,209 +1,97 @@
 package mario
 
 type LFUCache struct {
-	data      map[int]*dataListNode      // key - node length: len(map)
-	freqNode  map[int]*frequencyListNode // frequency - node
-	frequency *frequencyList
-	capacity  int
-}
-
-type frequencyList struct {
-	head *frequencyListNode
-	tail *frequencyListNode
-}
-
-type frequencyListNode struct {
-	frequency int
-	length    int
-	data      *dataList
-	prev      *frequencyListNode
-	next      *frequencyListNode
-}
-
-type dataList struct {
-	head *dataListNode
-	tail *dataListNode
-}
-
-type dataListNode struct {
-	key       int
-	value     int
-	frequency int
-	prev      *dataListNode
-	next      *dataListNode
+	freq     map[int]*freqListNode // freq - node
+	data     map[int]*dataListNode // key - node
+	list     *freqDoublyList
+	capacity int
 }
 
 func Constructor(capacity int) LFUCache {
 	return LFUCache{
-		data:      make(map[int]*dataListNode, capacity),
-		freqNode:  make(map[int]*frequencyListNode),
-		frequency: newFrequencyList(),
-		capacity:  capacity,
+		freq:     make(map[int]*freqListNode),
+		data:     make(map[int]*dataListNode),
+		list:     newFreqDoublyList(),
+		capacity: capacity,
 	}
 }
 
 func (lfu *LFUCache) Get(key int) int {
-	node, ok := lfu.data[key]
+	dataNode, ok := lfu.data[key]
 	if !ok {
 		return -1
 	}
 
-	node.remove()
-	freq := node.frequency
-	freqNode := lfu.freqNode[freq]
-	freqNode.length--
-	if freqNode.length <= 0 {
-		freqNode.remove()
-		delete(lfu.freqNode, freqNode.frequency)
+	// remove data node
+	freq := dataNode.Frequency
+	removeDataNode(dataNode)
+	freqNode, _ := lfu.freq[freq] // avoid panic
+	if freqNode.data.isEmpty() {
+		prev := freqNode.prev
+
+		removeFreqNode(freqNode)
+		delete(lfu.freq, freqNode.frequency)
+
+		freqNode = prev
 	}
 
-	node.frequency++
-	lfu.data[key] = node
+	// add data node
+	dataNode.Frequency++
+	nextFreqNode, ok := lfu.freq[freq+1]
+	if !ok {
+		nextFreqNode = &freqListNode{
+			frequency: 1,
+			data:      newDataDoublyList(),
+		}
 
-	if freqNode.next.frequency != freq+1 {
-		freqNode.addNext(freq+1)
+		freqNode.addAfter(nextFreqNode)
+		lfu.freq[1] = nextFreqNode
 	}
-	next := freqNode.next
-	next.data.addToHead(node)
-	next.length++
+	nextFreqNode.data.addToHead(dataNode)
 
-	return node.value
+	return dataNode.Value
 }
 
 func (lfu *LFUCache) Put(key int, value int) {
-	if node, ok := lfu.data[key]; ok {
-		// update data and move node
-		node.remove()
-		freq := node.frequency
-		freqNode := lfu.freqNode[freq]
-		freqNode.length--
-		if freqNode.length <= 0 {
-			freqNode.remove()
-			delete(lfu.freqNode, freqNode.frequency)
-		}
+	if _, ok := lfu.data[key]; ok {
+		_ = lfu.Get(key) // updated dataNode.freq
 
-		node.value = value
-		node.frequency++
-		lfu.data[key] = node
-
-		if freqNode.next.frequency != freq+1 {
-			freqNode.addNext(freq+1)
-		}
-		next := freqNode.next
-		next.data.addToHead(node)
-		next.length++
+		dataNode, _ := lfu.data[key]
+		dataNode.Value = value
+		lfu.data[key] = dataNode
 
 		return
 	}
 
-	node := &dataListNode{
-		key:       key,
-		value:     value,
-		frequency: 1,
-	}
-
-	lfu.data[key] = node
-	if len(lfu.data) > lfu.capacity {
-		freqNode := lfu.frequency.head.next
+	// judge if it reach capacity
+	if len(lfu.data) >= lfu.capacity {
+		freqNode := lfu.list.head.next
 		k := freqNode.data.removeTail()
 		delete(lfu.data, k)
-
-		freqNode.length--
-		if freqNode.length <= 0 {
-			freqNode.remove()
-			delete(lfu.freqNode, freqNode.frequency)
+		if freqNode.data.isEmpty() {
+			removeFreqNode(freqNode)
+			delete(lfu.freq, freqNode.frequency)
 		}
 	}
 
-	if lfu.frequency.head.next.frequency != 1 {
-		freqNode := &frequencyListNode{
+	freqNode := lfu.list.head.next
+	if freqNode.frequency != 1 {
+		freqNode = &freqListNode{
 			frequency: 1,
-			length:    0,
-			data:      newDataList(),
+			data:      newDataDoublyList(),
 		}
 
-		lfu.freqNode[1] = freqNode
-
-		lfu.frequency.addToHead(freqNode)
+		lfu.list.head.addAfter(freqNode)
+		lfu.freq[1] = freqNode
 	}
 
-	freqNode, _ := lfu.freqNode[1]
-	freqNode.data.addToHead(node)
-	freqNode.length++
+	dataNode := &dataListNode{
+		Key:       key,
+		Value:     value,
+		Frequency: 1,
+	}
+	freqNode.data.addToHead(dataNode)
+	lfu.data[key] = dataNode
 
 	return
-}
-
-func newFrequencyList() *frequencyList {
-	headNode := &frequencyListNode{}
-	tailNode := &frequencyListNode{}
-	headNode.next = tailNode
-	tailNode.prev = headNode
-
-	return &frequencyList{
-		head: headNode,
-		tail: tailNode,
-	}
-}
-
-func (fl *frequencyList) addToHead(node *frequencyListNode) {
-	fl.head.next.prev = node
-	node.next = fl.head.next
-
-	fl.head.next = node
-	node.prev = fl.head
-}
-
-func (fln *frequencyListNode) addNext(frequency int) {
-	node := &frequencyListNode{
-		frequency: frequency,
-		length:    0,
-		data:      newDataList(),
-		prev:      fln,
-		next:      fln.next,
-	}
-
-	fln.next.prev = node
-	fln.next = node
-}
-
-// remove itself
-func (fln *frequencyListNode) remove() {
-	fln.prev.next = fln.next
-	fln.next.prev = fln.prev
-}
-
-func newDataList() *dataList {
-	headNode := &dataListNode{}
-	tailNode := &dataListNode{}
-	headNode.next = tailNode
-	tailNode.prev = headNode
-
-	return &dataList{
-		head: headNode,
-		tail: tailNode,
-	}
-}
-
-// make sure dl is not nil
-func (dl *dataList) addToHead(node *dataListNode) {
-	dl.head.next.prev = node
-	node.next = dl.head.next
-
-	dl.head.next = node
-	node.prev = dl.head
-}
-
-func (dl *dataList) removeTail() int {
-	node := dl.tail.prev
-
-	node.prev.next = dl.tail
-	dl.tail.prev = node.prev
-
-	return node.key
-}
-
-func (dl *dataListNode) remove() {
-	dl.prev.next = dl.next
-	dl.next.prev = dl.prev
 }

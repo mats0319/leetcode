@@ -2,8 +2,8 @@ package mario
 
 type LRUCache struct {
 	cache map[int]*doublyListNode
-	head  *doublyListNode
-	tail  *doublyListNode
+	head  *doublyListNode // dummy node
+	tail  *doublyListNode // dummy node
     capacity int
 }
 
@@ -48,6 +48,12 @@ func (this *LRUCache) Put(key int, value int) {
         return
     }
 
+    if len(this.cache) >= this.capacity {
+        node := this.tail.prev
+        removeNode(node)
+        delete(this.cache, node.key)
+    }
+
     newNode := &doublyListNode{
         key: key,
         value: value,
@@ -55,12 +61,6 @@ func (this *LRUCache) Put(key int, value int) {
 
     this.cache[key] = newNode
     this.head.addToHead(newNode)
-
-    if len(this.cache) > this.capacity {
-        node := this.tail.prev
-        removeNode(node)
-        delete(this.cache, node.key)
-    }
 }
 
 func newDoublyList() *doublyListNode {
