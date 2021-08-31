@@ -1,97 +1,104 @@
 package mario
 
 type LFUCache struct {
-	freq     map[int]*freqListNode // freq - node
-	data     map[int]*dataListNode // key - node
-	list     *freqDoublyList
+	recent   map[int]*listNode // freq - first node matched freq
+	count    map[int]int       // freq - amount
+	cache    map[int]*listNode // key - node
+	list     *doublyList
 	capacity int
 }
 
 func Constructor(capacity int) LFUCache {
 	return LFUCache{
-		freq:     make(map[int]*freqListNode),
-		data:     make(map[int]*dataListNode),
-		list:     newFreqDoublyList(),
+		recent:   make(map[int]*listNode, capacity),
+		count:    make(map[int]int),
+		cache:    make(map[int]*listNode, capacity),
+		list:     newDoublyList(),
 		capacity: capacity,
 	}
 }
 
 func (lfu *LFUCache) Get(key int) int {
-	dataNode, ok := lfu.data[key]
-	if !ok {
+	if lfu.capacity == 0 {
 		return -1
 	}
 
-	// remove data node
-	freq := dataNode.Frequency
-	removeDataNode(dataNode)
-	freqNode, _ := lfu.freq[freq] // avoid panic
-	if freqNode.data.isEmpty() {
-		prev := freqNode.prev
-
-		removeFreqNode(freqNode)
-		delete(lfu.freq, freqNode.frequency)
-
-		freqNode = prev
+	node, ok := lfu.cache[key]
+	if !ok { // key不存在
+		return -1
 	}
 
-	// add data node
-	dataNode.Frequency++
-	nextFreqNode, ok := lfu.freq[freq+1]
-	if !ok {
-		nextFreqNode = &freqListNode{
-			frequency: 1,
-			data:      newDataDoublyList(),
-		}
-
-		freqNode.addAfter(nextFreqNode)
-		lfu.freq[1] = nextFreqNode
+	// key已存在
+	if lfu.count[node.frequency+1] > 0 {
+		// 存在其他使用次数为n+1的缓存，将指定缓存移动到所有使用次数为n+1的节点之前
+		removeNode(node)
+		addBefore(lfu.recent[node.frequency+1], node)
+	} else if lfu.count[node.frequency] > 1 && lfu.recent[node.frequency] != node {
+		// 不存在其他使用次数为n+1的缓存，但存在其他使用次数为n的缓存，且当前节点不是最近的节点
+		// 将指定缓存移动到所有使用次数为n的节点之前
+		removeNode(node)
+		addBefore(lfu.recent[node.frequency], node)
 	}
-	nextFreqNode.data.addToHead(dataNode)
 
-	return dataNode.Value
+	// 更新recent
+	lfu.recent[node.frequency+1] = node
+	if lfu.count[node.frequency] <= 1 { // 不存在其他freq = n的节点，recent置空
+		lfu.recent[node.frequency] = nil
+	} else if lfu.recent[node.frequency] == node { // 存在其他freq = n的节点，且recent = node，将recent向后移动一位
+		lfu.recent[node.frequency] = node.next
+	}
+
+	// 更新使用次数对应的节点数
+	lfu.count[node.frequency+1]++
+	lfu.count[node.frequency]--
+
+	// 更新缓存使用次数
+	node.frequency++
+
+	return node.value
 }
 
 func (lfu *LFUCache) Put(key int, value int) {
-	if _, ok := lfu.data[key]; ok {
-		_ = lfu.Get(key) // updated dataNode.freq
+	if lfu.capacity == 0 {
+		return
+	}
 
-		dataNode, _ := lfu.data[key]
-		dataNode.Value = value
-		lfu.data[key] = dataNode
+	node, ok := lfu.cache[key]
+	if ok { // key已存在
+		lfu.Get(key)
+		node.value = value
 
 		return
 	}
 
-	// judge if it reach capacity
-	if len(lfu.data) >= lfu.capacity {
-		freqNode := lfu.list.head.next
-		k := freqNode.data.removeTail()
-		delete(lfu.data, k)
-		if freqNode.data.isEmpty() {
-			removeFreqNode(freqNode)
-			delete(lfu.freq, freqNode.frequency)
+	// key不存在
+	if len(lfu.cache) >= lfu.capacity { // 缓存已满，删除最后一个节点，相应更新cache、count、recent（条件）
+		tailNode := lfu.list.tail.prev
+
+		lfu.list.removeTail()
+
+		if lfu.count[tailNode.frequency] <= 1 {
+			lfu.recent[tailNode.frequency] = nil
 		}
+		lfu.count[tailNode.frequency]--
+		delete(lfu.cache, tailNode.key)
 	}
 
-	freqNode := lfu.list.head.next
-	if freqNode.frequency != 1 {
-		freqNode = &freqListNode{
-			frequency: 1,
-			data:      newDataDoublyList(),
-		}
-
-		lfu.list.head.addAfter(freqNode)
-		lfu.freq[1] = freqNode
+	newNode := &listNode{
+		key:       key,
+		value:     value,
+		frequency: 1,
 	}
 
-	dataNode := &dataListNode{
-		Key:       key,
-		Value:     value,
-		Frequency: 1,
+	// 插入新的缓存节点
+	if lfu.count[1] > 0 {
+		addBefore(lfu.recent[1], newNode)
+	} else {
+		addBefore(lfu.list.tail, newNode)
 	}
-	freqNode.data.addToHead(dataNode)
-	lfu.data[key] = dataNode
 
-	return
+	// 更新recent、count、cache
+	lfu.recent[1] = newNode
+	lfu.count[1]++
+	lfu.cache[key] = newNode
 }

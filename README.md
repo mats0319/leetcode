@@ -113,9 +113,9 @@ func put(key int, value int) {
    }
    
    // key不存在
-   if cache.full() { // 缓存容量已达上限
-      tailKey = list.removeTail()
-      delete(cache, tailKey)
+   if cache.isFull() { // 缓存容量已达上限
+      list.removeTail()
+      cache.delete(tailNode.Key)
    }
    
    newNode := &listNode {
@@ -159,10 +159,11 @@ func put(key int, value int) {
 ##### 数据结构
 
 1. recent：```map[int]*listNode```，```frequency```到**使用次数为```frequency```的节点中，最近使用的一个**的映射
-1. cache：```map[int]*listNode```，```key```到**节点**的映射
+2. count：```map[int]int```，```frequency```到**对应频率的节点数量**的映射
+3. cache：```map[int]*listNode```，```key```到**节点**的映射
     1. listNode data: ```key```, ```value```, ```frequency```
-1. list：```*list```，双向链表，维护缓存的**使用次数（优先）**和**上一次使用时间**
-1. capacity：```int```，链表容量
+4. list：```*list```，双向链表，维护缓存的**使用次数（优先）**和**上一次使用时间**
+5. capacity：```int```，链表容量
 
 ##### 功能逻辑与伪代码
 
@@ -170,12 +171,13 @@ func put(key int, value int) {
 
 1. 查询```key```是否存在：
     1. 存在：（记节点```frequency```为```n```）
-        1. 将节点从原位置删除
-        1. 若存在其他```frequency = n+1```的节点，则将节点插入到所有```frequency = n+1```的节点的前面；  
-           否则，若存在其他```frequency = n```的节点，则将节点插入到所有```frequency = n```的节点的前面；    
-           否则，不移动节点，即，取消执行上一步
-        1. 更新```recent```，将节点```frequency``` ```+1```
-        1. 返回节点的```value```
+        1. 若存在其他```frequency = n+1```的节点，则将节点移动到所有```frequency = n+1```的节点的前面；  
+           否则，若存在其他```frequency = n```的节点，且当前节点不是最近节点，则将节点移动到所有```frequency = n```的节点的前面；    
+           否则，不移动节点（该情况下，节点就应该呆在它现在的位置）
+        2. 更新```recent```
+        3. 更新```count```
+        4. 将节点```frequency``` ```+1```
+        5. 返回节点的```value```
     1. 不存在：返回```-1```
 
 ```go 
@@ -186,12 +188,12 @@ func get(key int) int {
     }
     
     // key已存在
-    if recent[node.frequency+1] != nil {
+    if count[node.frequency+1] > 0 {
         // 存在其他使用次数为n+1的缓存，将指定缓存移动到所有使用次数为n+1的节点之前
         list.removeNode(node)
-        list.addBefore(recent[node.frequency+1], node)        
-    } else if recent[node.frequency] != node || node.next.frequency == node.frequency {
-        // 不存在其他使用次数为n+1的缓存，但存在其他使用次数为n的缓存，
+        list.addBefore(recent[node.frequency+1], node)
+    } else if count[node.frequency] > 1 && recent[node.frequency] != node {
+        // 不存在其他使用次数为n+1的缓存，但存在其他使用次数为n的缓存，且当前节点不是最近的节点
         // 将指定缓存移动到所有使用次数为n的节点之前
         list.removeNode(node)
         list.addBefore(recent[node.frequency], node)
@@ -199,13 +201,15 @@ func get(key int) int {
     
     // 更新recent
     recent[node.frequency+1] = node
-    if recent[node.frequency] == node {
-        if node.next.frequency == node.frequency {
-            recent[node.frequency] = node.next
-        } else {
-            recent[node.frequency] = nil
-        }
+    if count[node.frequency] <= 1 { // 不存在其他freq = n的节点，recent置空
+        recent[node.frequency] = nil
+    } else if recent[node.frequency] == node { // 存在其他freq = n的节点，且recent = node，将recent向后移动一位
+        recent[node.frequency] = node.next
     }
+    
+    // 更新使用次数对应的节点数
+    count[node.frequency+1]++
+    count[node.frequency]--
     
     // 更新缓存使用次数
     node.frequency++
@@ -219,13 +223,55 @@ func get(key int) int {
 1. 查询key是否存在：
     1. 存在：参考读缓存-key存在，额外修改对应的value即可
     1. 不存在：
-        1. 若当前缓存容量已达上限，则淘汰尾部的缓存节点
-        1. 构造新节点：key，value，frequency = 1
-        1. 若存在其他frequency = 1的节点，则插入到它们的前面；不存在则插入链表尾部
-    
+        1. 若当前缓存容量已达上限：
+            1. 淘汰尾部的缓存节点
+            2. 若不存在其他```freq = n```的节点，则将```recent```置空
+            3. 更新```cache```
+            4. 更新```count```
+        2. 构造新节点：key，value，frequency = 1
+            1. 是否存在其他```frequency = 1```的节点：
+               1. 存在：插入到它们的前面
+               2. 不存在：插入链表尾部
+            2. 更新```recent```、```cache```、```count```
+
 ```go 
 func put(key int, value int) {
+    node, ok := cache.isExist(key)
+    if ok { // key已存在
+        get(key)
+        node.value = value
+        
+        return 
+    }
     
+    // key不存在
+    if cache.isFull() { // 缓存已满，删除最后一个节点，相应更新cache、count、recent（条件）
+        list.removeTail()
+        
+        if count[tailNode.frequency] <= 1 {
+            recent[tailNode.frequency] = nil
+        }
+        count[tailNode.frequency]--
+        cache.delete(tailNode.key)
+    }
+    
+    newNode := &listNode{
+        key: key,
+        value: value,
+        frequency: 1,
+    }
+    
+    // 插入新的缓存节点
+    if count[1] > 0 {
+        list.addBefore(recent[1], newNode)
+    } else {
+        list.addToTail(newNode)
+    }
+    
+    // 更新recent、count、cache
+    recent[1] = newNode
+    count[1]++
+    cache[key] = newNode
 }
 ```
 
