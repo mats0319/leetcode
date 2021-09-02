@@ -29,6 +29,8 @@ func (lfu *LFUCache) Get(key int) int {
 	}
 
 	// key已存在
+	next := node.next
+
 	if lfu.count[node.frequency+1] > 0 {
 		// 存在其他使用次数为n+1的缓存，将指定缓存移动到所有使用次数为n+1的节点之前
 		removeNode(node)
@@ -45,7 +47,7 @@ func (lfu *LFUCache) Get(key int) int {
 	if lfu.count[node.frequency] <= 1 { // 不存在其他freq = n的节点，recent置空
 		lfu.recent[node.frequency] = nil
 	} else if lfu.recent[node.frequency] == node { // 存在其他freq = n的节点，且recent = node，将recent向后移动一位
-		lfu.recent[node.frequency] = node.next
+		lfu.recent[node.frequency] = next
 	}
 
 	// 更新使用次数对应的节点数

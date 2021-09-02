@@ -68,7 +68,6 @@ func TestCase4(t *testing.T) {
 		res = append(res, lfu.Get(2))
 		res = append(res, lfu.Get(3))
 		lfu.Put(5, 25)
-		lfu.Put(5, 25)
 		res = append(res, lfu.Get(8))
 		lfu.Put(9, 22)
 		lfu.Put(5, 5)
@@ -122,7 +121,7 @@ func TestCase4(t *testing.T) {
 		res = append(res, lfu.Get(5))
 		lfu.Put(3, 4)
 		lfu.Put(11, 30)
-		res = append(res, lfu.Get(12))
+		res = append(res, lfu.Get(12)) // wrong
 		lfu.Put(4, 29)
 		res = append(res, lfu.Get(3))
 		res = append(res, lfu.Get(9))
