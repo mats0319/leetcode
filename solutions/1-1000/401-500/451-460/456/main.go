@@ -10,7 +10,7 @@ func find132pattern(nums []int) bool {
 	isFound := false
 ALL:
 	for i := 1; i+1 < len(nums); i++ {
-		part3 := nums[i]  // fixed part3
+		part3 := nums[i] // fixed part3
 		if nums[i-1] < part1 {
 			part1 = nums[i-1]
 		}

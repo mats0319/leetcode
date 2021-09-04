@@ -17,5 +17,5 @@ func removeElement(nums []int, val int) int {
 		}
 	}
 
-	return lastIndex+1 // return num is count, not index
+	return lastIndex + 1 // return num is count, not index
 }

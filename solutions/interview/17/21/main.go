@@ -13,7 +13,7 @@ func trap(height []int) int {
 
 	rightBig := make([]int, len(height))
 	rightBig[len(rightBig)-1] = height[len(height)-1]
-	for j := len(rightBig)-2; j > i; j-- {
+	for j := len(rightBig) - 2; j > i; j-- {
 		if height[j] > rightBig[j+1] {
 			rightBig[j] = height[j]
 		} else {

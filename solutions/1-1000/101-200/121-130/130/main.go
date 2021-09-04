@@ -20,15 +20,15 @@ func solve(board [][]byte) {
 
 	// todo: traversal and change 'O' to 'X', '' to 'O'
 	for i := 0; i < len(board); i++ {
-	    for j := 0; j < len(board[i]); j++ {
-	        if board[i][j] == 'O' {
-	            board[i][j] = 'X'
-            }
-            switch board[i][j] {
-            case 'O':
-            }
-        }
-    }
+		for j := 0; j < len(board[i]); j++ {
+			if board[i][j] == 'O' {
+				board[i][j] = 'X'
+			}
+			switch board[i][j] {
+			case 'O':
+			}
+		}
+	}
 
 	return
 }

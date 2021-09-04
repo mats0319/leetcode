@@ -12,7 +12,7 @@ var directions = [][]int{
 }
 
 // board always not nil
-func gameOfLife(board [][]int)  {
+func gameOfLife(board [][]int) {
 	// alive, around alive != 2 or 3, die
 	// die, around alive = 3, alive
 
@@ -28,8 +28,8 @@ func gameOfLife(board [][]int)  {
 		for j := 0; j < col; j++ {
 			aliveCount := 0
 			for _, v := range directions {
-				x := i+v[0]
-				y := j+v[1]
+				x := i + v[0]
+				y := j + v[1]
 				if 0 <= x && x < row &&
 					0 <= y && y < col &&
 					board[x][y] >= 1 {

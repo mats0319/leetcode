@@ -15,7 +15,7 @@ func minimumTimeRequired(jobs []int, k int) int {
 		if isValid(jobs, k, mid) {
 			right = mid
 		} else {
-			left = mid+1
+			left = mid + 1
 		}
 	}
 

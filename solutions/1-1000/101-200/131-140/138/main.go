@@ -26,8 +26,8 @@ func copyRandomList(head *Node) *Node {
 
 			resP.Next = node
 
-            oldList = append(oldList, p)
-            newList = append(newList, node)
+			oldList = append(oldList, p)
+			newList = append(newList, node)
 
 			p = p.Next
 			resP = resP.Next
@@ -40,9 +40,9 @@ func copyRandomList(head *Node) *Node {
 	p := head
 	resP := res
 	for p != nil {
-	    if p.Random != nil {
-	        resP.Random = newList[getIndex(oldList, p.Random)]
-        }
+		if p.Random != nil {
+			resP.Random = newList[getIndex(oldList, p.Random)]
+		}
 
 		p = p.Next
 		resP = resP.Next
@@ -52,13 +52,13 @@ func copyRandomList(head *Node) *Node {
 }
 
 func getIndex(array []*Node, node *Node) int {
-    index := -1
-    for i := 0; i < len(array); i++ {
-        if array[i] == node {
-            index = i
-            break
-        }
-    }
+	index := -1
+	for i := 0; i < len(array); i++ {
+		if array[i] == node {
+			index = i
+			break
+		}
+	}
 
-    return index
+	return index
 }

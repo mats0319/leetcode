@@ -19,21 +19,21 @@ func Constructor() MyHashMap {
 
 /** value will always be non-negative. */
 func (this *MyHashMap) Put(key int, value int) {
-    list := this.data[key%base]
+	list := this.data[key%base]
 
-    if list == nil || !this.contains(key) {
-        this.data[key%base] = &listNode{Key: key, Value: value, Next: list}
-        return
-    }
+	if list == nil || !this.contains(key) {
+		this.data[key%base] = &listNode{Key: key, Value: value, Next: list}
+		return
+	}
 
-    for list != nil {
-        if list.Key == key {
-            list.Value = value
-            break
-        }
+	for list != nil {
+		if list.Key == key {
+			list.Value = value
+			break
+		}
 
-        list = list.Next
-    }
+		list = list.Next
+	}
 }
 
 /** Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key */

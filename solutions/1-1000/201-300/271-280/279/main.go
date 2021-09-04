@@ -8,10 +8,10 @@ func numSquares(n int) int {
 
 	index, equal := getIndex(n)
 	if equal {
-	    return 1
-    }
+		return 1
+	}
 
-    return minSummary(n, index)
+	return minSummary(n, index)
 }
 
 func initM() {
@@ -48,16 +48,16 @@ func getIndex(n int) (index int, equal bool) {
 }
 
 func minSummary(target, index int) int {
-    dp := make([]int, target+1)
-    dp[0] = 0
-    for i := 1; i < len(dp); i++ {
-        dp[i] = i
-        for j := 1; j < index && i >= square[j]; j++ {
-            if dp[i] > dp[i-square[j]]+1 {
-                dp[i] = dp[i-square[j]]+1
-            }
-        }
-    }
+	dp := make([]int, target+1)
+	dp[0] = 0
+	for i := 1; i < len(dp); i++ {
+		dp[i] = i
+		for j := 1; j < index && i >= square[j]; j++ {
+			if dp[i] > dp[i-square[j]]+1 {
+				dp[i] = dp[i-square[j]] + 1
+			}
+		}
+	}
 
-    return dp[target]
+	return dp[target]
 }

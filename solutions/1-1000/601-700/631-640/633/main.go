@@ -8,14 +8,14 @@ func judgeSquareSum(c int) bool {
 	isValid := false
 	for left <= right {
 		sum := left*left + right*right
-        if sum == c {
-            isValid = true
-            break
-        } else if sum > c {
-            right--
-        } else {
-            left++
-        }
+		if sum == c {
+			isValid = true
+			break
+		} else if sum > c {
+			right--
+		} else {
+			left++
+		}
 	}
 
 	return isValid

@@ -7,14 +7,14 @@ type NestedInteger struct {
 
 // Return true if this NestedInteger holds a single integer, rather than a nested list.
 func (this NestedInteger) IsInteger() bool {
-    panic("implement me")
+	panic("implement me")
 }
 
 // Return the single integer that this NestedInteger holds, if it holds a single integer
 // The result is undefined if this NestedInteger holds a nested list
 // So before calling this method, you should have a check
 func (this NestedInteger) GetInteger() int {
-    panic("implement me")
+	panic("implement me")
 }
 
 // Set this NestedInteger to hold a single integer.
@@ -27,5 +27,5 @@ func (this *NestedInteger) Add(elem NestedInteger) {}
 // The list length is zero if this NestedInteger holds a single integer
 // You can access NestedInteger's List element directly if you want to modify it
 func (this NestedInteger) GetList() []*NestedInteger {
-    panic("implement me")
+	panic("implement me")
 }

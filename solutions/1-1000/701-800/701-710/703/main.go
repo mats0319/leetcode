@@ -44,7 +44,7 @@ func (ln *listNode) update(value int) {
 
 	pre.next = &listNode{
 		value: value,
-		next: pre.next,
+		next:  pre.next,
 	}
 
 	*ln = *(ln.next)

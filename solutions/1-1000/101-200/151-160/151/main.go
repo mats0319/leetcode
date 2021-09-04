@@ -17,7 +17,7 @@ func reverseWords(s string) string {
 	}
 
 	res := ""
-	for i := len(stack)-1; i >= 0; i-- {
+	for i := len(stack) - 1; i >= 0; i-- {
 		res += stack[i] + " "
 	}
 

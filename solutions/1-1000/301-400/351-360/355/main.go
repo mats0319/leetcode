@@ -26,32 +26,32 @@ func (this *Twitter) PostTweet(userId int, tweetId int) {
 
 /** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */
 func (this *Twitter) GetNewsFeed(userId int) []int {
-    relations := this.subscribes[userId]
-    relations = append(relations, userId)
+	relations := this.subscribes[userId]
+	relations = append(relations, userId)
 
-    return this.tweets.getRelatedNode(relations, 10)
+	return this.tweets.getRelatedNode(relations, 10)
 }
 
 /** Follower follows a followee. If the operation is invalid, it should be a no-op. */
 func (this *Twitter) Follow(followerId int, followeeId int) {
-    subscribeIDs := this.subscribes[followerId]
-    subscribeIDs = append(subscribeIDs, followeeId)
+	subscribeIDs := this.subscribes[followerId]
+	subscribeIDs = append(subscribeIDs, followeeId)
 
-    this.subscribes[followerId] = subscribeIDs
+	this.subscribes[followerId] = subscribeIDs
 }
 
 /** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */
 func (this *Twitter) Unfollow(followerId int, followeeId int) {
-    subscribeIDs := this.subscribes[followerId]
+	subscribeIDs := this.subscribes[followerId]
 
-    for i := range subscribeIDs {
-        if subscribeIDs[i] == followeeId {
-            subscribeIDs = append(subscribeIDs[:i], subscribeIDs[i+1:]...)
-            break
-        }
-    }
+	for i := range subscribeIDs {
+		if subscribeIDs[i] == followeeId {
+			subscribeIDs = append(subscribeIDs[:i], subscribeIDs[i+1:]...)
+			break
+		}
+	}
 
-    this.subscribes[followerId] = subscribeIDs
+	this.subscribes[followerId] = subscribeIDs
 }
 
 func (ln *listNode) addToHead(tweetID, userID int) {

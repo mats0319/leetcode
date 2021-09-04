@@ -22,12 +22,12 @@ func shipWithinDays(weights []int, D int) int {
 				continue
 			}
 
-            useDays++
-            if useDays > D {
-                break
-            }
+			useDays++
+			if useDays > D {
+				break
+			}
 
-            currWeight = weights[i]
+			currWeight = weights[i]
 		}
 
 		if useDays > D {

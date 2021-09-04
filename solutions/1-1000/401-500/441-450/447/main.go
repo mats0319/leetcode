@@ -1,7 +1,7 @@
 package mario
 
 func numberOfBoomerangs(points [][]int) int {
-    res := 0
+	res := 0
 	for i := range points {
 		x1, y1 := points[i][0], points[i][1]
 		m := make(map[int]int, len(points)) // distance - points' count
@@ -10,10 +10,10 @@ func numberOfBoomerangs(points [][]int) int {
 		}
 
 		for _, v := range m {
-		    if v > 1 {
-		        res += v * (v-1)
-            }
-        }
+			if v > 1 {
+				res += v * (v - 1)
+			}
+		}
 	}
 
 	return res

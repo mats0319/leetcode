@@ -1,7 +1,7 @@
 package mario
 
 import (
-    "strings"
+	"strings"
 )
 
 type MapSum struct {
@@ -21,18 +21,18 @@ func Constructor() MapSum {
 }
 
 func (this *MapSum) Insert(key string, val int) {
-    isExist := false
-    for i := range this.data {
-        if this.data[i].key == key {
-            isExist = true
-            this.data[i].value = val
-            break
-        }
-    }
+	isExist := false
+	for i := range this.data {
+		if this.data[i].key == key {
+			isExist = true
+			this.data[i].value = val
+			break
+		}
+	}
 
-    if isExist {
-        return
-    }
+	if isExist {
+		return
+	}
 
 	this.data = append(this.data, &pair{
 		key:   key,

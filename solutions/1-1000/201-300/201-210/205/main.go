@@ -11,18 +11,18 @@ func isIsomorphic(s string, t string) bool {
 		v, ok := m[s[i]]
 
 		if !ok {
-            _, isExist := mReverse[t[i]]
-            if isExist {
-                isValid = false
-                break
-            }
+			_, isExist := mReverse[t[i]]
+			if isExist {
+				isValid = false
+				break
+			}
 
-            m[s[i]] = t[i]
-            mReverse[t[i]] = s[i]
-        } else if t[i] != v {
-            isValid = false
-            break
-        }
+			m[s[i]] = t[i]
+			mReverse[t[i]] = s[i]
+		} else if t[i] != v {
+			isValid = false
+			break
+		}
 	}
 
 	return isValid

@@ -18,7 +18,7 @@ func largestDivisibleSubset(nums []int) []int {
 			maxLength[i] = 1
 			lastIndex[i] = -1
 		} else {
-			maxLength[i] = maxLength[index]+1
+			maxLength[i] = maxLength[index] + 1
 			lastIndex[i] = index
 		}
 	}
@@ -48,7 +48,7 @@ func getLastIndex(array, length []int, targetIndex int) int {
 	{
 		maxLength := -1
 		for i := 0; i < targetIndex; i++ {
-			if length[i] > maxLength && array[targetIndex] % array[i] == 0 {
+			if length[i] > maxLength && array[targetIndex]%array[i] == 0 {
 				maxLength = length[i]
 				index = i
 			}

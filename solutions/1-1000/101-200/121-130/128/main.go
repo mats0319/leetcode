@@ -8,11 +8,11 @@ func longestConsecutive(nums []int) int {
 
 	res := 0
 	for len(m) > 0 {
-	    var k int
-	    for k = range m {
-	    	delete(m, k)
-	        break
-        }
+		var k int
+		for k = range m {
+			delete(m, k)
+			break
+		}
 
 		length := 1
 

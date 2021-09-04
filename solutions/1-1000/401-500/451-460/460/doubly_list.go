@@ -42,12 +42,12 @@ func addBefore(currNode *listNode, newNode *listNode) {
 }
 
 func (dl *doublyList) removeTail() {
-    pre := dl.tail.prev.prev
+	pre := dl.tail.prev.prev
 
-    pre.next = dl.tail
-    dl.tail.prev = pre
+	pre.next = dl.tail
+	dl.tail.prev = pre
 }
 
 func (dl *doublyList) isEmpty() bool {
-    return dl.head.next == dl.tail
+	return dl.head.next == dl.tail
 }

@@ -11,8 +11,8 @@ var testCase = []struct {
 }{
 	// test cases here
 	{2, [][]int{
-		{1,2},
-		{4,3},
+		{1, 2},
+		{4, 3},
 	}},
 }
 
