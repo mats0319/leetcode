@@ -26,13 +26,24 @@ func (mc *MyCalendar) Book(start int, end int) bool {
 		return false
 	}
 
-	newNode := &listNode{
-		start: start,
-		end:   end,
-		next:  pre.next,
+	if pre.end == start {
+		pre.end = end
+	} else { // pre.end < start
+		newNode := &listNode{
+			start: start,
+			end:   end,
+			next:  pre.next,
+		}
+
+		pre.next = newNode
+		pre = pre.next
 	}
 
-	pre.next = newNode
+	if pre.next != nil && end == pre.next.start {
+		pre.end = pre.next.end
+
+		pre.next = pre.next.next
+	}
 
 	return true
 }
