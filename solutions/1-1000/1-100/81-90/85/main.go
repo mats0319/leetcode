@@ -12,15 +12,13 @@ func maximalRectangle(matrix [][]byte) (result int) {
 		for j := range height {
 			height[j] = (height[j] + 1) * int(matrix[i][j]-'0') // update height
 
-			if height[j] > 0 {
-				minHeight := height[j]
-				for k := j; k >= 0 && height[k] > 0; k-- { // loop valid width
-					minHeight = min(minHeight, height[k])
-					s := minHeight * (j - k + 1)
+			minHeight := height[j]
+			for k := j; k >= 0 && height[k] > 0; k-- { // loop valid width
+				minHeight = min(minHeight, height[k])
+				s := minHeight * (j - k + 1)
 
-					if result < s {
-						result = s
-					}
+				if result < s {
+					result = s
 				}
 			}
 		}
