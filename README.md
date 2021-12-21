@@ -139,7 +139,7 @@ func put(key int, value int) {
     1. ```key```不存在，写入该组缓存，若写入前缓存容量已达上限，则应淘汰使用次数最少的缓存（记其使用次数为```n```）；  
        若使用次数为```n```的缓存数大于一个，则淘汰最久未使用的缓存（即，此时遵守lru规则）
 
-##### 分析过程——Solution 1
+##### 分析过程——Solution 1：单一链表+maps
 
 > 目标：```O(1)```复杂度
 
@@ -277,7 +277,7 @@ func put(key int, value int) {
 }
 ```
 
-##### 分析过程——Solution 2
+##### 分析过程——Solution 2：十字链表
 
 > 目标：```O(1)```复杂度
 
@@ -407,9 +407,3 @@ func put(key int, value int) {
     cacheMap[key] = newcacheNode    
 }
 ```
-
----
-
-###### Mario
-
-I've been pretending to work hard, but you're really growing up.

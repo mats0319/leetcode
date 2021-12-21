@@ -1,8 +1,6 @@
 language: go
 
-go: "1.15.x"
-
-env: GO111MODULE=on
+go: "1.17.x"
 
 before_install: chmod +x ./go.test.sh
 
