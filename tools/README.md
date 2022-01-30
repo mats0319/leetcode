@@ -10,4 +10,4 @@ It can generate a function's test file, but it only works on the same directory-
 
 ### use
 
-```go run test_gen.go -n [number]```
+```go run . -n [number]```

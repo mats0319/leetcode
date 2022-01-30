@@ -1,10 +1,11 @@
 package mario
 
-import (
-	cmp "github.com/mats9693/utils/compare"
-)
+type ListNode struct {
+	Val int
+	Next *ListNode
+}
 
-func reverseList(head *cmp.ListNode) *cmp.ListNode {
+func reverseList(head *ListNode) *ListNode {
 	stack := make([]int, 0)
 
 	p := head
@@ -21,7 +22,7 @@ func reverseList(head *cmp.ListNode) *cmp.ListNode {
 	return head
 }
 
-func reverseListRecursive(head *cmp.ListNode) *cmp.ListNode {
+func reverseListRecursive(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
@@ -29,7 +30,7 @@ func reverseListRecursive(head *cmp.ListNode) *cmp.ListNode {
 	return revert(nil, head, head.Next) // todo: tail recursion optimize
 }
 
-func revert(pre, cur, next *cmp.ListNode) *cmp.ListNode {
+func revert(pre, cur, next *ListNode) *ListNode {
 	cur.Next = pre
 
 	if next == nil {
@@ -39,12 +40,12 @@ func revert(pre, cur, next *cmp.ListNode) *cmp.ListNode {
 	return revert(cur, next, next.Next)
 }
 
-func reverseListIteration(head *cmp.ListNode) *cmp.ListNode {
+func reverseListIteration(head *ListNode) *ListNode {
 	if head == nil { // head.next == nil is ok
 		return head
 	}
 
-	var pre, cur, next *cmp.ListNode // now, pre is nil
+	var pre, cur, next *ListNode // now, pre is nil
 	for cur, next = head, head.Next; ; next = next.Next {
 		cur.Next = pre
 

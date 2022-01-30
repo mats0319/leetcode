@@ -1,10 +1,13 @@
 package mario
 
-import "github.com/mats9693/utils/compare"
+type ListNode struct {
+	Val int
+	Next *ListNode
+}
 
-func mergeTwoLists(l1 *cmp.ListNode, l2 *cmp.ListNode) *cmp.ListNode {
+func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	var (
-		p      = &cmp.ListNode{}
+		p      = &ListNode{}
 		result = p
 	)
 

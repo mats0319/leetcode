@@ -1,13 +1,16 @@
 package mario
 
-import "github.com/mats9693/utils/compare"
+type ListNode struct {
+	Val int
+	Next *ListNode
+}
 
-func swapPairs(head *cmp.ListNode) *cmp.ListNode {
+func swapPairs(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
 
-	result := &cmp.ListNode{Next: head}
+	result := &ListNode{Next: head}
 	for p := result; p.Next != nil && p.Next.Next != nil; p = p.Next.Next {
 		q := p.Next
 

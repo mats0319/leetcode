@@ -1,15 +1,13 @@
 package mario
 
-import (
-	"github.com/mats9693/utils/sort"
-)
+import "sort"
 
 func threeSum(nums []int) [][]int {
 	if len(nums) < 3 {
 		return nil
 	}
 
-	sort.QuickSort(nums)
+	sort.Ints(nums)
 
 	var (
 		left, right, t int

@@ -1,6 +1,6 @@
 package mario
 
-import "github.com/mats9693/utils/sort"
+import "sort"
 
 func fourSum(nums []int, target int) [][]int {
 	if len(nums) < 4 {
@@ -14,7 +14,7 @@ func fourSum(nums []int, target int) [][]int {
 		}
 	}
 
-	sort.QuickSort(nums)
+	sort.Ints(nums)
 
 	var (
 		length        = len(nums)

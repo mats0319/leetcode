@@ -1,14 +1,14 @@
 package mario
 
-import "github.com/mats9693/utils/sort"
+import "sort"
 
 func intersection(nums1 []int, nums2 []int) []int {
 	if len(nums1) < 1 || len(nums2) < 1 {
 		return nil
 	}
 
-	sort.QuickSort(nums1)
-	sort.QuickSort(nums2)
+	sort.Ints(nums1)
+	sort.Ints(nums2)
 
 	result := make([]int, 0)
 	pre := nums1[0] - 1

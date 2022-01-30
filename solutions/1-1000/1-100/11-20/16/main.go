@@ -1,8 +1,8 @@
 package mario
 
 import (
-	"github.com/mats9693/utils/sort"
 	"math"
+	"sort"
 )
 
 func threeSumClosest(nums []int, target int) int {
@@ -11,7 +11,7 @@ func threeSumClosest(nums []int, target int) int {
 		closest                   = math.MaxInt32
 	)
 
-	sort.QuickSort(nums)
+	sort.Ints(nums)
 
 	for i := 0; i < len(nums)-2; i++ {
 		left = i + 1

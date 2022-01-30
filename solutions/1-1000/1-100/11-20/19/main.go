@@ -1,9 +1,11 @@
 package mario
 
-import "github.com/mats9693/utils/compare"
+type ListNode struct {
+	Next *ListNode
+}
 
-func removeNthFromEnd(head *cmp.ListNode, n int) *cmp.ListNode {
-	result := &cmp.ListNode{Next: head}
+func removeNthFromEnd(head *ListNode, n int) *ListNode {
+	result := &ListNode{Next: head}
 
 	p, q := result, result
 	for i := 0; i <= n; i++ {

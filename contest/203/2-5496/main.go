@@ -1,9 +1,9 @@
 package mario
 
-import "github.com/mats9693/utils/sort"
+import "sort"
 
 func maxCoins(piles []int) int {
-	sort.QuickSort(piles)
+	sort.Ints(piles)
 
 	l, r := 0, len(piles)-1
 	res := 0
