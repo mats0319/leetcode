@@ -1,6 +1,6 @@
 # leetcode
 
-[![GoDoc](https://godoc.org/github.com/mats9693/leetcode?status.svg)](https://pkg.go.dev/github.com/mats9693/leetcode)
+[![Go Reference](https://pkg.go.dev/badge/github.com/mats9693/leetcode.svg)](https://pkg.go.dev/github.com/mats9693/leetcode)
 [![Go Report Card](https://goreportcard.com/badge/github.com/mats9693/leetcode)](https://goreportcard.com/report/github.com/mats9693/leetcode)
 
 ## 学习leetcode题库的目的
