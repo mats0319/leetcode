@@ -21,6 +21,7 @@ import (
 var (
 	help        bool
 	questionNum int
+	createDir   bool
 )
 
 func init() {
@@ -28,6 +29,7 @@ func init() {
 	flag.IntVar(&questionNum, "n", -1, "give out question number\n"+
 		"we will read function declaration and redirect generated file automatically\n"+
 		"a valid number is from 0 to 9999 (0 means generate test at default place).")
+	flag.BoolVar(&createDir, "c", false, "create dir structure according to question number.")
 
 	flag.Parse()
 
@@ -37,21 +39,34 @@ func init() {
 		os.Exit(0)
 	}
 
-	if questionNum < 0 || questionNum >= 10000 {
-		log.Fatalln("Please input a valid question's number, more information in help with '-h' flag. ")
+	if questionNum < 0 || questionNum >= 10000 || (createDir && questionNum < 1) {
+		log.Fatalln("Please input a valid question number, more information in help with '-h' flag. ")
 	}
 }
 
 func main() {
 	log.Println("test file generate tool started. ")
+	defer log.Println("test file generate tool finished. ")
 
 	dir := getDir(questionNum)
+	if createDir {
+		err := os.MkdirAll(dir, 0755)
+		if err != nil {
+			log.Fatalln("make dir structure failed, error: ", err)
+		}
+
+		_, err = os.Create(dir + fileName)
+		if err != nil {
+			log.Fatalln("create file failed, error: ", err)
+		}
+
+		return
+	}
+
 	funcDeclaration := getFuncDeclaration(dir + fileName)
 	formatDeclaration := formatFuncDeclaration(funcDeclaration)
 
 	payload := replaceTemplate(formatDeclaration)
 
 	saveFile(payload, dir+testFileName)
-
-	log.Println("test file generate tool finished. ")
 }
