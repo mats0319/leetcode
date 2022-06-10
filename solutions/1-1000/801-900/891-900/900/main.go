@@ -1,30 +1,43 @@
 package mario
 
 type RLEIterator struct {
-	data  []int
+	count []int
+	value []int
 	index int
 }
 
 func Constructor(encoding []int) RLEIterator {
-	data := make([]int, 0)
+	ins := RLEIterator{
+		count: make([]int, 0, len(encoding)/2),
+		value: make([]int, 0, len(encoding)/2),
+	}
 
 	for i := 0; i < len(encoding); i += 2 {
-		for j := 0; j < encoding[i]; j++ {
-			data = append(data, encoding[i+1])
+		if encoding[i] > 0 {
+			ins.count = append(ins.count, encoding[i])
+			ins.value = append(ins.value, encoding[i+1])
 		}
 	}
 
-	return RLEIterator{
-		data: data,
-	}
+	return ins
 }
 
-func (i *RLEIterator) Next(n int) int {
-    i.index += n
+func (ins *RLEIterator) Next(n int) int {
+	for ins.index < len(ins.count) && n > ins.count[ins.index] {
+		n -= ins.count[ins.index]
+		ins.index++
+	}
 
-    if i.index > len(i.data) {
-        return -1
-    }
+	if ins.index >= len(ins.count) {
+		return -1
+	}
 
-    return i.data[i.index-1]
+	value := ins.value[ins.index]
+	if n == ins.count[ins.index] {
+		ins.index++
+	} else {
+		ins.count[ins.index] -= n
+	}
+
+	return value
 }
