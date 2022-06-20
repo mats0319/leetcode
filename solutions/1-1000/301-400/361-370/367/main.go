@@ -1,10 +1,10 @@
 package mario
 
 func isPerfectSquare(num int) bool {
-    i := 1
-    for i*i < num {
-        i++
-    }
+	i := 1
+	for i*i < num {
+		i++
+	}
 
-    return i*i == num
+	return i*i == num
 }

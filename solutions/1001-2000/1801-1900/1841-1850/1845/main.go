@@ -18,5 +18,5 @@ func (s *SeatManager) Reserve() int {
 }
 
 func (s *SeatManager) Unreserve(seatNumber int) {
-    s.heap.Push(seatNumber)
+	s.heap.Push(seatNumber)
 }

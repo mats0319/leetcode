@@ -2,7 +2,7 @@ package mario
 
 import (
 	"strconv"
-    "strings"
+	"strings"
 )
 
 type TreeNode struct {
@@ -39,13 +39,13 @@ func (c *Codec) serialize(root *TreeNode) string {
 			node := layer[0]
 			layer = layer[1:]
 
-            if node == nil {
-                res += c.nilNode+c.sep
-                continue
-            }
+			if node == nil {
+				res += c.nilNode + c.sep
+				continue
+			}
 
-            res += strconv.Itoa(node.Val)+c.sep
-            newLayer = append(newLayer, node.Left, node.Right)
+			res += strconv.Itoa(node.Val) + c.sep
+			newLayer = append(newLayer, node.Left, node.Right)
 		}
 
 		layer = newLayer
@@ -56,47 +56,47 @@ func (c *Codec) serialize(root *TreeNode) string {
 
 // Deserializes your encoded data to tree.
 func (c *Codec) deserialize(data string) *TreeNode {
-    if len(data) < 1 {
-        return nil
-    }
+	if len(data) < 1 {
+		return nil
+	}
 
-    valueStrSlice := strings.Split(data, c.sep)
-    val, _ := strconv.Atoi(valueStrSlice[0])
-    root := &TreeNode{Val: val}
+	valueStrSlice := strings.Split(data, c.sep)
+	val, _ := strconv.Atoi(valueStrSlice[0])
+	root := &TreeNode{Val: val}
 
-    layer := []*TreeNode{root}
-    index := 1
-    for len(layer) > 0 {
-        newLayer := make([]*TreeNode, 0, len(layer)*2)
+	layer := []*TreeNode{root}
+	index := 1
+	for len(layer) > 0 {
+		newLayer := make([]*TreeNode, 0, len(layer)*2)
 
-        for len(layer) > 0 {
-            node := layer[0]
-            layer = layer[1:]
+		for len(layer) > 0 {
+			node := layer[0]
+			layer = layer[1:]
 
-            leftValStr := valueStrSlice[index]
-            rightValStr := valueStrSlice[index+1]
+			leftValStr := valueStrSlice[index]
+			rightValStr := valueStrSlice[index+1]
 
-            index += 2
+			index += 2
 
-            if leftValStr == c.nilNode {
-                node.Left = nil
-            } else {
-                val, _ = strconv.Atoi(leftValStr)
-                node.Left = &TreeNode{Val: val}
-                newLayer = append(newLayer, node.Left)
-            }
+			if leftValStr == c.nilNode {
+				node.Left = nil
+			} else {
+				val, _ = strconv.Atoi(leftValStr)
+				node.Left = &TreeNode{Val: val}
+				newLayer = append(newLayer, node.Left)
+			}
 
-            if rightValStr == c.nilNode {
-                node.Right = nil
-            } else {
-                val, _ = strconv.Atoi(rightValStr)
-                node.Right = &TreeNode{Val: val}
-                newLayer = append(newLayer, node.Right)
-            }
-        }
+			if rightValStr == c.nilNode {
+				node.Right = nil
+			} else {
+				val, _ = strconv.Atoi(rightValStr)
+				node.Right = &TreeNode{Val: val}
+				newLayer = append(newLayer, node.Right)
+			}
+		}
 
-        layer = newLayer
-    }
+		layer = newLayer
+	}
 
-    return root
+	return root
 }

@@ -15,14 +15,14 @@ func Constructor(size int) Bitset {
 func (s *Bitset) Fix(idx int) {
 	if s.fixed[idx] == s.flipped {
 		s.fixed[idx] = !s.fixed[idx]
-        s.count++
+		s.count++
 	}
 }
 
 func (s *Bitset) Unfix(idx int) {
 	if s.fixed[idx] != s.flipped {
 		s.fixed[idx] = !s.fixed[idx]
-        s.count--
+		s.count--
 	}
 }
 

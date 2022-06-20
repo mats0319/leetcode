@@ -17,25 +17,25 @@ func rightSideView(root *TreeNode) []int {
 	for len(nodeList) > 0 {
 		nextList := make([]*TreeNode, 0, len(nodeList)*2)
 
-        rightValue := 0
+		rightValue := 0
 		for len(nodeList) > 0 {
 			node := nodeList[0]
 			nodeList = nodeList[1:]
 
-            rightValue = node.Val
+			rightValue = node.Val
 
-            if node.Left != nil {
-                nextList = append(nextList, node.Left)
-            }
-            if node.Right != nil {
-                nextList = append(nextList, node.Right)
-            }
+			if node.Left != nil {
+				nextList = append(nextList, node.Left)
+			}
+			if node.Right != nil {
+				nextList = append(nextList, node.Right)
+			}
 		}
 
-        res = append(res, rightValue)
+		res = append(res, rightValue)
 
-        nodeList = nextList
+		nodeList = nextList
 	}
 
-    return res
+	return res
 }

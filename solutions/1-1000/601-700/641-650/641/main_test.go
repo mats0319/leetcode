@@ -78,11 +78,11 @@ func assertResDataSlice(a, b []*resData) bool {
 
 	isEqual := true
 	for i := 0; i < len(a); i++ {
-        if (a[i].isInt && b[i].isInt && a[i].intValue != b[i].intValue) ||
+		if (a[i].isInt && b[i].isInt && a[i].intValue != b[i].intValue) ||
 			(a[i].isBool && b[i].isBool && a[i].boolValue != b[i].boolValue) {
-            isEqual = false
-            break
-        }
+			isEqual = false
+			break
+		}
 	}
 
 	return isEqual

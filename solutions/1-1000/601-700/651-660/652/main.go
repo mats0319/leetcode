@@ -1,7 +1,7 @@
 package mario
 
 import (
-    "strconv"
+	"strconv"
 )
 
 type TreeNode struct {
@@ -24,14 +24,14 @@ func findDuplicateSubtrees(root *TreeNode) []*TreeNode {
 
 	res := make([]*TreeNode, 0)
 	for i := range nodeMap {
-	    item := nodeMap[i]
+		item := nodeMap[i]
 
-	    if item.times > 1 {
-	        res = append(res, item.node)
-        }
-    }
+		if item.times > 1 {
+			res = append(res, item.node)
+		}
+	}
 
-    return res
+	return res
 }
 
 func makeNodeMap(node *TreeNode) string {
@@ -60,15 +60,15 @@ func makeNodeMap(node *TreeNode) string {
 	rightChild := makeNodeMap(node.Right)
 
 	str = strconv.Itoa(node.Val) + spliceChildren(leftChild, rightChild)
-    wrapper, _ := nodeMap[str]
-    if wrapper == nil {
-        wrapper = &nodeWrapper{
-            node:  node,
-            times: 0,
-        }
-    }
-    wrapper.times++
-    nodeMap[str] = wrapper
+	wrapper, _ := nodeMap[str]
+	if wrapper == nil {
+		wrapper = &nodeWrapper{
+			node:  node,
+			times: 0,
+		}
+	}
+	wrapper.times++
+	nodeMap[str] = wrapper
 
 	return str
 }

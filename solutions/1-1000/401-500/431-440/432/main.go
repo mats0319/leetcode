@@ -29,7 +29,7 @@ func (a *AllOne) Inc(key string) {
 		currFreqNode, _ := a.freqNodeMap[keyNode.freq] // we consider that if keyNode is exist, it's freqNode will exist
 		prevFreqNode = currFreqNode
 
-        // rm keyNode from currFreqNode and maintain currFreqNode
+		// rm keyNode from currFreqNode and maintain currFreqNode
 		removeKeyNode(keyNode)
 		if currFreqNode.keyList.isEmpty() {
 			prevFreqNode = prevFreqNode.prev
@@ -41,7 +41,7 @@ func (a *AllOne) Inc(key string) {
 		keyNode.freq++
 	}
 
-    // add keyNode to freqNode:freq=keyNode.freq.keyList
+	// add keyNode to freqNode:freq=keyNode.freq.keyList
 	nextFreqNode, ok := a.freqNodeMap[keyNode.freq]
 	if !ok {
 		nextFreqNode = &frequencyNode{
@@ -63,7 +63,7 @@ func (a *AllOne) Dec(key string) {
 	}
 
 	currFreqNode, _ := a.freqNodeMap[keyNode.freq]
-    prevFreqNode := currFreqNode.prev
+	prevFreqNode := currFreqNode.prev
 
 	// rm keyNode from currFreqNode and maintain currFreqNode
 	removeKeyNode(keyNode)

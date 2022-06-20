@@ -7,9 +7,9 @@ type TreeNode struct {
 }
 
 func levelOrderBottom(root *TreeNode) [][]int {
-    if root == nil {
-        return nil
-    }
+	if root == nil {
+		return nil
+	}
 
 	layerTraversal := make([][]int, 0)
 

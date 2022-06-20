@@ -9,7 +9,7 @@ var testCase = []struct {
 	Expect [][]string
 }{
 	// test cases here
-	{4, [][]string{{".Q..","...Q","Q...","..Q."},{"..Q.","Q...","...Q",".Q.."}}},
+	{4, [][]string{{".Q..", "...Q", "Q...", "..Q."}, {"..Q.", "Q...", "...Q", ".Q.."}}},
 }
 
 func TestSolveNQueens(t *testing.T) {

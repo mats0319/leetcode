@@ -25,7 +25,7 @@ ALL:
 
 			for _, v := range operateOnce(item) {
 				if v == target {
-                    operateTimes = times
+					operateTimes = times
 					break ALL
 				}
 

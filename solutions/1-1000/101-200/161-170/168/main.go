@@ -7,7 +7,7 @@ func convertToTitle(columnNumber int) string {
 	res := ""
 	for {
 		if 1 <= columnNumber && columnNumber <= 26 {
-			res = letters[columnNumber-1]+res
+			res = letters[columnNumber-1] + res
 			break
 		}
 
@@ -18,7 +18,7 @@ func convertToTitle(columnNumber int) string {
 			mod = 26
 		}
 
-		res = letters[mod-1]+res
+		res = letters[mod-1] + res
 
 		columnNumber = n
 	}

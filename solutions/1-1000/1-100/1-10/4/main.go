@@ -1,6 +1,6 @@
 package mario
 
-func findMedianSortedArrays(nums1, nums2 []int) float64 {
+func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	length := len(nums1) + len(nums2)
 	flag := length%2 - 1 // flag = 0 (odd) or -1 (even)
 

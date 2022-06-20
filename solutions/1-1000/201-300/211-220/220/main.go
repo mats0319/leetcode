@@ -12,7 +12,7 @@ func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
 	isValid := false
 	for i := 1; i < len(nums); i++ {
 		if i > k {
-			list.del(i-k-1)
+			list.del(i - k - 1)
 		}
 
 		node := list.addReturn(i, nums[i])

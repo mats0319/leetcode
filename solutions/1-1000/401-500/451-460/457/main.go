@@ -13,7 +13,7 @@ func circularArrayLoop(nums []int) bool {
 			continue
 		}
 
-        reached := make([]int, 0, length)
+		reached := make([]int, 0, length)
 		for isSameDirection(nums[start], nums[next]) && next > start && !contains(reached, next) {
 			reached = append(reached, next)
 			next = ((next+nums[next])%length + length) % length

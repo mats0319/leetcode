@@ -7,15 +7,15 @@ type TreeNode struct {
 }
 
 type CBTInserter struct {
-    // deprecated first item, save it layer-order then:
-    //   parent index: 'i'
-    //   left child index: 2*'i'
-    //   right child index: 2*'i'+1
-    nodeSlice []*TreeNode
+	// deprecated first item, save it layer-order then:
+	//   parent index: 'i'
+	//   left child index: 2*'i'
+	//   right child index: 2*'i'+1
+	nodeSlice []*TreeNode
 }
 
 func Constructor(root *TreeNode) CBTInserter {
-    nodeSlice := make([]*TreeNode, 1) // let length = 1, deprecated first item
+	nodeSlice := make([]*TreeNode, 1) // let length = 1, deprecated first item
 
 	layer := []*TreeNode{root}
 	for len(layer) > 0 {
@@ -47,13 +47,25 @@ func Constructor(root *TreeNode) CBTInserter {
 	}
 }
 
+// Insert return value of parent node
+// before insert, tree has at least one node
 func (t *CBTInserter) Insert(val int) int {
-	// todo
-	// append new node at tail of slice
-	// connect parent and new node
-	// mid-order traversal and re-assign data
+	newNode := &TreeNode{Val: val}
 
-	return -1
+	// connect parent and new node
+	parentIndex := len(t.nodeSlice) / 2
+
+	isLeftChild := len(t.nodeSlice)%2 == 0
+	if isLeftChild {
+		t.nodeSlice[parentIndex].Left = newNode
+	} else {
+		t.nodeSlice[parentIndex].Right = newNode
+	}
+
+	// append new node at tail of slice
+	t.nodeSlice = append(t.nodeSlice, newNode)
+
+	return t.nodeSlice[parentIndex].Val
 }
 
 func (t *CBTInserter) Get_root() *TreeNode {

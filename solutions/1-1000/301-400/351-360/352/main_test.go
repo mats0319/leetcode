@@ -54,33 +54,33 @@ func TestSummaryRanges_Case1(t *testing.T) {
 
 // compareOnTwoDimensionalIntSlice return if a and b is strictly equal
 func compareOnTwoDimensionalIntSlice(a, b [][]int) bool {
-    if len(a) != len(b) {
-        return false
-    }
+	if len(a) != len(b) {
+		return false
+	}
 
-    isEqual := true
-    for i := range a {
-        if !compareOnIntSlice(a[i], b[i]) {
-            isEqual = false
-            break
-        }
-    }
+	isEqual := true
+	for i := range a {
+		if !compareOnIntSlice(a[i], b[i]) {
+			isEqual = false
+			break
+		}
+	}
 
-    return isEqual
+	return isEqual
 }
 
 func compareOnIntSlice(a, b []int) bool {
-    if len(a) != len(b) {
-        return false
-    }
+	if len(a) != len(b) {
+		return false
+	}
 
-    isEqual := true
-    for i := range a {
-        if a[i] != b[i] {
-            isEqual = false
-            break
-        }
-    }
+	isEqual := true
+	for i := range a {
+		if a[i] != b[i] {
+			isEqual = false
+			break
+		}
+	}
 
-    return isEqual
+	return isEqual
 }

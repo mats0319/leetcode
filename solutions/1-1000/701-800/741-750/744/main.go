@@ -21,5 +21,5 @@ func nextGreatestLetter(letters []byte, target byte) byte {
 		}
 	}
 
-	return char+'a'
+	return char + 'a'
 }

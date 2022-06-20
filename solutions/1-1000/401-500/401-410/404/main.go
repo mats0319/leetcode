@@ -1,35 +1,35 @@
 package mario
 
 type TreeNode struct {
-    Val int
-    Left *TreeNode
-    Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 // sumOfLeftLeaves root != nil
 func sumOfLeftLeaves(root *TreeNode) int {
-    return dfs(root, false)
+	return dfs(root, false)
 }
 
 func dfs(root *TreeNode, isLeftChild bool) int {
-    if root.Left == nil && root.Right == nil {
-        value := 0
-        if isLeftChild {
-            value += root.Val
-        }
+	if root.Left == nil && root.Right == nil {
+		value := 0
+		if isLeftChild {
+			value += root.Val
+		}
 
-        return value
-    }
+		return value
+	}
 
-    sum := 0
+	sum := 0
 
-    if root.Left != nil {
-        sum += dfs(root.Left, true)
-    }
+	if root.Left != nil {
+		sum += dfs(root.Left, true)
+	}
 
-    if root.Right != nil {
-        sum += dfs(root.Right, false)
-    }
+	if root.Right != nil {
+		sum += dfs(root.Right, false)
+	}
 
-    return sum
+	return sum
 }

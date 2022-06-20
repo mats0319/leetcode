@@ -20,20 +20,20 @@ func Constructor(nums []int) NumArray {
 func (n *NumArray) Update(index int, val int) {
 	diff := 0
 	if index == 0 {
-		diff = val- n.trieSum[0]
+		diff = val - n.trieSum[0]
 	} else {
 		diff = (n.trieSum[index-1] + val) - n.trieSum[index]
 	}
 
-    for i := index; i < len(n.trieSum); i++ {
-        n.trieSum[i] += diff
-    }
+	for i := index; i < len(n.trieSum); i++ {
+		n.trieSum[i] += diff
+	}
 }
 
 func (n *NumArray) SumRange(left int, right int) int {
-    if left == 0 {
-        return n.trieSum[right]
-    }
+	if left == 0 {
+		return n.trieSum[right]
+	}
 
-    return n.trieSum[right]-n.trieSum[left-1]
+	return n.trieSum[right] - n.trieSum[left-1]
 }
