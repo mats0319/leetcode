@@ -1,5 +1,5 @@
 package mario
 
-func testGenerator(b []int, c []int) int {
+func testGenerator(a string, b []int, c [][]int, d bool) int {
     return 0
 }

@@ -79,9 +79,9 @@ func main() {
 		return
 	}
 
-	_, err := os.Stat(dir + fileName)
+	_, err := os.Stat(dir + testFileName)
 	if err == nil { // file is exist
-		log.Println("file is exist: "+ dir+fileName)
+		log.Println("file is exist: "+ dir+testFileName)
 		return
 	}
 
