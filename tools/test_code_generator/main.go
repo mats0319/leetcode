@@ -26,9 +26,9 @@ import (
 )
 
 var (
-	help        bool
-	questionNum int
-	createDir   bool
+	help          bool
+	questionNum   int
+	createDirOnly bool
 )
 
 func init() {
@@ -36,7 +36,7 @@ func init() {
 	flag.IntVar(&questionNum, "n", -1, "question number\n"+
 		"use for read function declaration and redirect generated file\n"+
 		"a valid number is from 0 to 9999 (0 is test for this generator).")
-	flag.BoolVar(&createDir, "c", false, "create dir structure only, according to question number.")
+	flag.BoolVar(&createDirOnly, "c", false, "create dir structure only, according to question number.")
 
 	flag.Parse()
 
@@ -46,7 +46,7 @@ func init() {
 		os.Exit(0)
 	}
 
-	if questionNum < 0 || questionNum >= 10000 || (createDir && questionNum < 1) {
+	if questionNum < 0 || questionNum >= 10000 || (createDirOnly && questionNum < 1) {
 		log.Fatalln("Please input a valid question number, more information in help with '-h' flag. ")
 	}
 }
@@ -70,7 +70,7 @@ func main() {
 
 	dir := generateDir(questionNum)
 
-	if createDir {
+	if createDirOnly {
 		err := createFile(dir, fileName)
 		if err != nil {
 			log.Println("create file failed, error: ", err)
@@ -81,7 +81,7 @@ func main() {
 
 	_, err := os.Stat(dir + testFileName)
 	if err == nil { // file is exist
-		log.Println("file is exist: "+ dir+testFileName)
+		log.Println("file is exist: " + dir + testFileName)
 		return
 	}
 
