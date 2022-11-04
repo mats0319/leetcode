@@ -17,7 +17,7 @@ func dfs(queens []int, row int) int {
 		return 1
 	}
 
-    res := 0
+	res := 0
 	for col := 0; col < len(queens); col++ {
 		if _, ok := colMap[col]; ok {
 			continue
@@ -42,5 +42,5 @@ func dfs(queens []int, row int) int {
 		delete(rightMap, col+row)
 	}
 
-    return res
+	return res
 }

@@ -69,7 +69,7 @@ func (r *Robot) GetPos() []int {
 	case r.side3 < r.steps && r.steps < r.side4:
 		res[1] = r.side4 - r.steps
 	default:
-		// default case
+		// testdata case
 	}
 
 	return res
@@ -94,7 +94,7 @@ func (r *Robot) GetDir() string {
 	case r.side3 < r.steps && r.steps < r.side4:
 		res = south
 	default:
-		// default case
+		// testdata case
 	}
 
 	return res

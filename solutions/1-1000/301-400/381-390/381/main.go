@@ -36,7 +36,7 @@ func (this *RandomizedCollection) Remove(val int) bool {
 	}
 
 	i := -1
-	for k, _ := range this.indexes[val] {
+	for k := range this.indexes[val] {
 		i = k
 		break
 	}

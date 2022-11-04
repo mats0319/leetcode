@@ -16,3 +16,7 @@
 # vendor/
 .idea
 go.sum
+
+tools/generator/*
+!tools/generator/*.go
+!tools/generator/testdata/

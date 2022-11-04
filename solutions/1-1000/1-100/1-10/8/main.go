@@ -23,7 +23,7 @@ func myAtoi(str string) int {
 			break
 		}
 
-		// default ignore "+", save "-" character
+		// testdata ignore "+", save "-" character
 		if str[0] == 43 {
 		} else if str[0] == 45 {
 			neg = true

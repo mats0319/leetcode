@@ -27,7 +27,7 @@ func rob(root *TreeNode) int {
 
 func robTree(root *TreeNode) *MaxValue {
 	if isNil(root) {
-		return &MaxValue{} // default 0 value
+		return &MaxValue{} // testdata 0 value
 	}
 	if isLeafNode(root) {
 		value := root.Val

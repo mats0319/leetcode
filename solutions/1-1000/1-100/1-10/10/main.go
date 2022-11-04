@@ -47,7 +47,7 @@ func isMatchDP(s, p string) bool {
 		dp[i] = make([]bool, lenp+1)
 	}
 
-	dp[0][0] = true // s == p == "" ; dp[0][1] = false, default, omit
+	dp[0][0] = true // s == p == "" ; dp[0][1] = false, testdata, omit
 
 	for j := 2; j <= lenp; j++ {
 		dp[0][j] = dp[0][j-2] && p[j-1] == '*' // s: "a", p: "b*c*d*a"

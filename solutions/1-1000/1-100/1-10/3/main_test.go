@@ -1,13 +1,12 @@
 package mario
 
-import (
-	"testing"
-)
+import "testing"
 
 var testCase = []struct {
 	In     string
 	Expect int
 }{
+	// test cases here
 	{"abcabcbba", 3},
 	{"bbbbb", 1},
 	{"pwwkew", 3},
@@ -16,10 +15,10 @@ var testCase = []struct {
 }
 
 func TestLengthOfLongestSubstring(t *testing.T) {
-	tcs := testCase
-	for i := range tcs {
-		if lengthOfLongestSubstring(tcs[i].In) != tcs[i].Expect {
-			t.Errorf("length of longest substring test failed on case: %d\n", i)
+	for i := range testCase {
+		if lengthOfLongestSubstring(testCase[i].In) != testCase[i].Expect {
+			t.Logf("length of longest substring test failed on case: %d\n", i)
+			t.Fail()
 		}
 	}
 }
