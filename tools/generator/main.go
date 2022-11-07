@@ -1,18 +1,19 @@
-// Test Code Generator can generate test file of universal leetcode questions
+// Generator can generate test file of universal leetcode questions
 //
 // Author: Mario
 //
 // We support universal situations only, some special situations required manual modification, for example:
+// - we consider all inputs are valid, if you give a wrong input like `a [][int`, this tool will output undefined result
 // - design questions, different format of test code
-// - return value type not define on '==': write compare function on return value type
+// - output param type not define on '==': write compare function
 //
 // tips:
-// 1. We consider return value list only contains one item and without name,
+// 1. why we consider output param list only contains one item and without name.
 //    because leetcode support many programming languages and some of them not support multi-value return or named
-//    return value, so leetcode has no reason to define go function with these special go-style return values
+//    output param, so leetcode has no reason to define go function with these special go-style output params
 //    further, we do not support them
-// 2. We ignore the situation that multi input params use one type declaration, like 'num1, num2 int',
-//    reasons are same as above
+// 2. why we ignore the situation that multi input params use one type declaration, like 'num1, num2 int'.
+//    same reasons as above
 //
 // First version: 2019.12.24
 // Last modify: 2022.11.4
@@ -50,7 +51,7 @@ func init() {
 		os.Exit(0)
 	}
 
-	if questionNum < 0 || questionNum >= 10000 || (initPath && questionNum < 1) {
+	if !(0 <= questionNum && questionNum < 10000) {
 		log.Fatalln("Please input a valid question number, more information in help with '-h' flag. ")
 	}
 }
@@ -62,18 +63,15 @@ func main() {
 	dir := calcDir(questionNum)
 
 	if initPath {
-		err := createFile(dir, fileName)
-		if err != nil {
-			log.Println("create file failed, error: ", err)
-		}
+		createFile(dir, fileName)
 
 		return
 	}
 
 	if !overwriteTestFile {
 		_, err := os.Stat(dir + testFileName)
-		if err == nil { // file is exist
-			log.Println("file is exist: " + dir + testFileName)
+		if err == nil {
+			log.Println("file already exist: " + dir + testFileName)
 			return
 		}
 	}
@@ -113,24 +111,24 @@ func calcDir(num int) string {
 }
 
 // createFile create file if not exist
-func createFile(dir string, fileName string) error {
+func createFile(dir string, fileName string) {
 	err := os.MkdirAll(dir, 0755)
 	if err != nil {
 		log.Println("mkdir failed, error: ", err)
-		return err
+		return
 	}
 
 	_, err = os.Stat(dir + fileName)
-	if err == nil { // file is exist
-		log.Println("file is exist: " + dir + fileName)
-		return errors.New("file is exist: " + dir + fileName)
+	if err == nil {
+		log.Println("file already exist: " + dir + fileName)
+		return
 	}
 
 	_, err = os.Create(dir + fileName)
 	if err != nil {
 		log.Println("create file failed, error: ", err)
-		return err
+		return
 	}
 
-	return nil
+	return
 }

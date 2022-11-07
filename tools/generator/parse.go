@@ -61,7 +61,7 @@ func generateTemplateData(funcName string, inputParams string, outputParams stri
 	if len(paramList) > 1 { // define input params struct
 		result.InputType = "In"
 		result.InputParamsStruct = paramsToStruct(paramList)
-		result.InputParamsForInvoke = paramsToInput(paramList)
+		result.InputParamsForInvoke = paramsToInvoke(paramList)
 	} else if len(paramList) == 1 { // only one input param
 		result.InputType = paramList[0].typ()
 		result.InputParamsForInvoke = "testCase[i].In"
@@ -70,16 +70,15 @@ func generateTemplateData(funcName string, inputParams string, outputParams stri
 	return result
 }
 
-// camelCaseToSpelledStyle make 'func name' from camel-case to spelled style
+// camelCaseToSpelledStyle make input from camel-case to spelled style
+// it use 'space + lower case letter' to replace 'upper case letter'
 // e.g. 'FuncNameDemo' -> 'func name demo'
 func camelCaseToSpelledStyle(word string) string {
 	byteSlice := make([]byte, 0, len(word)*2)
 
-	index := 0
 	for i := 0; i < len(word); i++ {
 		if 'A' <= word[i] && word[i] <= 'Z' {
 			byteSlice = append(byteSlice, ' ')
-			index++
 			byteSlice = append(byteSlice, word[i]-'A'+'a')
 		} else {
 			byteSlice = append(byteSlice, word[i])
@@ -91,6 +90,8 @@ func camelCaseToSpelledStyle(word string) string {
 	return string(byteSlice)
 }
 
+// paramsToStruct generate 'input structure' according to given param list
+// just make new-line here, indentation will be done in format go code step, when filling template
 func paramsToStruct(params []*param) string {
 	var structFields []byte
 	for i := range params {
@@ -101,7 +102,8 @@ func paramsToStruct(params []*param) string {
 	return fmt.Sprintf("type In struct {\n%s}\n", string(structFields))
 }
 
-func paramsToInput(params []*param) string {
+// paramsToInvoke generate 'input params string' when invoke the function
+func paramsToInvoke(params []*param) string {
 	var byteSlice []byte
 	for i := range params {
 		byteSlice = append(byteSlice, fmt.Sprintf(", testCase[i].In.%s", makeSureFirstCharBigCase(params[i].name))...)

@@ -51,7 +51,7 @@ func Test{{.ExportedFuncName}}(t *testing.T) {
 `
 
 func (t *testFileTemplateStruct) fillTemplate() ([]byte, error) {
-	templateIns, err := template.New("test file generate tool").Parse(testFileTemplate)
+	templateIns, err := template.New("generator").Parse(testFileTemplate)
 	if err != nil {
 		log.Println("parse template failed, error: ", err)
 		return nil, err
@@ -63,7 +63,7 @@ func (t *testFileTemplateStruct) fillTemplate() ([]byte, error) {
 		return nil, err
 	}
 
-	// format go code, unnecessary in generate no-Go code
+	// format go code, unnecessary in generate no-go code
 	result, err := format.Source(buffer.Bytes())
 	if err != nil {
 		log.Println("format source failed, error: ", err)

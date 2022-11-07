@@ -7,3 +7,7 @@ func testGenerator1(firstVariable int, secondVariable [3]string, thirdVariable [
 func testGenerator2() {
 
 }
+
+func testGenerator3(a int) string {
+	return ""
+}

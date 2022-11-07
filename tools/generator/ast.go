@@ -46,7 +46,7 @@ func parseInputParams(str string) []*param {
 //   1: index < 0: index = i
 //      index >= 0: skip
 func scan(str string) []*token {
-	str += " " // for last 'type'
+	str += " " // for last 'type', todo: if any program skill to handle this situation?
 
 	tokenList := make([]*token, 0, strings.Count(str, ",")+1)
 	status := ScanStatus_ReadingName
@@ -131,6 +131,7 @@ func parseTokens(tokens []*token) []*param {
 	return paramList
 }
 
+// string return the param like '[name] [type]'
 func (p *param) string() string {
 	res := []byte(p.name + " ")
 
@@ -139,6 +140,7 @@ func (p *param) string() string {
 	return string(res)
 }
 
+// typ return the type of param
 func (p *param) typ() string {
 	var res []byte
 
