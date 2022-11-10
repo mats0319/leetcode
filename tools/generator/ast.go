@@ -31,8 +31,8 @@ func parseInputParams(str string) []*param {
 	return parseTokens(scan(str))
 }
 
-// scan rule: e.g. ` a [3]string , b []*int ` -> {a, name}, {[3]string, type}, {b, name}, {[]*int, type}
-// blank:
+// scan FSM rule: e.g. ` a [3]string , b []*int ` -> {a, name}, {[3]string, type}, {b, name}, {[]*int, type}
+// ' ':
 //   0: index < 0: skip
 //      index >= 0: [index, i) is 'name', status -> 1, index = -1
 //   1: index < 0: skip
